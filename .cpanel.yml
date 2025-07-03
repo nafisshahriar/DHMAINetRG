@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/dhmairgn/public_html/
+    - /bin/cp -R images $DEPLOYPATH
+    - /bin/cp rg.css $DEPLOYPATH
+    - /bin/cp config.js $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
