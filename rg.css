@@ -1,24 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 /* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', 'Roboto', sans-serif;
+    
 }
 
 /* Body */
 body {
     background: linear-gradient(to bottom right, #f9fafc, #eef2f7);
     color: #334155;
-    line-height: 1.6;
+    line-height: 1.55;
     min-height: 100vh;
     display: flex;
     flex-direction: row;
 }
+p, .member-card{
+    
+    font-family: Ubuntu, sans-serif;
+    font-size: 1rem;
+}
 
+li{
+    
+    font-family: Figtree, sans-serif;
+    font-size: 1rem;
+}
+h2, h1, button{
+    line-height: 1.2;
+    font-family: Figtree, sans-serif;
+    
+}
 /* Sidebar Navigation */
 #tabs {
-    width: 19vw;
+    width: 21vw;
     background: #f8fafc;
     display: flex;
     flex-direction: column;
@@ -37,7 +54,7 @@ body {
 }
 
 .sidebar-logo img {
-    width: 17vw;
+    width: 16vw;
     margin-bottom: 1rem;
     margin-top: 1rem;
     
@@ -61,18 +78,28 @@ legend {
 
 
 .banner-wrapper {
-    width: 100%;
-    margin: 0; /* No margin from parent */
+    width: 69.5vw;
+    margin: 0;
+    margin-top: -1.1vw;
     padding: 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
 }
 
 .full-banner {
     width: 100%;
+    height: auto;
     max-height: 45vh;
     object-fit: cover;
-    border-radius: 18px 18px 0 0;
+    border-radius: 0;
     display: block;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
 }
 
 /* Tab Buttons */
@@ -81,7 +108,7 @@ legend {
     background: transparent;
     border: none;
     color: #475569;
-    padding: 12px 20px;
+    padding: 12px 10px;
     font-size: 15px;
     text-align: left;
     cursor: pointer;
@@ -99,8 +126,8 @@ legend {
 
 
 .tabcontent {
-    width: calc(100% - 21vw); /* Adjust width based on sidebar */
-    margin-left: 20vw;
+    width: 70%; /* Adjust width based on sidebar */
+    margin-left: 25.5vw;
     
     margin-top: 1vw;
     margin-bottom: 1vw;
@@ -349,8 +376,8 @@ input[type="file"]:focus {
   }
 
   .section-title {
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 600;
     margin-bottom: 20px;
     color: #0f172a;
   }
@@ -370,13 +397,12 @@ input[type="file"]:focus {
   }
 
   .member-card {
-    max-width: 200px;
+    max-width: 12rem;
     text-align: center;
   }
 
   .member-card img {
-    width: 140px;
-    height: 140px;
+    width: 7.5rem;
     border-radius: 50%;
     border: 2px solid rgrgb(128, 125, 125);
     object-fit: cover;
@@ -386,19 +412,19 @@ input[type="file"]:focus {
 
   .member-name {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 0.9rem;
     color: #2c50b1;
   }
 
   .member-role {
-    font-size: 14px;
+    font-size: 0.85rem;
     color: #64748b;
   }
 
   .member-links a {
     margin: 0 4px;
     color: #219ba3;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-decoration: none;
     transition: color 0.3s;
   }
@@ -489,9 +515,40 @@ input[type="file"]:focus {
     opacity: 1;
 }
 
+#mobile-navbar {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8fafc;
+    padding: 0px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1500;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+#mobile-navbar img {
+    width: 18vw;
+    margin-bottom: 1vh;
+}
+
+#hamburger {
+    font-size: 24px;
+    color: #334155;
+    cursor: pointer;
+}
+
+
 
 @media (max-width: 768px) {
     #tabs {
+        width: 60vw; /* Make sidebar wider on mobile */
+        transform: translateX(-100%);
+        left: 0;
+        top: 0;
+        height: 100vh;
         transform: translateX(-100%);
     }
 
@@ -511,6 +568,7 @@ input[type="file"]:focus {
     }
 
     .tabcontent {
+        padding-top: 1.4rem;
         margin-left: 0;
     }
 
@@ -518,4 +576,45 @@ input[type="file"]:focus {
         margin-left: 0;
         padding: 20px;
       }
+
+    #mobile-navbar {
+        display: flex;
+    }
+
+    #tabs {
+        transform: translateX(-100%);
+    }
+
+    #tabs.show {
+        transform: translateX(0);
+    }
+
+    .tabcontent {
+        margin-left: 0 !important;
+        width: 110% !important;
+    }
+    .banner-wrapper {
+    width: 90vw;
+    margin: 0;
+    margin-top: 14vw;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+}
+
+.full-banner {
+    width: 100%;
+    height: auto;
+    max-height: 45vh;
+    object-fit: cover;
+    border-radius: 0;
+    display: block;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+}
 }
