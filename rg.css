@@ -540,9 +540,15 @@ input[type="file"]:focus {
     cursor: pointer;
 }
 
-
+.spacing{
+    visibility: hidden;
+}
 
 @media (max-width: 768px) {
+    .spacing {
+        visibility: visible;
+        margin-bottom: 4rem;
+    }
     #tabs {
         width: 60vw; /* Make sidebar wider on mobile */
         transform: translateX(-100%);
