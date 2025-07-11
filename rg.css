@@ -27,11 +27,18 @@ li{
     
     font-family: Figtree, sans-serif;
     font-size: 1rem;
+    padding-top: .5rem;
 }
+
 h2, h1, h3, button{
     line-height: 1.2;
     font-family: Figtree, sans-serif;
     
+}
+li u{
+    color:#2c50b1;
+    text-underline-offset: 0.3rem;
+    text-decoration-thickness: 0.1rem;
 }
 /* Sidebar Navigation */
 #tabs {
