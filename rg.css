@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
 /* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
 }
 
 /* Body */
@@ -17,29 +18,37 @@ body {
     display: flex;
     flex-direction: row;
 }
-p, .member-card{
-    
+
+p,
+.member-card {
+
     font-family: Ubuntu, sans-serif;
     font-size: 1rem;
 }
 
-li, ul{
-    
+li,
+ul {
+
     font-family: Figtree, sans-serif;
     font-size: 1rem;
     padding-top: .5rem;
 }
 
-h2, h1, h3, button{
+h2,
+h1,
+h3,
+button {
     line-height: 1.2;
     font-family: Figtree, sans-serif;
-    
+
 }
-li u{
-    color:#2c50b1;
+
+li u {
+    color: #2c50b1;
     text-underline-offset: 0.3rem;
     text-decoration-thickness: 0.1rem;
 }
+
 /* Sidebar Navigation */
 #tabs {
     width: 21vw;
@@ -64,23 +73,33 @@ li u{
     width: 16vw;
     margin-bottom: 1rem;
     margin-top: 1rem;
-    
+
 }
 
 fieldset {
-    border: 2px solid #1f1f1f; /* Green border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 1rem; /* Inner spacing */
-    margin-bottom: 1.5rem; /* Space between fieldsets */
-    background-color: #f9f9f9; /* Light background color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 2px solid #1f1f1f;
+    /* Green border */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 1rem;
+    /* Inner spacing */
+    margin-bottom: 1.5rem;
+    /* Space between fieldsets */
+    background-color: #f9f9f9;
+    /* Light background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
 }
 
 legend {
-    font-size: 1.2rem; /* Slightly larger font size */
-    font-weight: bold; /* Bold text */
-    color: #1f1f1f; /* Green text color */
-    padding: 0 0.5rem; /* Padding around the text */
+    font-size: 1.2rem;
+    /* Slightly larger font size */
+    font-weight: bold;
+    /* Bold text */
+    color: #1f1f1f;
+    /* Green text color */
+    padding: 0 0.5rem;
+    /* Padding around the text */
 }
 
 
@@ -133,18 +152,19 @@ legend {
 
 
 .tabcontent {
-    width: 70%; /* Adjust width based on sidebar */
+    width: 70%;
+    /* Adjust width based on sidebar */
     margin-left: 25.5vw;
-    
+
     margin-top: 1vw;
     margin-bottom: 1vw;
-    
+
     padding: 1.25vw;
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: none;
-    
+
 
 }
 
@@ -167,7 +187,7 @@ form {
 
 form label {
     font-weight: 600;
-    
+
     color: #475569;
 }
 
@@ -184,7 +204,7 @@ form button {
     background: #f8fafc;
     font-size: 15px;
     transition: border-color 0.3s;
-    
+
 }
 
 
@@ -234,7 +254,8 @@ form input[type="range"] {
 }
 
 input[type="range"] {
-    accent-color: #3b82f6; /* Blue nice color */
+    accent-color: #3b82f6;
+    /* Blue nice color */
 }
 
 h2 {
@@ -277,6 +298,7 @@ h2 {
 .full-width-button:hover {
     background-color: #117f86;
 }
+
 /* Tables */
 table {
     width: 100%;
@@ -285,12 +307,14 @@ table {
     margin-top: 20px;
 }
 
-table th, table td {
+table th,
+table td {
     border: 1px solid #e2e8f0;
     padding: 12px;
     text-align: center;
     font-size: 14px;
-    word-wrap: break-word; /* Prevent long text from breaking layout */
+    word-wrap: break-word;
+    /* Prevent long text from breaking layout */
 }
 
 table th {
@@ -300,8 +324,10 @@ table th {
 /* Style for file input */
 input[type="file"] {
     display: block;
-    width: 100%; /* Full width */
-    max-width: 300px; /* Optional: Limit the width */
+    width: 100%;
+    /* Full width */
+    max-width: 300px;
+    /* Optional: Limit the width */
     padding: 10px;
     font-size: 14px;
     color: #555;
@@ -320,7 +346,8 @@ input[type="file"]:hover {
 
 input[type="file"]:focus {
     outline: none;
-    border-color: #3b82f6; /* Blue border on focus */
+    border-color: #3b82f6;
+    /* Blue border on focus */
     background-color: #fff;
 }
 
@@ -380,94 +407,105 @@ input[type="file"]:focus {
     max-width: 1200px;
     margin-right: auto;
     text-align: center;
-  }
+}
 
-  .section-title {
+.section-title {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 20px;
     color: #0f172a;
-  }
+}
 
-  .subsection-title {
-    
+.subsection-title {
+
     font-weight: 600;
     margin: 20px 0 20px;
     color: #1e293b;
-  }
+}
 
-  .member-group {
+.member-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
-  }
+}
 
-  .member-card {
+.member-card {
     max-width: 12rem;
     text-align: center;
-  }
+}
 
-  .member-card img {
+.member-card img {
     width: 7.5rem;
     border-radius: 50%;
     border: 2px solid rgrgb(128, 125, 125);
     object-fit: cover;
     margin-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
-  }
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Add subtle shadow */
+}
 
-  .member-name {
+.member-name {
     font-weight: 600;
     font-size: 0.9rem;
     color: #2c50b1;
-  }
+}
 
-  .member-role {
+.member-role {
     font-size: 0.85rem;
     color: #64748b;
-  }
+}
 
-  .member-links a {
+.member-links a {
     margin: 0 4px;
     color: #219ba3;
     font-size: 1rem;
     text-decoration: none;
     transition: color 0.3s;
-  }
+}
 
-  .member-links a:hover {
+.member-links a:hover {
     color: #117f86;
     transition: color 0.3s;
-  }
-  /* Sidebar logo button */
-  .group-logo-button {
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Vertically align the text with the image */
-    justify-content: center; /* Center the content horizontally */
-    gap: 1rem; /* Add spacing between the image and the text */
+}
+
+/* Sidebar logo button */
+.group-logo-button {
+    display: flex;
+    /* Use flexbox to align items */
+    align-items: center;
+    /* Vertically align the text with the image */
+    justify-content: center;
+    /* Center the content horizontally */
+    gap: 1rem;
+    /* Add spacing between the image and the text */
     margin-top: auto;
     padding: 20px;
     text-align: center;
-    
-  }
 
-  .group-logo-button img {
+}
+
+.group-logo-button img {
     width: 25%;
     border: 2px solid #0f172a;
     border-radius: 8px;
     cursor: pointer;
     transition: opacity 0.3s;
-  }
-  .group-logo-button h4 {
-     /*font-size: 1.2rem; Adjust font size */
-    font-weight: 600; /* Make the text bold */
-    color: #0f172a; /* Match the color with the theme */
-    margin: 0; /* Remove default margin */
 }
-  .group-logo-button img:hover {
+
+.group-logo-button h4 {
+    /*font-size: 1.2rem; Adjust font size */
+    font-weight: 600;
+    /* Make the text bold */
+    color: #0f172a;
+    /* Match the color with the theme */
+    margin: 0;
+    /* Remove default margin */
+}
+
+.group-logo-button img:hover {
     opacity: 0.8;
-  }
+}
 
 
 /* Hover Container */
@@ -479,40 +517,52 @@ input[type="file"]:focus {
 
 /* Tooltip Styling */
 .hover-tooltip {
-   visibility: hidden;
+    visibility: hidden;
     opacity: 0;
     position: absolute;
-    bottom: 120%; /* Default position above the element */
+    bottom: 120%;
+    /* Default position above the element */
     left: 50%;
     transform: translateX(-50%);
-    background-color: #1f2937; /* Dark background */
-    color: #ffffff; /* White text */
+    background-color: #1f2937;
+    /* Dark background */
+    color: #ffffff;
+    /* White text */
     text-align: center;
     padding: 10px 15px;
     border-radius: 8px;
     font-size: 14px;
     font-weight: 500;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
-    display: inline-block; /* Adjust width to fit content */
-    max-width: calc(100vw - 20px); /* Prevent overflow on small screens */
-    word-wrap: break-word; /* Wrap long text */
-    white-space: nowrap; /* Prevent wrapping unless it exceeds max-width */
-    overflow: hidden; /* Hide overflowing text */
-    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+    display: inline-block;
+    /* Adjust width to fit content */
+    max-width: calc(100vw - 20px);
+    /* Prevent overflow on small screens */
+    word-wrap: break-word;
+    /* Wrap long text */
+    white-space: nowrap;
+    /* Prevent wrapping unless it exceeds max-width */
+    overflow: hidden;
+    /* Hide overflowing text */
+    text-overflow: ellipsis;
+    /* Add ellipsis for overflowing text */
 }
 
 /* Tooltip Arrow */
 .hover-tooltip::after {
-     content: "";
+    content: "";
     position: absolute;
-    top: 100%; /* Arrow at the bottom of the tooltip */
+    top: 100%;
+    /* Arrow at the bottom of the tooltip */
     left: 50%;
     transform: translateX(-50%);
     border-width: 8px;
     border-style: solid;
-    border-color: #1f2937 transparent transparent transparent; /* Arrow color matches tooltip */
+    border-color: #1f2937 transparent transparent transparent;
+    /* Arrow color matches tooltip */
 }
 
 
@@ -547,7 +597,7 @@ input[type="file"]:focus {
     cursor: pointer;
 }
 
-.spacing{
+.spacing {
     visibility: hidden;
 }
 
@@ -556,8 +606,10 @@ input[type="file"]:focus {
         visibility: visible;
         margin-bottom: 4rem;
     }
+
     #tabs {
-        width: 60vw; /* Make sidebar wider on mobile */
+        width: 60vw;
+        /* Make sidebar wider on mobile */
         transform: translateX(-100%);
         left: 0;
         top: 0;
@@ -566,18 +618,25 @@ input[type="file"]:focus {
     }
 
     .hover-tooltip {
-        bottom: auto; /* Reset bottom positioning */
-        top: 120%; /* Position below the element */
+        bottom: auto;
+        /* Reset bottom positioning */
+        top: 120%;
+        /* Position below the element */
         left: 50%;
         transform: translateX(-50%);
-        font-size: 12px; /* Reduce font size for smaller screens */
-        padding: 8px 12px; /* Adjust padding */
+        font-size: 12px;
+        /* Reduce font size for smaller screens */
+        padding: 8px 12px;
+        /* Adjust padding */
     }
 
     .hover-tooltip::after {
-        top: -8px; /* Adjust arrow position */
-        bottom: 100%; /* Arrow points upwards */
-        border-color: transparent transparent #1f2937 transparent; /* Arrow color matches tooltip */
+        top: -8px;
+        /* Adjust arrow position */
+        bottom: 100%;
+        /* Arrow points upwards */
+        border-color: transparent transparent #1f2937 transparent;
+        /* Arrow color matches tooltip */
     }
 
     .tabcontent {
@@ -588,9 +647,9 @@ input[type="file"]:focus {
     .members-page {
         margin-left: 0;
         padding: 20px;
-      }
+    }
 
-    
+
 
     #mobile-navbar {
         display: flex;
@@ -608,28 +667,29 @@ input[type="file"]:focus {
         margin-left: 0 !important;
         width: 110% !important;
     }
-    .banner-wrapper {
-    width: 90vw;
-    margin: 0;
-    margin-top: 14vw;
-    padding: 0;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
-    overflow: hidden;
-    border-top-left-radius: 1vw;
-    border-top-right-radius: 1vw;
-}
 
-.full-banner {
-    width: 100%;
-    height: auto;
-    max-height: 45vh;
-    object-fit: cover;
-    border-radius: 0;
-    display: block;
-    border-top-left-radius: 1vw;
-    border-top-right-radius: 1vw;
-}
+    .banner-wrapper {
+        width: 90vw;
+        margin: 0;
+        margin-top: 14vw;
+        padding: 0;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        transform: translateX(-50%);
+        overflow: hidden;
+        border-top-left-radius: 1vw;
+        border-top-right-radius: 1vw;
+    }
+
+    .full-banner {
+        width: 100%;
+        height: auto;
+        max-height: 45vh;
+        object-fit: cover;
+        border-radius: 0;
+        display: block;
+        border-top-left-radius: 1vw;
+        border-top-right-radius: 1vw;
+    }
 }

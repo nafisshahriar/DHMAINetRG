@@ -1,24 +1,22 @@
-
-        
-        function toggleSidebar() {
+function toggleSidebar() {
     document.getElementById('tabs').classList.toggle('show');
-    document.addEventListener('click', function(event) {
-    const sidebar = document.getElementById('tabs');
-    const hamburger = document.getElementById('hamburger');
-    // Only run on mobile
-    if (window.innerWidth <= 768) {
-        if (
-            sidebar.classList.contains('show') &&
-            !sidebar.contains(event.target) &&
-            !hamburger.contains(event.target)
-        ) {
-            sidebar.classList.remove('show');
+    document.addEventListener('click', function (event) {
+        const sidebar = document.getElementById('tabs');
+        const hamburger = document.getElementById('hamburger');
+        // Only run on mobile
+        if (window.innerWidth <= 768) {
+            if (
+                sidebar.classList.contains('show') &&
+                !sidebar.contains(event.target) &&
+                !hamburger.contains(event.target)
+            ) {
+                sidebar.classList.remove('show');
+            }
         }
-    }
-});
+    });
 }
 
-       
+
 
 function openTab(evt, tabName, pushState = true) {
     var i, tabcontent, tablinks;
@@ -41,7 +39,7 @@ function openTab(evt, tabName, pushState = true) {
     }
 }
 
-window.addEventListener('popstate', function(event) {
+window.addEventListener('popstate', function (event) {
     let tab = (event.state && event.state.tab) || window.location.hash.replace('#', '') || 'homepage';
     if (document.getElementById(tab)) {
         openTab(null, tab, false); // Show tab even if no button found
