@@ -23,7 +23,7 @@ p, .member-card{
     font-size: 1rem;
 }
 
-li{
+li, ul{
     
     font-family: Figtree, sans-serif;
     font-size: 1rem;
@@ -589,6 +589,8 @@ input[type="file"]:focus {
         margin-left: 0;
         padding: 20px;
       }
+
+    
 
     #mobile-navbar {
         display: flex;
