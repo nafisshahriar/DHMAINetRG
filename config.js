@@ -17,11 +17,22 @@ function toggleSidebar() {
 }
 
 
-
 function openTab(evt, tabName, pushState = true) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
-    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Save scroll position for current tab before switching
+    history.replaceState(
+        Object.assign({}, history.state, { scrollY: window.scrollY }),
+        '',
+        window.location.hash || ''
+    );
+
+    // Always scroll to top when switching tab normally
+    if (pushState) {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
@@ -35,7 +46,7 @@ function openTab(evt, tabName, pushState = true) {
     }
     // Only push state if not handling popstate
     if (pushState) {
-        history.pushState({ tab: tabName }, '', tabName);
+        history.pushState({ tab: tabName }, '', '#' + tabName);
     }
 }
 
@@ -43,6 +54,10 @@ window.addEventListener('popstate', function (event) {
     let tab = (event.state && event.state.tab) || window.location.hash.replace('#', '') || 'homepage';
     if (document.getElementById(tab)) {
         openTab(null, tab, false); // Show tab even if no button found
+        // Restore previous scroll position if available
+        setTimeout(function () {
+            window.scrollTo({ top: (event.state && event.state.scrollY) || 0, behavior: 'instant' });
+        }, 0);
     }
 });
 

@@ -506,8 +506,9 @@ input[type="file"]:focus {
 .group-logo-button img:hover {
     opacity: 0.8;
 }
-
-
+.extlink a:visited {
+    color: #2c50b1 !important;
+}
 /* Hover Container */
 .hover-container {
     position: relative;
