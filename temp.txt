@@ -1,0 +1,202 @@
++++++++++++++
+MEMBER CARDS
++++++++++++++
+
+
+<div class="member-card">
+              <div onclick="openTab(event, 'SMNS')" style="cursor: pointer;">
+                <img src="images/nafis.webp" alt="nafis">
+                <div class="member-name">S. M. Nafis Shahriar</div>
+                <div class="member-role">Assistant,</div>
+              </div>
+              <div class="member-role"><mark
+                  style="background-color:#1e293b; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">OppNDA
+                  Lead</mark></div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-071@std.ewubd.edu" target="_blank" rel="noopener"><i
+                    class="fas fa-envelope"></i></a>
+                <a href="https://github.com/nafisshahriar" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sm-nafis-shahriar/" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+==================================================================
+
+<div class="member-card">
+              <div onclick="openTab(event, 'PA')" style="cursor: pointer;">
+                <img src="images/pulok.webp" alt="pulok">
+                <div class="member-name">Pulok Akibuzzaman</div>
+                <div class="member-role">Assistant,</div>
+                <div class="member-role"><mark
+                    style="background-color:#1e293b; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">MapBD
+                    Lead</div>
+              </div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-051@std.ewubd.edu" target="_blank" rel="noopener"><i
+                    class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Pulok-Akibuzzaman" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/pulok-akibuzzaman-73a21229a/" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+==================================================================
+
+            <div class="member-card">
+              <div onclick="openTab(event, 'FI')" style="cursor: pointer;">
+                <img src="images/fayaza.webp" alt="fayaza">
+                <div class="member-name">Fayaza Islam</div>
+                <div class="member-role">Assistant</div>
+              </div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-314@std.ewubd.edu" target="_blank" rel="noopener"><i
+                    class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Fayaza6" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/fayaza-islam-365177371/" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+==================================================================
+
+            <div class="member-card">
+              <div onclick="openTab(event, 'MR')" style="cursor: pointer;">
+                <img src="images/ratul.webp" alt="ratul">
+                <div class="member-name">Muin Ratul</div>
+                <div class="member-role">Assistant</div>
+              </div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-059@std.ewubd.edu" target="_blank" rel="noopener"><i
+                    class="fas fa-envelope"></i></a>
+                <a href="https://github.com/MuinRatul" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mh-ratul-5201792a9/" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+==================================================================
+
+            <div class="member-card">
+              <div onclick="openTab(event, 'AS')" style="cursor: pointer;">
+                <img src="images/sajid.webp" alt="sajid">
+                <div class="member-name">Abdullah Sajid</div>
+                <div class="member-role">Assistant</div>
+              </div>
+              <div class="member-role"><mark
+                  style="background-color:#1e293b; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">PRTP
+                  Lead</div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-487@std.ewubd.edu" target="_blank" rel="noopener"><i
+                    class="fas fa-envelope"></i></a>
+                <a href="https://github.com/AbdullahSajid007" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/abdullah-sajid-089848363/" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+==================================================================
+
+            <div class="member-card">
+              <div onclick="openTab(event, 'HE')" style="cursor: pointer;">
+                <img src="images/erin.webp" alt="erin">
+                <div class="member-name">Homayra Erin</div>
+                <div class="member-role">Assistant</div>
+              </div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-359@std.ewubd.edu" target="_blank" rel="noopener"><i
+                    class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Erin0W0" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/homayra-erin-9b72a4352" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+====================================================================
+<div class="member-card">
+              <div onclick="openTab(event, 'MIO')" style="cursor: pointer;">
+                <img src="images/ohi.webp" alt="ohi">
+                <div class="member-name">Mahdin Islam Ohi</div>
+                <div class="member-role">Assistant</div>
+              </div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-151@std.ewubd.edu" target="_blank" rel="noopener"><i
+                    class="fas fa-envelope"></i></a>
+                <a href="https://github.com/MahdinOhi" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mahdin-ohi-3b55a0280/" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+=====================================================================
+
+<div class="member-card">
+              <div onclick="openTab(event, 'MAUZ')" style="cursor: pointer;">
+                <img src="images/ashik.webp" alt="ashik">
+                <div class="member-name">Md. Ashik-Uz-Zaman</div>
+                <div class="member-role">Assistant</div>
+              </div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-074@std.ewubd.edu"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/ashikonik"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ashikonik"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<div class="member-role"><mark
+                  style="background-color:rgb(179, 21, 21); color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">Technical
+                  Lead</mark></div>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<div class="member-role"><mark
+                    style="background-color:rgb(8, 67, 156); color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">PRTP
+                    Technical
+                    Lead</mark></div>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<div class="member-role"><mark
+                    style="background-color:#1e293b; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">MapBD
+                    Lead</mark></div>
+
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+<li onclick="openTab(event, 'CCNx')" style="cursor: pointer;"><strong><u>CCN-IoV:</u> Data Analytics in
+              Information Based Internet of Vehicles</strong></li>
+
+
+          <li onclick="openTab(event, 'MapBD')" style="cursor: pointer;"><strong><u>MapBD:</u> Generating Map Data for
+              Opportunistic Network</strong></li>
+
+
+          <li onclick="openTab(event, 'PAUMIoT')" style="cursor: pointer;"><strong><u>PAUMIoT:</u> Protocol Agnostic
+              Universal Middleware for IoT</strong></li>
+
+
+          <li onclick="openTab(event, 'OppNDA')" style="cursor: pointer;"><strong><u>OppNDA:</u> Opportunistic Network
+              Simulation Automation and Big Data Analytics</strong></li>
+
+
+          <li onclick="openTab(event, 'Pixie')" style="cursor: pointer;"><strong><u>Pixie:</u> LLM with hierarchical
+              knowledge base for organizations</strong></li>
+
+
+          <li onclick="openTab(event, 'STGen')" style="cursor: pointer;"><strong><u>STGen:</u> Sensor Traffic Generator
+              for IoT Testbed</strong><mark
+              style="background-color:#B31515; color: white; padding: 0.1em 0.3em 0.1em 0.25em; margin-left: 1em; border-radius: 0.25rem;">Under
+              Review</mark></li>
+
+
+          <li onclick="openTab(event, 'PRTP')" style="cursor: pointer;"><strong><u>PRTP:</u> Novel Internet Protocol for
+              IoT</strong></li>
+
+^^^^^^^^^^^^^^
