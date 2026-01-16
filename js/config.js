@@ -66,7 +66,7 @@ window.addEventListener("popstate", function (event) {
   }
 });
 
-// Function to create member card 
+// Function to create member card
 function createMemberCard(member, onClick = true) {
   const clickable = onClick
     ? `onclick="openTab(event, '${member.id}')" style="cursor: pointer;"`
@@ -113,7 +113,7 @@ function homePage() {
   const pi = websiteData.team.principalInvestigator;
   const advisors = websiteData.team.externalAdvisors;
   const researchers = websiteData.team.researchers;
- 
+
   homepage.innerHTML = `
         <div class="spacing"></div>
         <div class="members-page">
@@ -141,8 +141,8 @@ function homePage() {
         </div>
     `;
 }
- 
-// Function to create project list 
+
+// Function to create project list
 function createProjectList(projects) {
   return projects
     .map((projectId) => {
@@ -158,7 +158,7 @@ function createProjectList(projects) {
     .join("");
 }
 
-// Function to populate individual member detail page
+// Function to individual member detail page
 function memberDetailPage(member) {
   const detailPage = document.getElementById(member.id);
   if (!detailPage) return;
@@ -244,7 +244,9 @@ function memberDetailPage(member) {
         ? `
         <h3 style="color: #2c50b1;" class="subsection-title">📜 Publications:</h3>
         <ul>
-            ${member.publications.papers.map((pub) => `
+            ${member.publications.papers
+              .map(
+                (pub) => `
                 <strong>${pub.year} :</strong>
                 ${pub.items.map((pub, idx) => `<li>${pub}</li>`).join("")} 
             `
@@ -289,64 +291,20 @@ function memberDetailPage(member) {
     `;
 }
 
-// Populate all member detail pages
-function allMemberPages() {
+// all member detail pages
+function allMemberPage() {
   const pi = websiteData.team.principalInvestigator;
   const advisors = websiteData.team.externalAdvisors;
   const researchers = websiteData.team.researchers;
- 
+
   memberDetailPage(pi);
- 
+
   advisors.forEach((advisor) => memberDetailPage(advisor));
- 
+
   researchers.forEach((researcher) => memberDetailPage(researcher));
 }
 
-function publicationsPage() {
-    const pubPage = document.getElementById('ListPub');
-    if (!pubPage) return;
-
-    let publicationsList = '';
-    websiteData.publications.years.forEach(yearData => {
-        publicationsList += `<strong>${yearData.year} :</strong>`;
-        yearData.items.forEach((pub, index) => {
-            publicationsList += `<li>[${index + 1}] ${pub}</li>`;
-        });
-        publicationsList += '<br>';
-    });
-
-    pubPage.innerHTML = `
-        <div class="spacing"></div>
-        <div class="members-page">
-            <h1 style="color: #2c50b1;">Publications</h1>
-            <div class="manual-section" style="text-align: left; max-width: 95vw; margin: 2em auto; background: #f8f9fa; border-radius: 8px; padding: 2em; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                <ul>
-                    ${publicationsList}
-                </ul>
-            </div>
-        </div>
-    `;
-}
-
-// Initialize when DOM is loaded
-document.addEventListener("DOMContentLoaded", function () {
-  
-  homePage();
-  allMemberPages();
-  publicationsPage();
-
-  // Handle initial tab/hash
-  let tab = window.location.hash.replace("#", "") || "homepage";
-  if (document.getElementById(tab)) {
-    openTab(null, tab, false);
-  } else {
-    // If tab doesn't exist, show homepage
-    document.getElementById("homepage").style.display = "block";
-  }
-});
-
 const websiteData = {
-   
   team: {
     principalInvestigator: {
       id: "DHMAI",
@@ -361,13 +319,13 @@ const websiteData = {
         "https://www.linkedin.com/in/hasan-mahmood-aminul-islam-ph-d-02a4ab30/",
       bio: "DR. HASAN MAHMOOD AMINUL ISLAM is currently working as an Assistant Professor in the department of CSE, East West University, Dhaka, Bangladesh. Presently, his research group(<a href='https://dhmairg.net'>DHMAINetRG</a>) is mostly focusing on the innovation of lightweight IoT testbed for the Future IoT Architecture. Previously, he worked as a Specialist in system-on-chip (SoC) Software at Nokia headquarters, Espoo, Finland, where the key responsibility was to develop Layer1-Low (l1low) System-on-Chip (SoC) Software driver development for 5G (2019-2022). He received a Doctor of Science in Technology (CSE) from the School of Science, Aalto University, Finland in 2018. As part of his doctoral studies, he worked on Future Internet Architecture (ICN) in the EU-H2020 POINT project. He received a Masters Degree in Networking and Services majoring in Distributed Systems and Data Communication, from the University of Helsinki, Finland. As part of his Master's thesis, he worked in the Nomadic Lab, L M Ericsson, Finland, where he closely worked with the IETF community on the data channel protocol options of the RTCWeb. His research interest includes Data Communications and Distributed System, Internet protocols, IoT protocols, Future Internet Architecture, Information-Centric Networking Architecture, and Delay Tolerant Networking. Presently, he is also focusing on Machine Learning",
       projects: [
-        "CCNx",
-        "MapBD",
+        "CCN-DA",
+        // "MapBD",
         "PAUMIoT",
         "OppNDA",
-        "Pixie",
+        "PixieGPT",
         "STGen",
-        "PRTP",
+        "PRIoTP",
       ],
       experience: [
         "Principal Investigator at DHMAINetRG <strong>(Jan 2024 – Present)</strong>",
@@ -448,13 +406,12 @@ const websiteData = {
         linkedin: "https://www.linkedin.com/in/mehraj-rahman-8658611a9/",
         bio: "MD. Mahmudur Rahman Mehraj is currently pursuing his B.Sc. in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. He is a passionate problem-solving enthusiast with a strong research interest. His academic and personal pursuits are centered on exploring innovative solutions and contributing to advancements in computer science. Currently, he has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam since 2024. His responsibility mostly includes feature development, experimentation, and verification of IoT protocols.",
         projects: [
-          "CCNx",
-          "MapBD",
+          "CCN-DA",
           "PAUMIoT",
           "OppNDA",
-          "Pixie",
+          // "PixieGPT",
           "STGen",
-          "PRTP",
+          // "PRIoTP",
         ],
         experience: [
           "Research Assistant (Technical Lead) at DHMAINetRG, Dhaka <strong>(Jan 2024 – Present)</strong>",
@@ -469,14 +426,14 @@ const websiteData = {
           "Merit Scholarship & Dean List, East West University - Fall 2023",
         ],
         publications: {
-            papers: [
+          papers: [
             {
-                year: "2025",
-                items: [
+              year: "2025",
+              items: [
                 "Hasan Ma Islam, Md Khalid M Khan, M Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees. IEEE Access 13: 50727-50740 (2025)",
-                ],
+              ],
             },
-            ],
+          ],
         },
       },
       {
@@ -489,7 +446,7 @@ const websiteData = {
         github: "https://github.com/nafisshahriar",
         linkedin: "https://www.linkedin.com/in/sm-nafis-shahriar/",
         bio: "S. M. Nafis Shahriar is currently pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. He is a research assistant in DHMAINetRG working under the supervision of Dr. Hasan Mahmood Aminul Islam. He is interested in various domains of computer science, including distributed computing, edge intelligence, big data analytics, and software development. Previously, he worked part-time as a front-end and back-end developer for several startups. He was also closely involved with competitive programming since his high school days.",
-        projects: ["MapBD", "Pixie", "OppNDA", "STGen"],
+        projects: ["CCN-DA", "OppNDA", "STGen"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
           "Back End Developer at EduKonnect Inc., Pennsylvania <strong>(Dec 2024 – Jul 2025)</strong>",
@@ -510,12 +467,12 @@ const websiteData = {
         name: "Pulok Akibuzzaman",
         image: "images/pulok.webp",
         role: "Assistant",
-        badges: [{ text: "MapBD Lead", color: "#1e293b" }],
+        // badges: [{ text: "MapBD Lead", color: "#1e293b" }],
         email: "2023-3-60-051@std.ewubd.edu",
         github: "https://github.com/Pulok-Akibuzzaman",
         linkedin: "https://www.linkedin.com/in/pulok-akibuzzaman-73a21229a/",
         bio: "Pulok Akibuzzaman is currently pursuing a B.Sc in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. He has a real love for programming, system development and emerging fields such as cybersecurity. During his academic journey, he has worked on notable projects, including the development of a Metro Rail Ticketing System. He has strong proficiency in C, C++, Java and Python. Capture The Flag (CTF) challenges are also proving to be an excellent way to build hands-on cybersecurity skills for him. Currently, he has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam since 2025.",
-        projects: ["Pixie", "MapBD", "OppNDA"],
+        projects: ["CCN-DA", "OppNDA", "STGen"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
@@ -525,12 +482,12 @@ const websiteData = {
         name: "Mahdin Islam Ohi",
         image: "images/ohi.webp",
         role: "Assistant",
-        badges: [{ text: "Pixie Lead", color: "#1e293b" }],
+        badges: [{ text: "PixieGPT Lead", color: "#1e293b" }],
         email: "2023-3-60-151@std.ewubd.edu",
         github: "https://github.com/MahdinOhi",
         linkedin: "https://www.linkedin.com/in/mahdin-ohi-3b55a0280/",
         bio: "Mahdin Islam Ohi is a dedicated Software Developer and a Computer Science & Engineering student at East West University, Dhaka. He is currently contributing to innovative projects at Level7 (2024 - present) and XSRS IT (2023 - present). With a strong foundation in C, C++, Java, and Python, he specializes in developing AI/ML-powered web applications using Django and the MERN stack. His core interests include networking, computational theory, AI/ML, and quantum computing. Mahdin thrives on solving complex problems, creating practical solutions, and continuously expanding his expertise in cutting-edge technologies. He has been working as a research assistant and technical lead under the guidance of DR. Hasan Mahmood Aminul Islam since 2025.",
-        projects: ["Pixie", "PRTP"],
+        projects: ["STGen", "PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Mar 2025 – Present)</strong>",
           "Developer at Level7, Dhaka <strong>(Mar 2025 – Present)</strong>",
@@ -542,12 +499,12 @@ const websiteData = {
         name: "Fayaza Islam",
         image: "images/fayaza.webp",
         role: "Assistant",
-        badges: [{ text: "CCN-IoV Lead", color: "#1e293b" }],
+        // badges: [{ text: "CCN-DA Lead", color: "#1e293b" }],
         email: "2023-3-60-314@std.ewubd.edu",
         github: "https://github.com/Fayaza6",
         linkedin: "https://www.linkedin.com/in/fayaza-islam-365177371/",
         bio: "Fayaza Islam is currently pursuing her BSc in CSE at East West University. Since early 2025, he has been actively engaged in research as a member of the DHMAINet Research Group under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["OppNDA", "CCNx"],
+        // projects: ["OppNDA", "CCN-DA"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
@@ -561,7 +518,7 @@ const websiteData = {
         github: "https://github.com/MuinRatul",
         linkedin: "https://www.linkedin.com/in/mh-ratul-5201792a9/",
         bio: "Muin Hossain Ratul is pursuing a Bachelor of Science in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. He has a strong foundation in programming languages such as C, Java, and Python, and is currently learning Java-based frameworks like Spring Boot to build efficient and scalable applications. He enjoys programming and building practical systems and tools to explore real-world challenges in diverse areas of software development. He is also passionate about developing impactful research projects and exploring emerging fields such as cybersecurity and machine learning. Since early 2025, he has been actively engaged in research as a member of the DHMAINet Research Group under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["CCNx", "OppNDA", "Pixie", "PAUMIoT", "STGen"],
+        // projects: ["CCN-DA", "OppNDA", "PixieGPT", "PAUMIoT", "STGen"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
@@ -571,12 +528,12 @@ const websiteData = {
         name: "Abdullah Sajid",
         image: "images/sajid.webp",
         role: "Assistant",
-        badges: [{ text: "PRTP Lead", color: "#1e293b" }],
+        badges: [{ text: "PRIoTP Lead", color: "#1e293b" }],
         email: "2023-3-60-487@std.ewubd.edu",
         github: "https://github.com/AbdullahSajid007",
         linkedin: "https://www.linkedin.com/in/abdullah-sajid-089848363/",
         bio: "Abdullah Sajid is currently pursuing a Bachelor of Science in Computer Science and Engineering at East West University (EWU), Dhaka, Bangladesh. He is a research assistant in the DHMAINet Research Group (DHMAINetRG) under the supervision of Dr. Hasan Mahmood Aminul Islam. His academic and research interests include distributed computing, machine learning, and big data analytics.",
-        projects: ["PRTP", "OppNDA"],
+        projects: ["PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Mar 2025 – Present)</strong>",
         ],
@@ -590,7 +547,7 @@ const websiteData = {
         github: "https://github.com/Erin0W0",
         linkedin: "https://www.linkedin.com/in/homayra-erin-9b72a4352",
         bio: "Homayra Erin is currently pursuing a B.Sc in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. She has interest in programming, system development and emerging fields such as Data Science. During her academic journey, she has worked on notable projects, including an automated cafeteria system. She is proficient in C, C++ & Java.She also participated in Olympiads. Since 2025, she has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["OppNDA"],
+        projects: ["PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Mar 2025 – Present)</strong>",
         ],
@@ -604,7 +561,7 @@ const websiteData = {
         github: "https://github.com/ashikonik",
         linkedin: "https://www.linkedin.com/in/ashikonik",
         bio: "Md. Ashik-Uz-Zaman is working towards his goal of studying Computer Science and Engineering at East West University, Dhaka, Bangladesh. He is very keen about learning, developing, and conducting research in the field of computer science. His primary career focus is Network Security, and he is currently honing his skills in research and professionalism under the mentorship of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["PRTP", "MapBD"],
+        projects: ["PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jun 2025 – Present)</strong>",
         ],
@@ -618,7 +575,7 @@ const websiteData = {
         github: "https://github.com/sadiafahmida",
         linkedin: "https://www.linkedin.com/in/sadia-fahmida-islam-84734b287",
         bio: "Sadia Fahmida Islam is pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. I have completed several projects in UI/UX design and programming with C, C++, Java, and Python, and completed the Headstarter Fellowship in AI. My interest has recently grown in cybersecurity and its applications in technology and research. Alongside my studies, I have worked as a Research and Development Assistant and Academic Coordinator at non-profit organizations, gaining valuable leadership experience as the Best Academic Coordinator and mentoring students in various science and Olympiad programs. I am also an active public speaker, contributing to awareness and education initiatives.",
-        projects: ["CCNx"],
+        projects: ["PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Oct 2025 – Present)</strong>",
         ],
@@ -632,7 +589,7 @@ const websiteData = {
         github: "https://github.com/Nusrat60-057",
         linkedin: "https://www.linkedin.com/in/nusrat-rahman-aurna-292b16331/",
         bio: "Nusrat Rahman Aurna is currently pursuing a Bachelor's degree in Computer Science and Engineering at East West University in Dhaka, Bangladesh. Her studies include courses in Data Structures, Object-Oriented Programming, Discrete Mathematics, and Linear Algebra, which have improved her analytical and technical skills. Before this, she finished her Higher Secondary education at Viqarunnisa Noon School and College, where she earned top grades in the Science stream. She is enthusiastic about learning new technologies and applying what she learns to real projects. Her interests lie in Software Development, Algorithms. She is also eager to explore opportunities in IoT, Machine Learning, and Distributed Systems in the future. She is fluent in both Bangla and English.",
-        projects: ["MapBD"],
+        projects: ["PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jun 2025 – Present)</strong>",
         ],
@@ -646,7 +603,7 @@ const websiteData = {
         github: "https://github.com/masum-mir",
         linkedin: "https://www.linkedin.com/in/md-masum-mir/",
         bio: "Masum is an undergraduate student of Computer Science and Engineering at East West University, Dhaka, Bangladesh. Alongside his studies, he works as a Research Assistant in DHMAINetRG under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["PRTP"],
+        projects: ["PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jun 2026 – Present)</strong>",
         ],
@@ -658,10 +615,17 @@ const websiteData = {
     {
       id: "OppNDA",
       name: "OppNDA",
-      shortDescription: "Opportunistic Network Simulation Automation and Big Data Analytics",
+      shortDescription:
+        "Opportunistic Network Simulation Automation and Big Data Analytics",
       banner: "images/banner3.png",
       description:
         "OppNDA is a research project focused on simulation automation and big data analytics with data visualization. It aims to assist researchers in analyzing and visualizing data from opportunistic network simulations. OppNDA offers GUI that simplifies the simulation and post-processing configuration. It is a one-click solution to streamline simulation and visualization pipeline",
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: ["DMG"],
+        teamLeads: ["MRM", "SMNS"],
+        teamMembers: ["PA"],
+      },
     },
     {
       id: "STGen",
@@ -671,38 +635,64 @@ const websiteData = {
       description:
         "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications.",
       status: { text: "Under Review", color: "#B31515" },
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: ["DRI"],
+        teamLeads: ["MRM"],
+        teamMembers: ["SMNS", "PA", "MIO"],
+      },
     },
     {
-      id: "PRTP",
-      name: "PRTP",
+      id: "PRIoTP",
+      name: "PRIoTP",
       shortDescription: "Novel Internet Protocol for IoT",
       banner: "images/banner5.png",
       description:
-        "PRTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
+        "PRIoTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRIoTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["AS", "MIO"],
+        teamMembers: ["MAUZ", "MASUM", "HE", "NRA", "SFI"],
+      },
     },
     {
-      id: "Pixie",
-      name: "Pixie",
-      shortDescription: "LLM with hierarchical knowledge base for organizations",
+      id: "PixieGPT",
+      name: "PixieGPT",
+      shortDescription:
+        "LLM with hierarchical knowledge base for organizations",
       banner: "images/banner7.png",
       description:
-        "Pixie is a research project focused on developing a LLM (Large Language Model) with a hierarchical knowledge base for handling queries specific to organizations. Primarily it is aimed to serve the end-users of university websites from Bangladesh by answering various questions with information available in the public domain",
+        "PixieGPT is a research project focused on developing a LLM (Large Language Model) with a hierarchical knowledge base for handling queries specific to organizations. Primarily it is aimed to serve the end-users of university websites from Bangladesh by answering various questions with information available in the public domain",
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["MRM", "MIO"],
+        teamMembers: [""],
+      },
     },
+    // {
+    //   id: "MapBD",
+    //   name: "MapBD",
+    //   shortDescription: "Generating Map Data for Opportunistic Network",
+    //   banner: "images/banner2.png",
+    //   description:
+    //     "MapBD is a research project focused on creating map data for opportunistic networks. It focuses primarily on Dhaka city but it is adaptable to other regions as well. MapBD aims to create map data for all the districts and major cities of Bangladesh to give researchers resources for conducting experiments and simulations",
+    // },
     {
-      id: "MapBD",
-      name: "MapBD",
-      shortDescription: "Generating Map Data for Opportunistic Network",
-      banner: "images/banner2.png",
-      description:
-        "MapBD is a research project focused on creating map data for opportunistic networks. It focuses primarily on Dhaka city but it is adaptable to other regions as well. MapBD aims to create map data for all the districts and major cities of Bangladesh to give researchers resources for conducting experiments and simulations",
-    },
-    {
-      id: "CCNx",
-      name: "CCN-IoV",
-      shortDescription: "Data Analytics in Information Based Internet of Vehicles",
+      id: "CCN-DA",
+      name: "CCN-DA",
+      shortDescription:
+        "Data Analytics in Information Based Internet of Vehicles",
       banner: "images/banner8.png",
       description:
         "Content centric internet of vehicles is a project that aims to enhance data analytics in information based network where nodes are Intermittently connected. The ONE simulator enables CCN simulation and acts as the facilitator of experimentation environment.",
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["MRM", "SMNS"],
+        teamMembers: ["PA"],
+      },
     },
     {
       id: "PAUMIoT",
@@ -711,6 +701,31 @@ const websiteData = {
       banner: "images/banner6.png",
       description:
         "PAUMIoT is a research project that aims to develop a middleware for IoT devices to offers seamless communication and interoperability regardless of the underlying network technologies.",
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["MRM"],
+        teamMembers: [],
+      },
+    },
+  ],
+  upcomingProjects: [
+    {
+      id: "PRIoTPS",
+      name: "PRIoTPS",
+      shortDescription:
+        "Secured and Partially Reliable Application Protocol for IoT devices",
+      banner: "images/banner3.png",
+      description: "",
+    },
+    {
+      id: "FL-ORCH",
+      name: "FL-ORCH",
+      shortDescription:
+        "DRL-Assisted Orchestration of Hierarchical Federated Learning in Dynamic Edge Networks",
+      banner: "images/banner4.png",
+      description: "",
+      // status: { text: "Under Review", color: "#B31515" },
     },
   ],
 
@@ -756,7 +771,29 @@ const websiteData = {
         ],
       },
     ],
-  }, 
+  },
+  about: {
+    banner: "images/banner1.webp",
+    title: "Computer Networking and Pervasive Computing Research Group",
+    description:
+      "The research interests of DHMAINetRG range from the effective organization of Internet protocols and wireless communication to the Future Internet. The focus areas range from traditional IP Internet to Future Internet, e.g., Intermittently Connected network, Delay Tolerant Networks, Information-Centric Networking, and their enablers: interoperability (e.g., interoperability among different Network architectures), context awareness, and ubiquitous computing. This research group focuses on the transition of traditional IP networks to Future Internet and solving application layer challenges in terms of services to the end users.",
+    researchDomains: [
+      "Internet Protocol",
+      "Opportunistic Network",
+      "Information-Centric-Networking",
+      "Embedded Systems and Software",
+      "IoT (Internet of Things)",
+      "IoV (Internet of Vehicles)",
+      "Automation: Opportunistic Network Simulation",
+      "Sensor Traffic Generator and Automation for IoT research",
+    ],
+    scholarLinks: {
+      googleScholar:
+        "https://scholar.google.com/citations?user=M0oP3RMAAAAJ&hl=en",
+      dblp: "https://dblp.org/pid/29/4927.html",
+      researchGate: "https://www.researchgate.net/profile/Hasan-Islam-3",
+    },
+  },
 
   contact: {
     name: "Dr. Hasan Mahmood Aminul Islam",
