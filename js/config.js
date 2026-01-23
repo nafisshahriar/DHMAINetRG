@@ -296,12 +296,15 @@ function allMemberPage() {
   const pi = websiteData.team.principalInvestigator;
   const advisors = websiteData.team.externalAdvisors;
   const researchers = websiteData.team.researchers;
+  const hidmem = websiteData.team.hiddenMembers;
 
   memberDetailPage(pi);
 
   advisors.forEach((advisor) => memberDetailPage(advisor));
 
   researchers.forEach((researcher) => memberDetailPage(researcher));
+
+  hidmem.forEach((hiddenMember) => memberDetailPage(hiddenMember));
 }
 
 const websiteData = {
@@ -319,7 +322,7 @@ const websiteData = {
         "https://www.linkedin.com/in/hasan-mahmood-aminul-islam-ph-d-02a4ab30/",
       bio: "DR. HASAN MAHMOOD AMINUL ISLAM is currently working as an Assistant Professor in the department of CSE, East West University, Dhaka, Bangladesh. Presently, his research group(<a href='https://dhmairg.net'>DHMAINetRG</a>) is mostly focusing on the innovation of lightweight IoT testbed for the Future IoT Architecture. Previously, he worked as a Specialist in system-on-chip (SoC) Software at Nokia headquarters, Espoo, Finland, where the key responsibility was to develop Layer1-Low (l1low) System-on-Chip (SoC) Software driver development for 5G (2019-2022). He received a Doctor of Science in Technology (CSE) from the School of Science, Aalto University, Finland in 2018. As part of his doctoral studies, he worked on Future Internet Architecture (ICN) in the EU-H2020 POINT project. He received a Masters Degree in Networking and Services majoring in Distributed Systems and Data Communication, from the University of Helsinki, Finland. As part of his Master's thesis, he worked in the Nomadic Lab, L M Ericsson, Finland, where he closely worked with the IETF community on the data channel protocol options of the RTCWeb. His research interest includes Data Communications and Distributed System, Internet protocols, IoT protocols, Future Internet Architecture, Information-Centric Networking Architecture, and Delay Tolerant Networking. Presently, he is also focusing on Machine Learning",
       projects: [
-        "CCN-DA",
+        "CCNDA",
         // "MapBD",
         "PAUMIoT",
         "OppNDA",
@@ -398,7 +401,7 @@ const websiteData = {
         image: "images/mehraj.webp",
         role: "Under Graduate Teaching Assistant",
         badges: [
-          { text: "Technical Lead", color: "rgb(179, 21, 21)" },
+          { text: "Technical Lead", color: "#72A276" },
           { text: "PAUMIoT Lead", color: "#1e293b" },
         ],
         email: "2022-3-60-182@std.ewubd.edu",
@@ -406,7 +409,7 @@ const websiteData = {
         linkedin: "https://www.linkedin.com/in/mehraj-rahman-8658611a9/",
         bio: "MD. Mahmudur Rahman Mehraj is currently pursuing his B.Sc. in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. He is a passionate problem-solving enthusiast with a strong research interest. His academic and personal pursuits are centered on exploring innovative solutions and contributing to advancements in computer science. Currently, he has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam since 2024. His responsibility mostly includes feature development, experimentation, and verification of IoT protocols.",
         projects: [
-          "CCN-DA",
+          "CCNDA",
           "PAUMIoT",
           "OppNDA",
           // "PixieGPT",
@@ -441,12 +444,15 @@ const websiteData = {
         name: "S. M. Nafis Shahriar",
         image: "images/nafis.webp",
         role: "Assistant",
-        badges: [{ text: "OppNDA Lead", color: "#1e293b" }],
+        badges: [
+          { text: "Project Manager", color: "#72A276" },
+          { text: "OppNDA Lead", color: "#1e293b" }
+        ],
         email: "2023-3-60-071@std.ewubd.edu",
         github: "https://github.com/nafisshahriar",
         linkedin: "https://www.linkedin.com/in/sm-nafis-shahriar/",
         bio: "S. M. Nafis Shahriar is currently pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. He is a research assistant in DHMAINetRG working under the supervision of Dr. Hasan Mahmood Aminul Islam. He is interested in various domains of computer science, including distributed computing, edge intelligence, big data analytics, and software development. Previously, he worked part-time as a front-end and back-end developer for several startups. He was also closely involved with competitive programming since his high school days.",
-        projects: ["CCN-DA", "OppNDA", "STGen"],
+        projects: ["CCNDA", "OppNDA", "STGen"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
           "Back End Developer at EduKonnect Inc., Pennsylvania <strong>(Dec 2024 – Jul 2025)</strong>",
@@ -494,7 +500,7 @@ const websiteData = {
           "Developer at XSRS IT, Dhaka <strong>(Feb 2023 – Present)</strong>",
         ],
       },
-      {
+      /*{
         id: "FI",
         name: "Fayaza Islam",
         image: "images/fayaza.webp",
@@ -508,8 +514,8 @@ const websiteData = {
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
-      },
-      {
+      },*/
+      /*{
         id: "MR",
         name: "Muin Ratul",
         image: "images/ratul.webp",
@@ -522,7 +528,7 @@ const websiteData = {
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
-      },
+      },*/
       {
         id: "AS",
         name: "Abdullah Sajid",
@@ -538,7 +544,7 @@ const websiteData = {
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Mar 2025 – Present)</strong>",
         ],
       },
-      {
+      /*{
         id: "HE",
         name: "Homayra Erin",
         image: "images/erin.webp",
@@ -551,7 +557,7 @@ const websiteData = {
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Mar 2025 – Present)</strong>",
         ],
-      },
+      },*/
       {
         id: "MAUZ",
         name: "Md. Ashik-Uz-Zaman",
@@ -574,7 +580,7 @@ const websiteData = {
         email: "2024-1-60-331@std.ewubd.edu",
         github: "https://github.com/sadiafahmida",
         linkedin: "https://www.linkedin.com/in/sadia-fahmida-islam-84734b287",
-        bio: "Sadia Fahmida Islam is pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. I have completed several projects in UI/UX design and programming with C, C++, Java, and Python, and completed the Headstarter Fellowship in AI. My interest has recently grown in cybersecurity and its applications in technology and research. Alongside my studies, I have worked as a Research and Development Assistant and Academic Coordinator at non-profit organizations, gaining valuable leadership experience as the Best Academic Coordinator and mentoring students in various science and Olympiad programs. I am also an active public speaker, contributing to awareness and education initiatives.",
+        bio: "Sadia Fahmida Islam is pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. She has completed several projects in UI/UX design and programming with C, C++, Java script, and Python, and completed the Headstarter Fellowship in AI. Her interest has recently grown in Cybersecurity and its applications in technology and research. Alongside her studies, she has worked as a Research and Development Assistant and Academic Coordinator at non-profit organizations, gaining valuable leadership experience as the Best Academic Coordinator and mentoring students in various science and Olympiad programs. She is also an active public speaker, contributing to awareness and education initiatives.",
         projects: ["PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Oct 2025 – Present)</strong>",
@@ -609,81 +615,31 @@ const websiteData = {
         ],
       },
     ],
+    hiddenMembers: [
+      {
+        id: "FI",
+        name: "Fayaza Islam",
+        image: "images/fayaza.webp",
+        role: "Assistant",
+        // badges: [{ text: "CCN-DA Lead", color: "#1e293b" }],
+        email: "2023-3-60-314@std.ewubd.edu",
+        github: "https://github.com/Fayaza6",
+        linkedin: "https://www.linkedin.com/in/fayaza-islam-365177371/",
+        bio: "Fayaza Islam is currently pursuing her BSc in CSE at East West University. Since early 2025, he has been actively engaged in research as a member of the DHMAINet Research Group under the supervision of Dr. Hasan Mahmood Aminul Islam.",
+        // projects: ["OppNDA", "CCN-DA"],
+        experience: [
+          "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
+        ],
+      },
+    ]
   },
 
   projects: [
     {
-      id: "OppNDA",
-      name: "OppNDA",
+      id: "CCNDA",
+      name: "CCNDA",
       shortDescription:
-        "Opportunistic Network Simulation Automation and Big Data Analytics",
-      banner: "images/banner3.png",
-      description:
-        "OppNDA is a research project focused on simulation automation and big data analytics with data visualization. It aims to assist researchers in analyzing and visualizing data from opportunistic network simulations. OppNDA offers GUI that simplifies the simulation and post-processing configuration. It is a one-click solution to streamline simulation and visualization pipeline",
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: ["DMG"],
-        teamLeads: ["MRM", "SMNS"],
-        teamMembers: ["PA"],
-      },
-    },
-    {
-      id: "STGen",
-      name: "STGen",
-      shortDescription: "Sensor Traffic Generator for IoT Testbed",
-      banner: "images/banner4.png",
-      description:
-        "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications.",
-      status: { text: "Under Review", color: "#B31515" },
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: ["DRI"],
-        teamLeads: ["MRM"],
-        teamMembers: ["SMNS", "PA", "MIO"],
-      },
-    },
-    {
-      id: "PRIoTP",
-      name: "PRIoTP",
-      shortDescription: "Novel Internet Protocol for IoT",
-      banner: "images/banner5.png",
-      description:
-        "PRIoTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRIoTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: [],
-        teamLeads: ["AS", "MIO"],
-        teamMembers: ["MAUZ", "MASUM", "HE", "NRA", "SFI"],
-      },
-    },
-    {
-      id: "PixieGPT",
-      name: "PixieGPT",
-      shortDescription:
-        "LLM with hierarchical knowledge base for organizations",
-      banner: "images/banner7.png",
-      description:
-        "PixieGPT is a research project focused on developing a LLM (Large Language Model) with a hierarchical knowledge base for handling queries specific to organizations. Primarily it is aimed to serve the end-users of university websites from Bangladesh by answering various questions with information available in the public domain",
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: [],
-        teamLeads: ["MRM", "MIO"],
-        teamMembers: [""],
-      },
-    },
-    // {
-    //   id: "MapBD",
-    //   name: "MapBD",
-    //   shortDescription: "Generating Map Data for Opportunistic Network",
-    //   banner: "images/banner2.png",
-    //   description:
-    //     "MapBD is a research project focused on creating map data for opportunistic networks. It focuses primarily on Dhaka city but it is adaptable to other regions as well. MapBD aims to create map data for all the districts and major cities of Bangladesh to give researchers resources for conducting experiments and simulations",
-    // },
-    {
-      id: "CCN-DA",
-      name: "CCN-DA",
-      shortDescription:
-        "Data Analytics in Information Based Internet of Vehicles",
+        "Network Data Analytics in Information-Based Internet of Vehicles",
       banner: "images/banner8.png",
       description:
         "Content centric internet of vehicles is a project that aims to enhance data analytics in information based network where nodes are Intermittently connected. The ONE simulator enables CCN simulation and acts as the facilitator of experimentation environment.",
@@ -708,6 +664,75 @@ const websiteData = {
         teamMembers: [],
       },
     },
+    {
+      id: "OppNDA",
+      name: "OppNDA",
+      shortDescription:
+        "Opportunistic Network Simulation Automation and Big Data Analytics",
+      banner: "images/banner3.png",
+      description:
+        "OppNDA is a research project focused on simulation automation and big data analytics with data visualization. It aims to assist researchers in analyzing and visualizing data from opportunistic network simulations. OppNDA offers GUI that simplifies the simulation and post-processing configuration. It is a one-click solution to streamline simulation and visualization pipeline",
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: ["DMG"],
+        teamLeads: ["MRM", "SMNS"],
+        teamMembers: ["PA","FI"],
+        
+      },
+    },
+    {
+      id: "PixieGPT",
+      name: "PixieGPT",
+      shortDescription:
+        "LLM with hierarchical knowledge base for organizations",
+      banner: "images/banner7.png",
+      description:
+        "PixieGPT is a research project focused on developing a LLM (Large Language Model) with a hierarchical knowledge base for handling queries specific to organizations. Primarily it is aimed to serve the end-users of university websites from Bangladesh by answering various questions with information available in the public domain",
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["MRM", "MIO"],
+        teamMembers: [""],
+      },
+    },
+    {
+      id: "STGen",
+      name: "STGen",
+      shortDescription: "Sensor Traffic Generator for IoT Testbed",
+      banner: "images/banner4.png",
+      description:
+        "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications.",
+      status: { text: "Under Review", color: "#B31515" },
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: ["DRI"],
+        teamLeads: ["MRM"],
+        teamMembers: ["SMNS", "PA", "MIO"],
+      },
+    },
+    {
+      id: "PRIoTP",
+      name: "PRIoTP",
+      shortDescription: "Novel Partially Reliable Application Protocol for IoT devices",
+      banner: "images/banner5.png",
+      description:
+        "PRIoTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRIoTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["AS", "MIO"],
+        teamMembers: ["MAUZ", "MASUM", "HE", "NRA", "SFI"],
+      },
+    },
+    
+    // {
+    //   id: "MapBD",
+    //   name: "MapBD",
+    //   shortDescription: "Generating Map Data for Opportunistic Network",
+    //   banner: "images/banner2.png",
+    //   description:
+    //     "MapBD is a research project focused on creating map data for opportunistic networks. It focuses primarily on Dhaka city but it is adaptable to other regions as well. MapBD aims to create map data for all the districts and major cities of Bangladesh to give researchers resources for conducting experiments and simulations",
+    // },
   ],
   upcomingProjects: [
     {
