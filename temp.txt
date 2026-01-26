@@ -200,3 +200,153 @@ MEMBER CARDS
               IoT</strong></li>
 
 ^^^^^^^^^^^^^^
+
+ <!-- <div id="MapBD" class="tabcontent">
+    <div class="banner-wrapper">
+      <img src="images/banner2.png" alt="MapBD Banner" class="full-banner">
+    </div>
+    <div class="members-page">
+
+      <br>
+      <h2 class="section-title" style="color:#2c50b1; text-align: left;">MapBD</h2>
+      <p style="text-align: left;">MapBD is a research project focused on creating map data for opportunistic networks.
+        It focuses primarily on Dhaka city but it is adaptable to other regions as well. MapBD aims to create map data
+        for all the districts and major cities of Bangladesh to give researchers resources for conducting experiments
+        and simulations</p>
+      <div class="manual-section"
+        style="text-align: left; max-width: 95vw; margin: 2em auto; background: #f8f9fa; border-radius: 8px; padding: 2em; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <div class="members-page">
+          <h1 class="section-title" style="color:#2c50b1;">Team MapBD</h1>
+          <h2 class="subsection-title">Principal Investigator</h2>
+          <div class="member-group">
+            <div class="member-card">
+              <div onclick="openTab(event, 'DHMAI')" style="cursor: pointer;">
+                <img src="images/dhmai.webp" alt="Hasan Mahmood Aminul Islam">
+                <div class="member-name">Hasan Mahmood Aminul Islam</div>
+              </div>
+              <div class="member-role">Assistant Professor</div>
+              <div class="member-links">
+                <a href="mailto:hasan.mahmood@ewubd.edu" target="_blank" rel="noopener"><i
+                    class="fas fa-envelope"></i></a>
+                <a href="https://scholar.google.com/citations?user=M0oP3RMAAAAJ&hl=en" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-google-scholar"></i></a>
+                <a href="https://github.com/hmaislam" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/hasan-mahmood-aminul-islam-ph-d-02a4ab30/" target="_blank"
+                  rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <h2 class="subsection-title">Team Lead</h2>
+          <br>
+          <div class="member-group">
+            <div class="member-card">
+              <div onclick="openTab(event, 'MRM')" style="cursor: pointer;">
+                <img src="images/mehraj.webp" alt="mehraj">
+                <div class="member-name">Mahmudur Rahman Mehraj</div>
+                <div class="member-role">Under Graduate Teaching Assistant,</div>
+              </div>
+              <div class="member-role"><mark
+                  style="background-color:rgb(179, 21, 21); color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">Technical
+                  Lead</mark></div>
+              <div class="member-role"><mark
+                  style="background-color:#1e293b; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">PAUMIoT
+                  Lead</mark></div>
+              <div class="member-links">
+                <a href="mailto:2022-3-60-182@std.ewubd.edu"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/MehrajRahman"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mehraj-rahman-8658611a9/"><i class="fa-brands fa-linkedin"></i></a>
+
+              </div>
+            </div>
+            <div class="member-card">
+              <div onclick="openTab(event, 'PA')" style="cursor: pointer;">
+                <img src="images/pulok.webp" alt="pulok">
+                <div class="member-name">Pulok Akibuzzaman</div>
+                <div class="member-role">Assistant,</div>
+                <div class="member-role"><mark
+                    style="background-color:#1e293b; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">MapBD
+                    Lead</mark></div>
+              </div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-051@std.ewubd.edu" target="_blank" rel="noopener"><i
+                    class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Pulok-Akibuzzaman" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/pulok-akibuzzaman-73a21229a/" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+          </div>
+          <br>
+          <h2 class="subsection-title">Team Members</h2>
+          <br>
+          <div class="member-group">
+
+
+
+
+            <div class="member-card">
+              <div onclick="openTab(event, 'SMNS')" style="cursor: pointer;">
+                <img src="images/nafis.webp" alt="nafis">
+                <div class="member-name">S. M. Nafis Shahriar</div>
+                <div class="member-role">Assistant,</div>
+              </div>
+              <div class="member-role"><mark
+                  style="background-color:#1e293b; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">OppNDA
+                  Lead</mark></div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-071@std.ewubd.edu" target="_blank" rel="noopener"><i
+                    class="fas fa-envelope"></i></a>
+                <a href="https://github.com/nafisshahriar" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sm-nafis-shahriar/" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div onclick="openTab(event, 'MAUZ')" style="cursor: pointer;">
+                <img src="images/ashik.webp" alt="ashik">
+                <div class="member-name">Md. Ashik-Uz-Zaman</div>
+                <div class="member-role">Assistant</div>
+              </div>
+              <div class="member-links">
+                <a href="mailto:2023-3-60-074@std.ewubd.edu"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/ashikonik"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ashikonik"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+          <div class="member-card">
+            <div onclick="openTab(event, 'NRA')" style="cursor: pointer;">
+          <img src="images/nra.webp" alt="nra">
+          <div class="member-name">Nusrat Rahman Aurna</div>
+          <div class="member-role">Assistant</div>
+          </div>
+          <div class="member-links">
+            <a href="mailto:2023-3-60-057@std.ewubd.edu"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/Nusrat60-057"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/nusrat-rahman-aurna-292b16331/"><i class="fa-brands fa-linkedin"></i></a>
+
+          </div>
+        </div>
+
+ 
+          </div>
+        </div>
+      </div>
+      <h2 class="section-title" style="color:#2c50b1; text-align: left; ">Contact</h2>
+      <p style="text-align: left;">
+        <strong>Dr. Hasan Mahmood Aminul Islam</strong><br>
+        Assistant Professor,<br>
+        Department of Computer Science and Engineering,<br>
+        East West University<br>
+        Dhaka, Bangladesh<br>
+        Email: <a href="mailto:hasan.mahmood@ewubd.edu ">hasan.mahmood@ewubd.edu</a><br>
+      </p>
+    </div>
+
+  </div> -->
