@@ -2,6 +2,7 @@ function publicationsPage() {
     const pubPage = document.getElementById('ListPub');
     if (!pubPage) return;
 
+
     let publicationsList = '';
     websiteData.publications.years.forEach(yearData => {
         publicationsList += `<strong>${yearData.year} :</strong>`;
@@ -10,6 +11,7 @@ function publicationsPage() {
         });
         publicationsList += '<br>';
     });
+
 
     pubPage.innerHTML = `
         <div class="spacing"></div>

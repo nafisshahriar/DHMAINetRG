@@ -32,14 +32,24 @@
           document.getElementById("homepage").style.display = "block";
         });
       </script>
-      <button class="tablinks" onclick="openTab(event, 'ListPub')">
-        List of Publications
+
+      <button class="tablinks" onclick="togglePubMenu()">
+  Publications ▾
       </button>
+         <div id="pubMenu" class="submenu">
+      <button class="tablinks" onclick="openTab(event, 'ListPub')">
+        Published Papers
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'ListSub')">
+        Submitted Papers
+      </button>
+    </div>
+
       <button class="tablinks" onclick="openTab(event, 'WorkinProg')">
         Works in Progress
       </button>
       <button class="tablinks" onclick="openTab(event, 'AboutPage')">
-        Research Activities
+        About
       </button>
     </div>
     <div id="mobile-navbar">
@@ -56,6 +66,7 @@
 
     <div id="homepage" class="tabcontent active"></div>
     <div id="ListPub" class="tabcontent"></div>
+    <div id="ListSub" class="tabcontent"></div>
     <div id="WorkinProg" class="tabcontent"></div>
     <div id="AboutPage" class="tabcontent"></div>
 
@@ -123,6 +134,7 @@
     <script src="js/aboutPage.js"></script>
     <script src="js/projectPages.js"></script>
     <script src="js/upcomingPage.js"></script>
+    <script src="js/submissionsPage.js"></script>
     <script>
       // Initialize when DOM is loaded
       document.addEventListener("DOMContentLoaded", function () {
@@ -133,6 +145,7 @@
         aboutPage();
         allProjectPages();
         allUpcomingProjectPages();
+        submissionsPage();
 
         // Handle initial tab/hash
         let tab = window.location.hash.replace("#", "") || "homepage";
@@ -142,6 +155,15 @@
           document.getElementById("homepage").style.display = "block";
         }
       });
+      function togglePubMenu() {
+       const menu = document.getElementById("pubMenu");
+
+        if (menu.style.display === "flex") {
+        menu.style.display = "none";
+        } else {
+          menu.style.display = "flex";
+        }
+      }
     </script>
   </body>
 </html>

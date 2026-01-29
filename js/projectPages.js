@@ -70,8 +70,12 @@ function createProjectDetailPage(project) {
 
   // Status badge for title
   const statusBadge = project.status
-    ? `<mark style="background-color:${project.status.color}; color: white; padding: 0.1em 0.3em 0.1em 0.25em; margin-left: 0.5em; border-radius: 0.25rem;">${project.status.text}</mark>`
-    : '';
+  ? project.status.map(s =>
+      `<mark style="background-color:${s.color};color: white;padding: 0.1em;border-radius: 6px;margin-right: 4px;">
+        ${s.text}
+       </mark>`
+      ).join('')
+      :'';
 
   projectDiv.innerHTML = `
     <div class="banner-wrapper">
