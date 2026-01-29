@@ -118,7 +118,7 @@ function homePage() {
         <div class="spacing"></div>
         <div class="members-page">
             <h1 class="section-title" style="color:#2c50b1;">Meet the Team</h1>
-
+            
             <h2 class="subsection-title">Principal Investigator</h2>
             <br>
             <div class="member-group">

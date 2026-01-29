@@ -842,7 +842,7 @@ input[type="file"]:focus {
         .icon-circle { width: 100px; height: 100px; }
         .icon-circle svg { width: 50px; height: 50px; }
       }
-
+/* Publications submenu */
       .submenu {
   display: none;
   flex-direction: column;
@@ -855,3 +855,19 @@ input[type="file"]:focus {
   padding-left: 20px;
   opacity: 0.9;
 }
+/*add animation to the title meet the team*/
+@keyframes slideTitle {
+  from {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.section-title {
+  animation: slideTitle 1s ease-out;
+}
+
+
