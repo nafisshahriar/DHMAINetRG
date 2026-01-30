@@ -729,7 +729,7 @@ const websiteData = {
     {
       id: "STGen",
       name: "STGen",
-      shortDescription: "Sensor Traffic Generator for IoT Testbed",
+      shortDescription: "Sensor Traffic Generator for IoT Testbed ",
       banner: "images/banner4.png",
       description:
         "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications.",
