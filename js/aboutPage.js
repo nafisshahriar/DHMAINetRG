@@ -30,6 +30,9 @@ function aboutPage() {
     <div class="banner-wrapper">
       <img src="${about.banner}" alt="DHMAI Banner" class="full-banner">
     </div>
+    
+    ${researchStatistics()}
+    
     <div class="members-page">
       <br>
       <h2 class="section-title" style="color:#2c50b1; text-align: left;">${about.title}</h2>
@@ -79,4 +82,7 @@ function aboutPage() {
 
   // Initialize research focus areas interactivity
   initResearchFocusInteractivity();
+  
+  // Initialize stats animation
+  initStatsAnimation();
 }
