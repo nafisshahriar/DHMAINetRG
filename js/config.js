@@ -24,7 +24,7 @@ function openTab(evt, tabName, pushState = true) {
   history.replaceState(
     Object.assign({}, history.state, { scrollY: window.scrollY }),
     "",
-    window.location.hash || ""
+    window.location.hash || "",
   );
 
   // Always scroll to top when switching tab normally
@@ -76,7 +76,7 @@ function createMemberCard(member, onClick = true) {
     ? member.badges
         .map(
           (badge) =>
-            `<div class="member-role"><mark style="background-color:${badge.color}; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">${badge.text}</mark></div>`
+            `<div class="member-role"><mark style="background-color:${badge.color}; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">${badge.text}</mark></div>`,
         )
         .join("")
     : "";
@@ -136,7 +136,10 @@ function homePage() {
             <h2 class="subsection-title">Researchers</h2>
             <br>
             <div class="member-group">
-                ${researchers.filter((r) => !r.hideFromHome).map((researcher) => createMemberCard(researcher)).join("")}
+                ${researchers
+                  .filter((r) => !r.hideFromHome)
+                  .map((researcher) => createMemberCard(researcher))
+                  .join("")}
             </div>
         </div>
     `;
@@ -148,13 +151,20 @@ function createProjectList(projects) {
     .map((projectId) => {
       const project = websiteData.projects.find((p) => p.id === projectId);
       if (!project) return "";
+      console.log("project : ", project.status);
 
       const status = project.status
-        ? `<mark style="background-color:${project.status.color}; color: white; padding: 0.1em 0.3em 0.1em 0.25em; margin-left: 1em; border-radius: 0.25rem;">${project.status.text}</mark>`
+        ? project.status
+            .map(
+              (st) =>
+                `<mark style="background-color:${st.color}; color: white; padding: 0.1em 0.3em 0.1em 0.25em; margin-left: 1em; border-radius: 0.25rem;">${st.text}</mark>`,
+            )
+            .join("")
         : "";
 
       return `<li onclick="openTab(event, '${project.id}')" style="cursor: pointer;"><strong><u>${project.name}:</u> ${project.shortDescription}</strong>${status}</li>`;
     })
+
     .join("");
 }
 
@@ -174,7 +184,7 @@ function memberDetailPage(member) {
     ? member.badges
         .map(
           (badge) =>
-            `<div class="member-role"><mark style="background-color:${badge.color}; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">${badge.text}</mark></div>`
+            `<div class="member-role"><mark style="background-color:${badge.color}; color: white; padding: 0.1em 0.3em 0.1em 0.25em; border-radius: 0.25rem;">${badge.text}</mark></div>`,
         )
         .join("")
     : "";
@@ -226,7 +236,7 @@ function memberDetailPage(member) {
                 <strong>${yearData.year} :</strong>
                 ${yearData.items.map((pub, idx) => `<li>${pub}</li>`).join("")}
                 ${yearData !== websiteData.publications.years[websiteData.publications.years.length - 1] ? "<br>" : ""}
-            `
+            `,
               )
               .join("")}
         </ul>
@@ -249,7 +259,7 @@ function memberDetailPage(member) {
                 (pub) => `
                 <strong>${pub.year} :</strong>
                 ${pub.items.map((pub, idx) => `<li>${pub}</li>`).join("")} 
-            `
+            `,
               )
               .join("")}
         </ul>
@@ -443,13 +453,13 @@ const websiteData = {
         role: "Assistant",
         badges: [
           { text: "Project Manager", color: "#72A276" },
-          { text: "OppNDA Lead", color: "#1e293b" }
+          { text: "OppNDA Lead", color: "#1e293b" },
         ],
         email: "2023-3-60-071@std.ewubd.edu",
         github: "https://github.com/nafisshahriar",
         linkedin: "https://www.linkedin.com/in/sm-nafis-shahriar/",
         bio: "S. M. Nafis Shahriar is currently pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. He is a research assistant in DHMAINetRG working under the supervision of Dr. Hasan Mahmood Aminul Islam. He is interested in various domains of computer science, including distributed computing, edge intelligence, big data analytics, and software development. Previously, he worked part-time as a front-end and back-end developer for several startups. He was also closely involved with competitive programming since his high school days.",
-        projects: ["OppNDA","CCN-IoV","STGen"],
+        projects: ["OppNDA", "CCN-IoV", "STGen"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
           "Back End Developer at EduKonnect Inc., Pennsylvania <strong>(Dec 2024 – Jul 2025)</strong>",
@@ -475,7 +485,7 @@ const websiteData = {
         github: "https://github.com/Pulok-Akibuzzaman",
         linkedin: "https://www.linkedin.com/in/pulok-akibuzzaman-73a21229a/",
         bio: "Pulok Akibuzzaman is currently pursuing a B.Sc in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. He has a real love for programming, system development and emerging fields such as cybersecurity. During his academic journey, he has worked on notable projects, including the development of a Metro Rail Ticketing System. He has strong proficiency in C, C++, Java and Python. Capture The Flag (CTF) challenges are also proving to be an excellent way to build hands-on cybersecurity skills for him. Currently, he has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam since 2025.",
-        projects: ["OppNDA","CCN-IoV","STGen"],
+        projects: ["OppNDA", "CCN-IoV", "STGen"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
@@ -490,7 +500,7 @@ const websiteData = {
         github: "https://github.com/MahdinOhi",
         linkedin: "https://www.linkedin.com/in/mahdin-ohi-3b55a0280/",
         bio: "Mahdin Islam Ohi is a dedicated Software Developer and a Computer Science & Engineering student at East West University, Dhaka. He is currently contributing to innovative projects at Level7 (2024 - present) and XSRS IT (2023 - present). With a strong foundation in C, C++, Java, and Python, he specializes in developing AI/ML-powered web applications using Django and the MERN stack. His core interests include networking, computational theory, AI/ML, and quantum computing. Mahdin thrives on solving complex problems, creating practical solutions, and continuously expanding his expertise in cutting-edge technologies. He has been working as a research assistant and technical lead under the guidance of DR. Hasan Mahmood Aminul Islam since 2025.",
-        projects: ["PRIoTP","STGen"],
+        projects: ["PRIoTP", "STGen"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Mar 2025 – Present)</strong>",
           "Developer at Level7, Dhaka <strong>(Mar 2025 – Present)</strong>",
@@ -563,7 +573,7 @@ const websiteData = {
         github: "https://github.com/sadiafahmida",
         linkedin: "https://www.linkedin.com/in/sadia-fahmida-islam-84734b287",
         bio: "Sadia Fahmida Islam is pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. She has completed several projects in UI/UX design and programming with C, C++, Java script, and Python, and completed the Headstarter Fellowship in AI. Her interest has recently grown in Cybersecurity and its applications in technology and research. Alongside her studies, she has worked as a Research and Development Assistant and Academic Coordinator at non-profit organizations, gaining valuable leadership experience as the Best Academic Coordinator and mentoring students in various science and Olympiad programs. She is also an active public speaker, contributing to awareness and education initiatives.",
-        projects: ["PRIoTP","CCN-IoV"],
+        projects: ["PRIoTP", "CCN-IoV"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Oct 2025 – Present)</strong>",
         ],
@@ -577,7 +587,7 @@ const websiteData = {
         github: "https://github.com/Nusrat60-057",
         linkedin: "https://www.linkedin.com/in/nusrat-rahman-aurna-292b16331/",
         bio: "Nusrat Rahman Aurna is currently pursuing a Bachelor's degree in Computer Science and Engineering at East West University in Dhaka, Bangladesh. Her studies include courses in Data Structures, Object-Oriented Programming, Discrete Mathematics, and Linear Algebra, which have improved her analytical and technical skills. Before this, she finished her Higher Secondary education at Viqarunnisa Noon School and College, where she earned top grades in the Science stream. She is enthusiastic about learning new technologies and applying what she learns to real projects. Her interests lie in Software Development, Algorithms. She is also eager to explore opportunities in IoT, Machine Learning, and Distributed Systems in the future. She is fluent in both Bangla and English.",
-        projects: ["PRIoTP","CCN-IoV"],
+        projects: ["PRIoTP", "CCN-IoV"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jun 2025 – Present)</strong>",
         ],
@@ -591,7 +601,7 @@ const websiteData = {
         github: "https://github.com/masum-mir",
         linkedin: "https://www.linkedin.com/in/md-masum-mir/",
         bio: "Masum is an undergraduate student of Computer Science and Engineering at East West University, Dhaka, Bangladesh. Alongside his studies, he works as a Research Assistant in DHMAINetRG under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["PRIoTP","CCN-IoV"],
+        projects: ["PRIoTP", "CCN-IoV"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jun 2026 – Present)</strong>",
         ],
@@ -622,14 +632,15 @@ const websiteData = {
         // badges: [{ text: "CCN-DA Lead", color: "#1e293b" }],
         email: "2022-2-60-044@std.ewubd.edu",
         github: "https://github.com/",
-        linkedin: "https://www.linkedin.com/in/mahir-faysal-haque-dipto-6911a4245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        linkedin:
+          "https://www.linkedin.com/in/mahir-faysal-haque-dipto-6911a4245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         bio: "Mahir Faysal Haque Dipto is currently pursuing his BSc in CSE at East West University. Since early 2025, he has been actively engaged in research as a member of the DHMAINet Research Group under the supervision of Dr. Hasan Mahmood Aminul Islam.",
         projects: ["PAUMIoT"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
       },
-     {
+      {
         id: "FA",
         name: "Faisal Ahmad",
         image: "images/faisal.webp",
@@ -662,7 +673,6 @@ const websiteData = {
         ],
       },
     ],
-    
   },
 
   projects: [
@@ -678,7 +688,7 @@ const websiteData = {
         principalInvestigator: ["DHMAI"],
         externalAdvisors: [],
         teamLeads: ["PA"],
-        teamMembers: ["SFI","NRA","MASUM"],
+        teamMembers: ["SFI", "NRA", "MASUM"],
       },
     },
     {
@@ -692,7 +702,7 @@ const websiteData = {
         principalInvestigator: ["DHMAI"],
         externalAdvisors: [],
         teamLeads: ["MRM"],
-        teamMembers: ["MFHD","FA","MS"],
+        teamMembers: ["MFHD", "FA", "MS"],
       },
     },
     {
@@ -707,8 +717,7 @@ const websiteData = {
         principalInvestigator: ["DHMAI"],
         externalAdvisors: ["DMG"],
         teamLeads: ["MRM", "SMNS"],
-        teamMembers: ["PA","FI"],
-        
+        teamMembers: ["PA", "FI"],
       },
     },
     {
@@ -733,8 +742,7 @@ const websiteData = {
       banner: "images/banner4.png",
       description:
         "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications.",
-      status: 
-      [
+      status: [
         { text: "Under Review", color: "#B31515" },
         { text: "Finalizing Submissions", color: "#FFA62B" },
       ],
@@ -748,7 +756,8 @@ const websiteData = {
     {
       id: "PRIoTP",
       name: "PRIoTP",
-      shortDescription: "Novel Partially Reliable Application Protocol for IoT devices",
+      shortDescription:
+        "Novel Partially Reliable Application Protocol for IoT devices",
       banner: "images/banner5.png",
       description:
         "PRIoTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRIoTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
@@ -759,7 +768,7 @@ const websiteData = {
         teamMembers: ["MAUZ", "MASUM", "HE", "NRA", "SFI"],
       },
     },
-    
+
     // {
     //   id: "MapBD",
     //   name: "MapBD",
@@ -839,7 +848,7 @@ const websiteData = {
     ],
   },
   submittedPublications: {
-    years:[
+    years: [
       {
         year: "2026",
         items: [
@@ -848,7 +857,7 @@ const websiteData = {
           "M.R. Maharaz, F. Ahmad, M.F.H. Dipto, M.M.H Shafin, S.M.N. Shahriar, P. Akibuzzaman, H.M.A. Islam. Emulating Sensor Profile Towards IoT Simulator Development, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
         ],
       },
-    ]
+    ],
   },
   about: {
     banner: "images/banner1.webp",
