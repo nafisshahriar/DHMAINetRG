@@ -157,7 +157,7 @@ function createProjectList(projects) {
         ? project.status
             .map(
               (st) =>
-                `<mark style="background-color:${st.color}; color: white; padding: 0.1em 0.3em 0.1em 0.25em; margin-left: 1em; border-radius: 0.25rem;">${st.text}</mark>`,
+                `<mark style="background-color:${st.color}; color: white; padding: 0.1em 0.3em 0.1em 0.25em; margin-left: 0.5em; border-radius: 0.25rem;">${st.text}</mark>`,
             )
             .join("")
         : "";
@@ -741,7 +741,7 @@ const websiteData = {
       shortDescription: "Sensor Traffic Generator for IoT Testbed ",
       banner: "images/banner4.png",
       description:
-        "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications.",
+        "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications. ",
       status: [
         { text: "Under Review", color: "#B31515" },
         { text: "Finalizing Submissions", color: "#FFA62B" },
