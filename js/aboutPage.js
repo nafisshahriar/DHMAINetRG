@@ -47,13 +47,6 @@ function aboutPage() {
         <br>
         <br>
         
-        <h2 style="color: #2c50b1;">Ongoing Research Projects:</h2>
-        <ul>
-          ${ongoingProjectsList}
-        </ul>
-        <br>
-        <br>
-        
         <h2 style="color: #2c50b1;">Publications:</h2>
         <ul>
           <div class="extlink">

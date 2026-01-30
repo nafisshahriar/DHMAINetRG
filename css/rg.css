@@ -867,7 +867,7 @@ input[type="file"]:focus {
   }
 }
 .section-title {
-  animation: slideTitle 1s ease-out;
+  /* animation: slideTitle 1s ease-out; */
 }
 
 
