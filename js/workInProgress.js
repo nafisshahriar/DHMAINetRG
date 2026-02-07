@@ -33,7 +33,7 @@ function workInProgressPage() {
     <div class="spacing"></div>
     <div class="members-page">
       <h1 style="color: #2c50b1;">Ongoing Research Projects</h1>
-      <div class="manual-section" style="text-align: left; max-width: 95vw; margin: 2em auto; background: #f8f9fa; border-radius: 8px; padding: 2em; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+      <div class="manual-section" style="text-align: left; margin: 2em auto; background: #f8f9fa; border-radius: 8px; padding: 2em; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
         <br>
         <ul>
           ${ongoingProjectsList}
@@ -42,7 +42,7 @@ function workInProgressPage() {
       </div>
 
       <h1 style="color: #2c50b1;">Upcoming Research Projects</h1>
-      <div class="manual-section" style="text-align: left; max-width: 95vw; margin: 2em auto; background: #f8f9fa; border-radius: 8px; padding: 2em; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+      <div class="manual-section" style="text-align: left; margin: 2em auto; background: #f8f9fa; border-radius: 8px; padding: 2em; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
         <br>
         <ul>
           ${upcomingProjectsList}

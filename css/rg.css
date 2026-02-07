@@ -694,6 +694,25 @@ input[type="file"]:focus {
         border-top-right-radius: 1vw;
     }
 }
+
+/* Manual section responsive styles */
+.manual-section {
+    max-width: 95vw;
+}
+
+@media (max-width: 768px) {
+    .manual-section {
+        max-width: calc(100vw - 40px) !important;
+        padding: 1.5em !important;
+    }
+}
+
+@media (max-width: 560px) {
+    .manual-section {
+        max-width: calc(100vw - 20px) !important;
+        padding: 1em !important;
+    }
+}
 /* coming page */
 .coming-soon-container {
         display: flex;
