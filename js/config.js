@@ -603,7 +603,7 @@ const websiteData = {
         bio: "Masum is an undergraduate student of Computer Science and Engineering at East West University, Dhaka, Bangladesh. Alongside his studies, he works as a Research Assistant in DHMAINetRG under the supervision of Dr. Hasan Mahmood Aminul Islam.",
         projects: ["PRIoTP", "CCN-IoV"],
         experience: [
-          "Research Assistant at DHMAINetRG, Dhaka <strong>(Jun 2026 – Present)</strong>",
+          "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2026 – Present)</strong>",
         ],
       },
       //Members below will not be shown on the homepage but on specific projects
