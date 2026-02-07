@@ -589,7 +589,7 @@ const websiteData = {
         bio: "Nusrat Rahman Aurna is currently pursuing a Bachelor's degree in Computer Science and Engineering at East West University in Dhaka, Bangladesh. Her studies include courses in Data Structures, Object-Oriented Programming, Discrete Mathematics, and Linear Algebra, which have improved her analytical and technical skills. Before this, she finished her Higher Secondary education at Viqarunnisa Noon School and College, where she earned top grades in the Science stream. She is enthusiastic about learning new technologies and applying what she learns to real projects. Her interests lie in Software Development, Algorithms. She is also eager to explore opportunities in IoT, Machine Learning, and Distributed Systems in the future. She is fluent in both Bangla and English.",
         projects: ["PRIoTP", "CCN-IoV"],
         experience: [
-          "Research Assistant at DHMAINetRG, Dhaka <strong>(Jun 2025 – Present)</strong>",
+          "Research Assistant at DHMAINetRG, Dhaka <strong>(Nov 2025 – Present)</strong>",
         ],
       },
       {
