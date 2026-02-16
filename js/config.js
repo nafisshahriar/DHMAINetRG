@@ -709,30 +709,18 @@ const websiteData = {
       id: "OppNDA",
       name: "OppNDA",
       shortDescription:
-        "Opportunistic Network Simulation Automation and Big Data Analytics",
+        "Opportunistic Network Simulation Automation and Big Data Analytics ",
       banner: "images/banner3.png",
       description:
         "OppNDA is a research project focused on simulation automation and big data analytics with data visualization. It aims to assist researchers in analyzing and visualizing data from opportunistic network simulations. OppNDA offers GUI that simplifies the simulation and post-processing configuration. It is a one-click solution to streamline simulation and visualization pipeline",
+      status: [
+        { text: "Under Review", color: "#B31515" },
+      ],
       team: {
         principalInvestigator: ["DHMAI"],
         externalAdvisors: ["DMG"],
         teamLeads: ["MRM", "SMNS"],
         teamMembers: ["PA", "FI"],
-      },
-    },
-    {
-      id: "PixieGPT",
-      name: "PixieGPT",
-      shortDescription:
-        "LLM with hierarchical knowledge base for organizations",
-      banner: "images/banner7.png",
-      description:
-        "PixieGPT is a research project focused on developing a LLM (Large Language Model) with a hierarchical knowledge base for handling queries specific to organizations. Primarily it is aimed to serve the end-users of university websites from Bangladesh by answering various questions with information available in the public domain",
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: [],
-        teamLeads: ["MRM", "MIO"],
-        teamMembers: [""],
       },
     },
     {
@@ -857,7 +845,9 @@ const websiteData = {
       {
         year: "2026",
         items: [
-          "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, H.M.A. Islam, M.Georgiades, and M.Masum. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)"
+          "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, H.M.A. Islam, M.Georgiades, and M.Masum. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)",
+          "H.M.A. Islam, M.R. Maharaz, S.M.N. Shahriar, P.Akibuzzaman, S.Nath, M.I. Ohi, M.Georgiades, and R.Islam. STGen: A Lightweight Protocol-Agnostic Sensor Testbed for Scenario-Based IoT Protocol Evaluation, Elsevier (JSA)",
+          "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, Elsevier (SIMPAT)"
         ],
       },
     ],
