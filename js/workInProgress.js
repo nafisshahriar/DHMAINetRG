@@ -8,7 +8,7 @@ function workInProgressPage() {
     .map(project => {
       const statusBadge = project.status
   ? project.status.map(s =>
-      `<mark style="background-color:${s.color};color: white;padding: 0.1em;border-radius: 6px;margin-right: 4px;">
+      `<mark style="background-color:${s.color};color: white;padding: 0.1em;border-radius: 6px;margin-right: 4px;text-align: center">
         ${s.text}
        </mark>`
       ).join('')

@@ -744,7 +744,6 @@ const websiteData = {
         "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications. ",
       status: [
         { text: "Under Review", color: "#B31515" },
-        { text: "Finalizing Submissions", color: "#FFA62B" },
       ],
       team: {
         principalInvestigator: ["DHMAI"],
@@ -757,11 +756,14 @@ const websiteData = {
       id: "PRIoTP",
       name: "PRIoTP",
       shortDescription:
-        "Novel Partially Reliable Application Protocol for IoT devices",
+        "Novel Partially Reliable Application Protocol for IoT devices ",
       banner: "images/banner5.png",
       description:
         "PRIoTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRIoTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
-      team: {
+      status: [
+        { text:  "Under Review", color: "#B31515" },
+      ],
+        team: {
         principalInvestigator: ["DHMAI"],
         externalAdvisors: [],
         teamLeads: ["AS", "MIO"],
@@ -804,6 +806,9 @@ const websiteData = {
         items: [
           "P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, J.T. Maowa, M. Rahman, 2026. Integration and Validation of Map Data in the ONE Simulator: IoV in Dhaka City Perspective. 28th International Conference on Computer and Information Technology, IEEE (ICCIT) ",
           "S.M.N. Shahriar, P. Akibuzzaman, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, 2026. The Impact of Pedestrian Movement on IoV Performance and Simulation. 28th International Conference on Computer and Information Technology, IEEE (ICCIT)",
+          "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
+          "M.I. Ohi, A. Sajid, P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, H.M.A. Islam, M.R. Maharaz. Design and Implementation of a Generative Pre-Trained Transformer for Universities of Bangladesh, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
+          "M.R. Maharaz, F. Ahmad, M.F.H. Dipto, M.M.H Shafin, S.M.N. Shahriar, P. Akibuzzaman, H.M.A. Islam. Emulating Sensor Profile Towards IoT Simulator Development, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
         ],
       },
       {
@@ -852,9 +857,7 @@ const websiteData = {
       {
         year: "2026",
         items: [
-          "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
-          "M.I. Ohi, A. Sajid, P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, H.M.A. Islam, M.R. Maharaz. Design and Implementation of a Generative Pre-Trained Transformer for Universities of Bangladesh, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
-          "M.R. Maharaz, F. Ahmad, M.F.H. Dipto, M.M.H Shafin, S.M.N. Shahriar, P. Akibuzzaman, H.M.A. Islam. Emulating Sensor Profile Towards IoT Simulator Development, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
+          "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, H.M.A. Islam, M.Georgiades, and M.Masum. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)"
         ],
       },
     ],
