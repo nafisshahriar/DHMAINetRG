@@ -847,7 +847,8 @@ const websiteData = {
         items: [
           "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, H.M.A. Islam, M.Georgiades, and M.Masum. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)",
           "H.M.A. Islam, M.R. Maharaz, S.M.N. Shahriar, P.Akibuzzaman, S.Nath, M.I. Ohi, M.Georgiades, and R.Islam. STGen: A Lightweight Protocol-Agnostic Sensor Testbed for Scenario-Based IoT Protocol Evaluation, Elsevier (JSA)",
-          "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, Elsevier (SIMPAT)"
+          "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, Elsevier (SIMPAT)",
+          "Authors: Hasan Mahmood Aminul Islam, Mahamudur Rahman Maharaz, Faisal Ahmed, Mahir Faysal Haque Dipto and Md. Minhajul Haque Shafin (East West University, Bangladesh); Michael Georgiades (2 Danais Avenue & Neapolis University, Cyprus). Towards a Protocol-Agnostic Universal Middleware for IoT with Edge Intelligence"
         ],
       },
     ],
