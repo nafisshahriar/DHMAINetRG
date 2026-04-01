@@ -731,7 +731,7 @@ const websiteData = {
       description:
         "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications. ",
       status: [
-        { text: "Under Review", color: "#B31515" },
+        // { text: "Under Review", color: "#B31515" },
       ],
       team: {
         principalInvestigator: ["DHMAI"],
@@ -749,7 +749,7 @@ const websiteData = {
       description:
         "PRIoTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRIoTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
       status: [
-        { text:  "Under Review", color: "#B31515" },
+        // { text:  "Under Review", color: "#B31515" },
       ],
         team: {
         principalInvestigator: ["DHMAI"],
@@ -797,6 +797,8 @@ const websiteData = {
           "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
           "M.I. Ohi, A. Sajid, P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, H.M.A. Islam, M.R. Maharaz. Design and Implementation of a Generative Pre-Trained Transformer for Universities of Bangladesh, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
           "M.R. Maharaz, F. Ahmad, M.F.H. Dipto, M.M.H Shafin, S.M.N. Shahriar, P. Akibuzzaman, H.M.A. Islam. Emulating Sensor Profile Towards IoT Simulator Development, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
+          "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, M. Masum, H.M.A. Islam and M.Georgiades. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)",
+          "Hasan Mahmood Aminul Islam, Mahamudur Rahman Maharaz, Faisal Ahmed, Mahir Faysal Haque Dipto and Md. Minhajul Haque Shafin (East West University, Bangladesh); Michael Georgiades (2 Danais Avenue & Neapolis University, Cyprus). Towards a Protocol-Agnostic Universal Middleware for IoT with Edge Intelligence (DCOSS-IoT)",
         ],
       },
       {
@@ -845,10 +847,10 @@ const websiteData = {
       {
         year: "2026",
         items: [
-          "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, H.M.A. Islam, M.Georgiades, and M.Masum. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)",
+          
           "H.M.A. Islam, M.R. Maharaz, S.M.N. Shahriar, P.Akibuzzaman, S.Nath, M.I. Ohi, M.Georgiades, and R.Islam. STGen: A Lightweight Protocol-Agnostic Sensor Testbed for Scenario-Based IoT Protocol Evaluation, Elsevier (JSA)",
           "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, Elsevier (SIMPAT)",
-          "Authors: Hasan Mahmood Aminul Islam, Mahamudur Rahman Maharaz, Faisal Ahmed, Mahir Faysal Haque Dipto and Md. Minhajul Haque Shafin (East West University, Bangladesh); Michael Georgiades (2 Danais Avenue & Neapolis University, Cyprus). Towards a Protocol-Agnostic Universal Middleware for IoT with Edge Intelligence (DCOSS-IoT)"
+          
         ],
       },
     ],
