@@ -226,45 +226,13 @@ function memberDetailPage(member) {
     `
       : "";
 
-  const publicationsSection = isPrincipal
-    ? `
-        <h3 style="color: #2c50b1;" class="subsection-title">📜 Publications:</h3>
-        <ul>
-            ${websiteData.publications.years
-              .map(
-                (yearData) => `
-                <strong>${yearData.year} :</strong>
-                ${yearData.items.map((pub, idx) => `<li>${pub}</li>`).join("")}
-                ${yearData !== websiteData.publications.years[websiteData.publications.years.length - 1] ? "<br>" : ""}
-            `,
-              )
-              .join("")}
-        </ul>
-    `
-    : isAdvisor
-      ? `
-        <h3 style="color: #2c50b1;" class="subsection-title">📜 Publications:</h3>
-        <ul>
-            <div class="extlink">
-                <strong>Visit <a href="${member.scholar}" target="_blank" style="color: #2c50b1;">Google Scholar</a> or <a href="https://dblp.org/pid/${member.id === "DRI" ? "86/11241" : "29/4927"}.html" target="_blank" style="color: #2c50b1;">DBLP</a> for more information</strong>
-            </div>
-        </ul>
-    `
-      : member.publications
-        ? `
-        <h3 style="color: #2c50b1;" class="subsection-title">📜 Publications:</h3>
-        <ul>
-            ${member.publications.papers
-              .map(
-                (pub) => `
-                <strong>${pub.year} :</strong>
-                ${pub.items.map((pub, idx) => `<li>${pub}</li>`).join("")} 
-            `,
-              )
-              .join("")}
-        </ul>
-    `
-        : "";
+  const publicationsSection = `
+  <h3 style="color: #2c50b1;" class="subsection-title">
+    📄 Publications:
+  </h3>
+
+  <div class="papers" data-name="${member.name}"></div>
+`;
 
   detailPage.innerHTML = `
         <div class="spacing"></div>
@@ -301,6 +269,48 @@ function memberDetailPage(member) {
     `;
 }
 
+function loadPapers() {
+  fetch('js/dynamic.json')
+    .then(res => res.json())
+    .then(data => {
+      const containers = document.querySelectorAll('.papers');
+
+      containers.forEach(container => {
+        const memberName = container.getAttribute('data-name');
+
+        const filtered = data.filter(paper =>
+          paper.authors.includes(memberName)
+        );
+
+        if (filtered.length === 0) {
+          container.innerHTML = "<p>No publications yet</p>";
+          return;
+        }
+
+        const byYear = {};
+        filtered.forEach(paper => {
+          if (!byYear[paper.year]) byYear[paper.year] = [];
+          byYear[paper.year].push(paper);
+        });
+
+        const sortedYears = Object.keys(byYear).sort((a, b) => b - a);
+
+        let html = "";
+        let counter = 1;
+
+        sortedYears.forEach(year => {
+          html += `<h4 style="margin-top:1em;">${year} :</h4><ul>`;
+          byYear[year].forEach(paper => {
+            html += `<li>[${counter++}] ${paper.title}</li>`;
+          });
+          html += `</ul>`;
+        });
+
+        container.innerHTML = html;
+      });
+    });
+}
+
 // all member detail pages
 function allMemberPage() {
   const pi = websiteData.team.principalInvestigator;
@@ -312,6 +322,8 @@ function allMemberPage() {
   advisors.forEach((advisor) => memberDetailPage(advisor));
 
   researchers.forEach((researcher) => memberDetailPage(researcher));
+
+  loadPapers();
 }
 
 const websiteData = {
@@ -435,16 +447,6 @@ const websiteData = {
           "EWU Intra University Programming Contest 2023, <strong>Rank: 1 (Junior Category)</strong>",
           "Merit Scholarship & Dean List, East West University - Fall 2023",
         ],
-        publications: {
-          papers: [
-            {
-              year: "2025",
-              items: [
-                "Hasan Ma Islam, Md Khalid M Khan, M Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees. IEEE Access 13: 50727-50740 (2025)",
-              ],
-            },
-          ],
-        },
       },
       {
         id: "SMNS",
@@ -792,6 +794,7 @@ const websiteData = {
       {
         year: "2026",
         items: [
+          "Michael Georgiades, Iacovos Ioanno, Hasan Mahmood Aminul Islam, Kin-Hon Ho, Yun Hou, Andreas Gregoriades. Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection IFIP Networking 2026",
           "P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, J.T. Maowa, M. Rahman, 2026. Integration and Validation of Map Data in the ONE Simulator: IoV in Dhaka City Perspective. 28th International Conference on Computer and Information Technology, IEEE (ICCIT) ",
           "S.M.N. Shahriar, P. Akibuzzaman, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, 2026. The Impact of Pedestrian Movement on IoV Performance and Simulation. 28th International Conference on Computer and Information Technology, IEEE (ICCIT)",
           "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
