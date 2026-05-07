@@ -301,7 +301,13 @@ function loadPapers() {
         sortedYears.forEach(year => {
           html += `<h4 style="margin-top:1em;">${year} :</h4><ul>`;
           byYear[year].forEach(paper => {
-            html += `<li>[${counter++}] ${paper.title}</li>`;
+            let title = paper.title;
+            if (paper.highlightForMember && paper.highlightForMember[memberName]) {
+              paper.highlightForMember[memberName].forEach(name => {
+                title = title.replace(name, `<strong>${name}</strong>`);
+              });
+            }
+            html += `<li>[${counter++}] ${title}</li>`;
           });
           html += `</ul>`;
         });
@@ -794,7 +800,8 @@ const websiteData = {
       {
         year: "2026",
         items: [
-          "Michael Georgiades, Iacovos Ioanno, Hasan Mahmood Aminul Islam, Kin-Hon Ho, Yun Hou, Andreas Gregoriades. Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection IFIP Networking 2026",
+          "Michael Georgiades, Charalambia Varnava, Andreas Gregoriades, Iacovos Ioannou, Lakis Christodoulou, Hasan Mahmood Aminul Islam, Kin-Hon Ho and Yun Hou. From Correlation to Causation in Intrusion Detection Systems: A Double Machine Learning Approach for IoT Network Behaviour Analysis, 2026. IEEE SecRIoT workshop/DCOSS-IoT 2026",
+          "Michael Georgiades, Iacovos Ioanno, Hasan Mahmood Aminul Islam, Kin-Hon Ho, Yun Hou, Andreas Gregoriades. Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection IFIP Networking 2026 - TX4Nets Workshop",
           "P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, J.T. Maowa, M. Rahman, 2026. Integration and Validation of Map Data in the ONE Simulator: IoV in Dhaka City Perspective. 28th International Conference on Computer and Information Technology, IEEE (ICCIT) ",
           "S.M.N. Shahriar, P. Akibuzzaman, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, 2026. The Impact of Pedestrian Movement on IoV Performance and Simulation. 28th International Conference on Computer and Information Technology, IEEE (ICCIT)",
           "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
