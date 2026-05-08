@@ -1,4 +1,24 @@
 [
+
+    {
+        "title": "Md MR Maharaz, MI Ohi, MAU Zaman, A Sajid, Sadia FI, P Akibuzzaman, Md Masum, SMN Shahriar, NR Aurna, Hasan MA Islam, and Michael Georgiades. PRIoTP: Towards Context-Aware Partial Reliable Application-LayerIoT Protocol with Edge Intelligence, 2026. ISIoT 2026",
+        "authors": ["Mahmudur Rahman Mehraj", "Mahdin Islam Ohi", "Md. Ashik-Uz-Zaman", "Abdullah Sajid", "Sadia Fahmida Islam", "Pulok Akibuzzaman", "Masum", "S. M. Nafis Shahriar", "Nusrat Rahman Aurna", "Hasan Mahmood Aminul Islam", "Michael Georgiades"],
+        "highlightForMember": {
+            "Mahmudur Rahman Mehraj": ["Md MR Maharaz"],
+            "Mahdin Islam Ohi": ["MI Ohi"],
+            "Md. Ashik-Uz-Zaman": ["MAU Zaman"],
+            "Abdullah Sajid": ["A Sajid"],
+            "Sadia Fahmida Islam": ["Sadia FI"],
+            "Pulok Akibuzzaman": ["P Akibuzzaman"],
+            "Masum": ["Md Masum"],
+            "S. M. Nafis Shahriar": ["SMN Shahriar"],
+            "Nusrat Rahman Aurna": ["NR Aurna"],
+            "Hasan Mahmood Aminul Islam": ["Hasan MA Islam"],
+            "Michael Georgiades": ["Michael Georgiades"]
+        },
+        "year": "2026"
+    },
+
     {
         "title": "Michael Georgiades, Charalambia Varnava, Andreas Gregoriades, Iacovos Ioannou, Lakis Christodoulou, Hasan Mahmood Aminul Islam, Kin-Hon Ho and Yun Hou. From Correlation to Causation in Intrusion Detection Systems: A Double Machine Learning Approach for IoT Network Behaviour Analysis, 2026. IEEE SecRIoT workshop/DCOSS-IoT 2026",
         "authors": ["Hasan Mahmood Aminul Islam", "Michael Georgiades"],

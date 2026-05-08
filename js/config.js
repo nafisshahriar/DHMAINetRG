@@ -800,6 +800,7 @@ const websiteData = {
       {
         year: "2026",
         items: [
+          "Md MR Maharaz, MI Ohi, MAU Zaman, A Sajid, Sadia FI, P Akibuzzaman, Md Masum, SMN Shahriar, NR Aurna, Hasan MA Islam, and Michael Georgiades. PRIoTP: Towards Context-Aware Partial Reliable Application-LayerIoT Protocol with Edge Intelligence, 2026. ISIoT 2026",
           "Michael Georgiades, Charalambia Varnava, Andreas Gregoriades, Iacovos Ioannou, Lakis Christodoulou, Hasan Mahmood Aminul Islam, Kin-Hon Ho and Yun Hou. From Correlation to Causation in Intrusion Detection Systems: A Double Machine Learning Approach for IoT Network Behaviour Analysis, 2026. IEEE SecRIoT workshop/DCOSS-IoT 2026",
           "Michael Georgiades, Iacovos Ioanno, Hasan Mahmood Aminul Islam, Kin-Hon Ho, Yun Hou, Andreas Gregoriades. Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection IFIP Networking 2026 - TX4Nets Workshop",
           "P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, J.T. Maowa, M. Rahman, 2026. Integration and Validation of Map Data in the ONE Simulator: IoV in Dhaka City Perspective. 28th International Conference on Computer and Information Technology, IEEE (ICCIT) ",
