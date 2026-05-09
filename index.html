@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DHMAI-NetRG</title>
     <link rel="stylesheet" href="css/rg.css" />
-    <!-- Add this line -->
+    <link rel="stylesheet" href="css/certificates.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <!-- Add this line -->
     <link rel="icon" href="images/rglogo2.jpg" type="image/png" />
   </head>
 
@@ -33,18 +32,18 @@
         });
       </script>
 
-      <button class="tablinks" onclick="togglePubMenu()">
-  Publications ▾
+      <button class="tablinks" onclick="togglePubMenu()">Publications ▾</button>
+      <div id="pubMenu" class="submenu">
+        <button class="tablinks" onclick="openTab(event, 'ListPub')">
+          Published
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'ListSub')">
+          Under Review
+        </button>
+      </div>
+      <button class="tablinks" onclick="openTab(event, 'CertificatesPage')">
+        Certificates
       </button>
-         <div id="pubMenu" class="submenu">
-      <button class="tablinks" onclick="openTab(event, 'ListPub')">
-        Published
-      </button>
-      <button class="tablinks" onclick="openTab(event, 'ListSub')">
-        Under Review
-      </button>
-    </div>
-
       <button class="tablinks" onclick="openTab(event, 'WorkinProg')">
         Works in Progress
       </button>
@@ -69,54 +68,55 @@
     <div id="ListSub" class="tabcontent"></div>
     <div id="WorkinProg" class="tabcontent"></div>
     <div id="AboutPage" class="tabcontent"></div>
+    <div id="CertificatesPage" class="tabcontent"></div>
 
     <div>
       <div id="DHMAI" class="tabcontent">
-       <h3>Publications</h3>
-       <div class="papers" data-name="Hasan Mahmood Aminul Islam"></div>
+        <h3>Publications</h3>
+        <div class="papers" data-name="Hasan Mahmood Aminul Islam"></div>
       </div>
       <div id="DRI" class="tabcontent"></div>
       <div id="DMG" class="tabcontent">
-       <h3>Publications</h3>
-       <div class="papers" data-name="Michael Georgiades"></div>
+        <h3>Publications</h3>
+        <div class="papers" data-name="Michael Georgiades"></div>
       </div>
       <div id="MRM" class="tabcontent">
-       <h3>Publications</h3>
-       <div class="papers" data-name="Mahmudur Rahman Mehraj"></div>
+        <h3>Publications</h3>
+        <div class="papers" data-name="Mahmudur Rahman Mehraj"></div>
       </div>
       <div id="SMNS" class="tabcontent">
-       <h3>Publications</h3>
-       <div class="papers" data-name="S. M. Nafis Shahriar"></div>
+        <h3>Publications</h3>
+        <div class="papers" data-name="S. M. Nafis Shahriar"></div>
       </div>
       <div id="PA" class="tabcontent">
-       <h3>Publications</h3>
-       <div class="papers" data-name="Pulok Akibuzzaman"></div>
+        <h3>Publications</h3>
+        <div class="papers" data-name="Pulok Akibuzzaman"></div>
       </div>
       <div id="MIO" class="tabcontent">
-       <h3>Publications</h3>
-       <div class="papers" data-name="Mahdin Islam Ohi"></div>
+        <h3>Publications</h3>
+        <div class="papers" data-name="Mahdin Islam Ohi"></div>
       </div>
       <!--<div id="MR" class="tabcontent"></div>-->
       <div id="AS" class="tabcontent">
-       <h3>Publications</h3>
-       <div class="papers" data-name="Abdullah Sajid"></div>
+        <h3>Publications</h3>
+        <div class="papers" data-name="Abdullah Sajid"></div>
       </div>
       <!--<div id="HE" class="tabcontent"></div>-->
-      <div id="MAUZ" class="tabcontent"> 
-       <h3>Publications</h3>
-       <div class="papers" data-name="Md. Ashik-Uz-Zaman"></div>
+      <div id="MAUZ" class="tabcontent">
+        <h3>Publications</h3>
+        <div class="papers" data-name="Md. Ashik-Uz-Zaman"></div>
       </div>
       <div id="SFI" class="tabcontent">
-       <h3>Publications</h3>
-       <div class="papers" data-name="Sadia Fahmida Islam"></div>
+        <h3>Publications</h3>
+        <div class="papers" data-name="Sadia Fahmida Islam"></div>
       </div>
       <div id="NRA" class="tabcontent">
-       <h3>Publications</h3>
-       <div class="papers" data-name="Nusrat Rahman Aurna"></div>
+        <h3>Publications</h3>
+        <div class="papers" data-name="Nusrat Rahman Aurna"></div>
       </div>
       <div id="MASUM" class="tabcontent">
-       <h3>Publications</h3>
-       <div class="papers" data-name="Masum"></div>
+        <h3>Publications</h3>
+        <div class="papers" data-name="Masum"></div>
       </div>
       <!--Members below will not be shown on the homepage but on specific projects-->
       <div id="FI" class="tabcontent"></div>
@@ -165,7 +165,8 @@
     <script src="js/workInProgress.js"></script>
     <script src="js/aboutPage.js"></script>
     <script src="js/projectPages.js"></script>
-    <script src="js/upcomingPage.js"></script> 
+    <script src="js/upcomingPage.js"></script>
+    <script src="js/certificatespage.js"></script>
     <script>
       // Initialize when DOM is loaded
       document.addEventListener("DOMContentLoaded", function () {
@@ -177,20 +178,21 @@
         allProjectPages();
         allUpcomingProjectPages();
         submissionsPage();
+        certificatesPage();
 
         // Handle initial tab/hash
         let tab = window.location.hash.replace("#", "") || "homepage";
         if (document.getElementById(tab)) {
           openTab(null, tab, false);
-        } else { 
+        } else {
           document.getElementById("homepage").style.display = "block";
         }
       });
       function togglePubMenu() {
-       const menu = document.getElementById("pubMenu");
+        const menu = document.getElementById("pubMenu");
 
         if (menu.style.display === "flex") {
-        menu.style.display = "none";
+          menu.style.display = "none";
         } else {
           menu.style.display = "flex";
         }

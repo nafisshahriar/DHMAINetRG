@@ -1,0 +1,380 @@
+/* ── Section title ───────────────────────────────── */
+.certificates-section {
+  margin-top: 2rem;
+}
+
+/* ── Category filter bar ─────────────────────────── */
+.cert-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.cert-filter-btn {
+  padding: 0.42rem 1.1rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 999px;
+  background: #fff;
+  color: #475569;
+  font-size: 0.82rem;
+  font-family: Figtree, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cert-filter-btn:hover {
+  border-color: #2c50b1;
+  color: #2c50b1;
+  background: #eff4ff;
+}
+
+.cert-filter-btn.active {
+  background: #2c50b1;
+  border-color: #2c50b1;
+  color: #fff;
+}
+
+/* ── Card list ───────────────────────────────────── */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ── Horizontal card ─────────────────────────────── */
+.cert-card-h {
+  display: flex;
+  gap: 1.2rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.cert-card-h:hover {
+  box-shadow: 0 8px 28px rgba(44, 80, 177, 0.13);
+  transform: translateY(-2px);
+}
+
+/* ── Thumbnail (left column) ─────────────────────── */
+.cert-thumb-h {
+  position: relative;
+  flex-shrink: 0;
+  width: 220px;
+  min-height: 148px;
+  background: #f1f5f9;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cert-thumb-h img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.cert-card-h:hover .cert-thumb-h img {
+  transform: scale(1.05);
+}
+
+.cert-overlay-h {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.cert-card-h:hover .cert-overlay-h {
+  opacity: 1;
+}
+
+.cert-overlay-h i {
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+/* Placeholder */
+.cert-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 148px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 100%);
+  gap: 0.5rem;
+}
+
+.cert-placeholder i {
+  font-size: 2.2rem;
+  color: #3b82f6;
+  opacity: 0.65;
+}
+
+.cert-placeholder span {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+/* ── Info (right column) ─────────────────────────── */
+.cert-info-h {
+  flex: 1;
+  padding: 1.1rem 1.2rem 1.1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  justify-content: center;
+}
+
+/* ── Category tag ────────────────────────────────── */
+.cert-tag-row {
+  margin-bottom: 0.2rem;
+}
+
+.cert-tag {
+  display: inline-block;
+  padding: 0.22rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: Figtree, sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ── Text rows ───────────────────────────────────── */
+.cert-title-h {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+  cursor: pointer;
+  font-family: Figtree, sans-serif;
+}
+
+.cert-title-h:hover {
+  color: #2c50b1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cert-event-h,
+.cert-recipient-h,
+.cert-date-h {
+  font-size: 0.8rem;
+  color: #475569;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-family: Ubuntu, sans-serif;
+  line-height: 1.45;
+}
+
+.cert-event-h i,
+.cert-recipient-h i,
+.cert-date-h i {
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+.cert-date-h {
+  color: #94a3b8;
+}
+
+/* ── Action buttons row ──────────────────────────── */
+.cert-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* View button */
+.cert-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 1rem;
+  background: #2c50b1;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.8rem;
+  font-family: Figtree, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.cert-view-btn:hover {
+  background: #1e3a8a;
+}
+
+/* Download button */
+.cert-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 1rem;
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1.5px solid #86efac;
+  border-radius: 7px;
+  font-size: 0.8rem;
+  font-family: Figtree, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.cert-download-btn:hover {
+  background: #16a34a;
+  color: #fff;
+  border-color: #16a34a;
+}
+
+.cert-download-btn.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Empty state ─────────────────────────────────── */
+.cert-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-family: Ubuntu, sans-serif;
+}
+
+/* ─────────────────────────────────────────────────────
+   LIGHTBOX MODAL
+───────────────────────────────────────────────────── */
+.cert-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: certFadeIn 0.2s ease;
+}
+
+@keyframes certFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.cert-modal-box {
+  background: #fff;
+  border-radius: 16px;
+  max-width: 820px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  animation: certSlideUp 0.25s ease;
+  position: relative;
+}
+
+@keyframes certSlideUp {
+  from { transform: translateY(28px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.cert-modal-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+.cert-modal-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.9rem;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.1rem;
+  height: 2.1rem;
+  font-size: 1.15rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  line-height: 1;
+  z-index: 10;
+}
+
+.cert-modal-close:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* ─────────────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cert-card-h {
+    flex-direction: column;
+  }
+
+  .cert-thumb-h {
+    width: 100%;
+    min-height: 180px;
+  }
+
+  .cert-info-h {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  .cert-modal-box {
+    max-height: 95vh;
+  }
+
+  .cert-modal-info {
+    padding: 1rem 1.1rem 1.2rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .cert-filter-bar {
+    gap: 0.35rem;
+  }
+
+  .cert-filter-btn {
+    font-size: 0.76rem;
+    padding: 0.35rem 0.85rem;
+  }
+
+  .cert-actions {
+    flex-direction: column;
+  }
+
+  .cert-view-btn,
+  .cert-download-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
