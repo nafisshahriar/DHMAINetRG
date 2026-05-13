@@ -43,6 +43,14 @@ const certificates = [
     category  : "presentation",
     image     : "images/certificates/4887.jpg",
   },
+  {
+    title     : "Emulating Sensor Profile Towards IoT Simulator Development",
+    event     : "2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN 2026)",
+    recipient : "Md. Mahamudur Rahman, Faisal Ahmed, Mahir Faysal Haque Dipto, Md. Minhajul Haque Shafin, S. M. Nafis Shahriar, Pulok Akibuzzaman, Dr. Hasan Mahmood Aminul Islam",
+    date      : "16–18 December 2026",
+    category  : "presentation",
+    image     : "images/certificates/4865.png",
+  },
 ];
 
 // certificatesPage() 

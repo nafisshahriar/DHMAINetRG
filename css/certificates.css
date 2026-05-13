@@ -180,6 +180,7 @@
   gap: 0.4rem;
   font-family: Ubuntu, sans-serif;
   line-height: 1.45;
+  text-align: left;
 }
 
 .cert-event-h i,
