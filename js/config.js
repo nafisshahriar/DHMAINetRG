@@ -1031,7 +1031,7 @@ const websiteData = {
         year: "2026",
         items: [
           "H.M.A. Islam, M.R. Maharaz, S.M.N. Shahriar, P.Akibuzzaman, S.Nath, M.I. Ohi, M.Georgiades, and R.Islam. STGen: A Lightweight Protocol-Agnostic Sensor Testbed for Scenario-Based IoT Protocol Evaluation, Elsevier (JSA)",
-          "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, Elsevier (SIMPAT)",
+          "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, IEEE Access",
         ],
       },
     ],
