@@ -270,16 +270,16 @@ function memberDetailPage(member) {
 }
 
 function loadPapers() {
-  fetch('js/dynamic.json')
-    .then(res => res.json())
-    .then(data => {
-      const containers = document.querySelectorAll('.papers');
+  fetch("js/dynamic.json")
+    .then((res) => res.json())
+    .then((data) => {
+      const containers = document.querySelectorAll(".papers");
 
-      containers.forEach(container => {
-        const memberName = container.getAttribute('data-name');
+      containers.forEach((container) => {
+        const memberName = container.getAttribute("data-name");
 
-        const filtered = data.filter(paper =>
-          paper.authors.includes(memberName)
+        const filtered = data.filter((paper) =>
+          paper.authors.includes(memberName),
         );
 
         if (filtered.length === 0) {
@@ -288,7 +288,7 @@ function loadPapers() {
         }
 
         const byYear = {};
-        filtered.forEach(paper => {
+        filtered.forEach((paper) => {
           if (!byYear[paper.year]) byYear[paper.year] = [];
           byYear[paper.year].push(paper);
         });
@@ -298,12 +298,15 @@ function loadPapers() {
         let html = "";
         let counter = 1;
 
-        sortedYears.forEach(year => {
+        sortedYears.forEach((year) => {
           html += `<h4 style="margin-top:1em;">${year} :</h4><ul>`;
-          byYear[year].forEach(paper => {
+          byYear[year].forEach((paper) => {
             let title = paper.title;
-            if (paper.highlightForMember && paper.highlightForMember[memberName]) {
-              paper.highlightForMember[memberName].forEach(name => {
+            if (
+              paper.highlightForMember &&
+              paper.highlightForMember[memberName]
+            ) {
+              paper.highlightForMember[memberName].forEach((name) => {
                 title = title.replace(name, `<strong>${name}</strong>`);
               });
             }
@@ -686,7 +689,7 @@ const websiteData = {
   projects: [
     {
       id: "CCN-IoV",
-      name: "CCN-IoV",
+      name: "CCN-DA",
       shortDescription:
         "Network Data Analytics in Information-Based Internet of Vehicles",
       banner: "images/banner8.png",
@@ -713,24 +716,22 @@ const websiteData = {
         teamMembers: ["MFHD", "FA", "MS"],
       },
     },
-    {
-      id: "OppNDA",
-      name: "OppNDA",
-      shortDescription:
-        "Opportunistic Network Simulation Automation and Big Data Analytics ",
-      banner: "images/banner3.png",
-      description:
-        "OppNDA is a research project focused on simulation automation and big data analytics with data visualization. It aims to assist researchers in analyzing and visualizing data from opportunistic network simulations. OppNDA offers GUI that simplifies the simulation and post-processing configuration. It is a one-click solution to streamline simulation and visualization pipeline",
-      status: [
-        { text: "Under Review", color: "#B31515" },
-      ],
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: ["DMG"],
-        teamLeads: ["MRM", "SMNS"],
-        teamMembers: ["PA", "FI"],
-      },
-    },
+    // {
+    //   id: "OppNDA",
+    //   name: "OppNDA",
+    //   shortDescription:
+    //     "Opportunistic Network Simulation Automation and Big Data Analytics ",
+    //   banner: "images/banner3.png",
+    //   description:
+    //     "OppNDA is a research project focused on simulation automation and big data analytics with data visualization. It aims to assist researchers in analyzing and visualizing data from opportunistic network simulations. OppNDA offers GUI that simplifies the simulation and post-processing configuration. It is a one-click solution to streamline simulation and visualization pipeline",
+    //   status: [{ text: "Under Review", color: "#B31515" }],
+    //   team: {
+    //     principalInvestigator: ["DHMAI"],
+    //     externalAdvisors: ["DMG"],
+    //     teamLeads: ["MRM", "SMNS"],
+    //     teamMembers: ["PA", "FI"],
+    //   },
+    // },
     {
       id: "STGen",
       name: "STGen",
@@ -748,22 +749,182 @@ const websiteData = {
         teamMembers: ["SMNS", "PA", "MIO"],
       },
     },
+    // {
+    //   id: "PRIoTP",
+    //   name: "PRIoTP",
+    //   shortDescription:
+    //     "Novel Partially Reliable Application Protocol for IoT devices ",
+    //   banner: "images/banner5.png",
+    //   description:
+    //     "PRIoTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRIoTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
+    //   status: [
+    //     // { text:  "Under Review", color: "#B31515" },
+    //   ],
+    //   team: {
+    //     principalInvestigator: ["DHMAI"],
+    //     externalAdvisors: [],
+    //     teamLeads: ["AS", "MIO"],
+    //     teamMembers: ["MAUZ", "MASUM", "HE", "NRA", "SFI"],
+    //   },
+    // },
     {
-      id: "PRIoTP",
-      name: "PRIoTP",
+      id: "CTRBM",
+      name: "CTRBM",
       shortDescription:
-        "Novel Partially Reliable Application Protocol for IoT devices ",
-      banner: "images/banner5.png",
+        "Cross-tier routing and bundle management enable resilient data transmission in UAV networks by overcoming frequent link disruptions and topological changes.",
+      banner: "images/default_banner4.png",
       description:
-        "PRIoTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRIoTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
-      status: [
-        // { text:  "Under Review", color: "#B31515" },
-      ],
-        team: {
+        "Cross-tier routing and bundle management in disruption-tolerant UAV networks utilize hierarchical architectures and store-carry-forward mechanisms. They combine satellite, high-altitude platform, and low-altitude UAV layers with Delay/Disruption-Tolerant Networking (DTN) protocols to ensure reliable communication despite intermittent connectivity and resource constraints.",
+      status: [],
+      team: {
         principalInvestigator: ["DHMAI"],
         externalAdvisors: [],
-        teamLeads: ["AS", "MIO"],
-        teamMembers: ["MAUZ", "MASUM", "HE", "NRA", "SFI"],
+        teamLeads: ["PA"],
+        teamMembers: ["SMNS", "MASUM", "NRA", "MAUZ"],
+      },
+    },
+    {
+      id: "ECCN",
+      name: "ECCN",
+      shortDescription:
+        "Energy efficiency relies on balancing router caching with retrieval distances in Content-Centric Networks.",
+      banner: "images/default_banner1.jpg",
+      description:
+        "This research investigates energy-aware caching and forwarding strategies in Content-Centric Networking (CCN). The objective is to reduce energy consumption while maintaining efficient content delivery by optimizing cache placement and retrieval paths.",
+      status: [],
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["MASUM"],
+        teamMembers: ["PA", "SMNS", "NRA"],
+      },
+    },
+    {
+      id: "GDINMT",
+      name: "GDINMT",
+      shortDescription:
+        "Analyzing how malicious traffic distorts the geometric structure of IoT network manifolds.",
+      banner: "images/default_banner4.png",
+      description:
+        "This project investigates the impact of adversarial and malicious traffic patterns on the underlying manifold representation of IoT networks. The goal is to identify distortion patterns and develop robust mechanisms for anomaly detection and network resilience.",
+      status: [],
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["SMNS"],
+        teamMembers: ["MAUZ", "SFI", "AS"],
+      },
+    },
+    {
+      id: "PRIoTPS",
+      name: "PRIoTPS",
+      shortDescription:
+        "A multi-layer security architecture designed for resource-constrained IoT environments.",
+      banner: "images/banner5.png",
+      description:
+        "PRIoTPS introduces adaptive security mechanisms across multiple layers of IoT communication stacks. The framework balances security requirements with limited computational and energy resources, ensuring secure and efficient operation in constrained environments.",
+      status: [],
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["MIO"],
+        teamMembers: ["MAUZ", "SFI"],
+      },
+    },
+    {
+      id: "CCNI",
+      name: "CCNI",
+      shortDescription:
+        "Detection and mitigation of cache poisoning, content injection, and interest flooding attacks in CCN.",
+      banner: "images/default_banner1.jpg",
+      description:
+        "This research focuses on identifying and mitigating major security threats in Content-Centric Networking, including cache poisoning, content injection, and interest flooding attacks. The project aims to improve network resilience and content integrity.",
+      status: [],
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["SFI"],
+        teamMembers: ["HE", "MAUZ", "AS", "MIO"],
+      },
+    },
+    {
+      id: "NASE",
+      name: "NASE",
+      shortDescription:
+        "A framework for emulating authenticated sensor behavior within network environments.",
+      banner: "images/default_banner4.png",
+      description:
+        "The project develops authentication-aware sensor emulation techniques to support testing, validation, and security evaluation of IoT infrastructures and networked sensing systems.",
+      status: [],
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["AS"],
+        teamMembers: [],
+      },
+    },
+    {
+      id: "RDAMS",
+      name: "RDAMS",
+      shortDescription:
+        "Strategies for detecting and mitigating resource depletion attacks in network systems.",
+      banner: "images/default_banner4.png",
+      description:
+        "This project investigates techniques to identify and prevent resource depletion attacks that exhaust computational, memory, or communication resources. The objective is to improve system availability and resilience.",
+      status: [],
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["MAUZ"],
+        teamMembers: ["SFI", "AS", "MIO"],
+      },
+    },
+    {
+      id: "CCIP",
+      name: "CCIP",
+      shortDescription:
+        "A content-centric IP routing architecture for delay-tolerant networking environments.",
+      banner: "images/default_banner1.jpg",
+      description:
+        "CCIP integrates content-centric networking concepts with IP routing to improve data delivery in delay-tolerant and intermittently connected environments. The architecture emphasizes efficient content dissemination and resilience to disruptions.",
+      status: [],
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["PA"],
+        teamMembers: ["SMNS", "NRA", "SFI", "MASUM"],
+      },
+    },
+    {
+      id: "PECCIV",
+      name: "PECCIV",
+      shortDescription:
+        "Improving content delivery efficiency in vehicular networks through cooperative caching.",
+      banner: "images/default_banner4.png",
+      description:
+        "This research explores cooperative caching strategies in Content-Centric Internet of Vehicles (CC-IoV) environments. The goal is to reduce latency, improve content availability, and enhance overall network performance.",
+      status: [],
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["NRA"],
+        teamMembers: ["PA", "MASUM"],
+      },
+    },
+    {
+      id: "CCFL",
+      name: "CCFL",
+      shortDescription:
+        "Optimizing federated learning through content-centric caching in mobile and intermittently connected environments.",
+      banner: "images/default_banner1.jpg",
+      description:
+        "This project investigates caching mechanisms that support federated learning across mobile and intermittently connected networks. The objective is to reduce communication overhead, improve model dissemination, and enhance learning efficiency.",
+      status: [],
+      team: {
+        principalInvestigator: ["DHMAI"],
+        externalAdvisors: [],
+        teamLeads: ["MRM"],
+        teamMembers: [],
       },
     },
 
@@ -775,16 +936,27 @@ const websiteData = {
     //   description:
     //     "MapBD is a research project focused on creating map data for opportunistic networks. It focuses primarily on Dhaka city but it is adaptable to other regions as well. MapBD aims to create map data for all the districts and major cities of Bangladesh to give researchers resources for conducting experiments and simulations",
     // },
+
+    //     Mehraj:  MRM
+    // Pulok:  PA
+    // Nafis:  SMNS
+    // Onik:  MAUZ
+    // Ohi:  MIO
+    // Sajid:  AS
+    // Erin:  HE
+    // Sadia:  SFI
+    // Masum:  MASUM
+    // Aurna:  NRA
   ],
   upcomingProjects: [
-    {
-      id: "PRIoTPS",
-      name: "PRIoTPS",
-      shortDescription:
-        "Secured and Partially Reliable Application Protocol for IoT devices",
-      banner: "images/banner3.png",
-      description: "",
-    },
+    // {
+    //   id: "PRIoTPS",
+    //   name: "PRIoTPS",
+    //   shortDescription:
+    //     "Secured and Partially Reliable Application Protocol for IoT devices",
+    //   banner: "images/banner3.png",
+    //   description: "",
+    // },
     {
       id: "FL-ORCH",
       name: "FL-ORCH",
@@ -858,10 +1030,8 @@ const websiteData = {
       {
         year: "2026",
         items: [
-          
           "H.M.A. Islam, M.R. Maharaz, S.M.N. Shahriar, P.Akibuzzaman, S.Nath, M.I. Ohi, M.Georgiades, and R.Islam. STGen: A Lightweight Protocol-Agnostic Sensor Testbed for Scenario-Based IoT Protocol Evaluation, Elsevier (JSA)",
           "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, Elsevier (SIMPAT)",
-          
         ],
       },
     ],
