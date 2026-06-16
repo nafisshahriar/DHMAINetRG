@@ -1004,10 +1004,10 @@ const websiteData = {
             text: "M.R. Maharaz, F. Ahmad, M.F.H. Dipto, M.M.H Shafin, S.M.N. Shahriar, P. Akibuzzaman, H.M.A. Islam. Emulating Sensor Profile Towards IoT Simulator Development, 2026. 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking, IEEE (QPAIN)",
             link: "https://ieeexplore.ieee.org/document/11546398",
           },
-          {
-            text: "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, M. Masum, H.M.A. Islam and M.Georgiades. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)",
-            link: null,
-          },
+          // {
+          //   text: "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, M. Masum, H.M.A. Islam and M.Georgiades. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)",
+          //   link: null,
+          // },
           {
             text: "Hasan Mahmood Aminul Islam, Mahamudur Rahman Maharaz, Faisal Ahmed, Mahir Faysal Haque Dipto and Md. Minhajul Haque Shafin (East West University, Bangladesh); Michael Georgiades (2 Danais Avenue & Neapolis University, Cyprus). Towards a Protocol-Agnostic Universal Middleware for IoT with Edge Intelligence (DCOSS-IoT)",
             link: null,
