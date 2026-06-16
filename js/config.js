@@ -1017,40 +1017,67 @@ const websiteData = {
       {
         year: "2025",
         items: [
-          "Hasan Ma Islam, Md Khalid M Khan, M Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees. IEEE Access 13: 50727-50740 (2025)",
+          {
+            text: "Hasan Ma Islam, Md Khalid M Khan, M Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees. IEEE Access 13: 50727-50740 (2025)",
+            link: null,
+          },
         ],
       },
       {
         year: "2019",
         items: [
-          "Islam, H.M.A., Lagutin, D., Ylä-Jääski, A., Fotiou, N. and Gurtov, A., 2019. Transparent coap services to iot endpoints through icn operator networks. Sensors, 19(6), p.1339. (Impact Factor: 3.847)",
+          {
+            text: "Islam, H.M.A., Lagutin, D., Ylä-Jääski, A., Fotiou, N. and Gurtov, A., 2019. Transparent coap services to iot endpoints through icn operator networks. Sensors, 19(6), p.1339. (Impact Factor: 3.847)",
+            link: null,
+          },
         ],
       },
       {
         year: "2017",
         items: [
-          "Islam, H.M., Chatzopoulos, D., Lagutin, D., Hui, P. and Ylä-Jääski, A., 2017. Boosting the performance of content centric networking using delay tolerant networking mechanisms. IEEE Access, 5, pp.23858-23870. (Impact Factor: 3.367)",
-          "Islam, H.M., Lagutin, D., Lukyanenko, A., Gurtov, A. and Ylä-Jääski, A., 2017, October. CIDOR: Content distribution and retrieval in disaster networks for public protection. In 2017 IEEE 13th international conference on wireless and mobile computing, networking and communications (WiMob) (pp. 324-333). IEEE.",
-          "Islam, H.M., Lagutin, D. and Fotiou, N., 2017, June. Observing IoT resources over ICN. In 2017 IFIP Networking Conference (IFIP Networking) and Workshops (pp. 1-8). IEEE",
-          "Fotiou, N., Xylomenos, G., Polyzos, G.C., Islam, H., Lagutin, D., Hakala, T. and Hakala, E., 2017, September. ICN enabling CoAP Extensions for IP based IoT devices. In Proceedings of the 4th ACM Conference on Information-Centric Networking (pp. 218-219)",
+          {
+            text: "Islam, H.M., Chatzopoulos, D., Lagutin, D., Hui, P. and Ylä-Jääski, A., 2017. Boosting the performance of content centric networking using delay tolerant networking mechanisms. IEEE Access, 5, pp.23858-23870. (Impact Factor: 3.367)",
+            link: null,
+          },
+          {
+            text: "Islam, H.M., Lagutin, D., Lukyanenko, A., Gurtov, A. and Ylä-Jääski, A., 2017, October. CIDOR: Content distribution and retrieval in disaster networks for public protection. In 2017 IEEE 13th international conference on wireless and mobile computing, networking and communications (WiMob) (pp. 324-333). IEEE.",
+            link: null,
+          },
+          {
+            text: "Islam, H.M., Lagutin, D. and Fotiou, N., 2017, June. Observing IoT resources over ICN. In 2017 IFIP Networking Conference (IFIP Networking) and Workshops (pp. 1-8). IEEE",
+            link: null,
+          },
+          {
+            text: "Fotiou, N., Xylomenos, G., Polyzos, G.C., Islam, H., Lagutin, D., Hakala, T. and Hakala, E., 2017, September. ICN enabling CoAP Extensions for IP based IoT devices. In Proceedings of the 4th ACM Conference on Information-Centric Networking (pp. 218-219)",
+            link: null,
+          },
         ],
       },
       {
         year: "2016",
         items: [
-          'N. Fotiou, H. Islam, D. Lagutin, T. Hakala and G. C. Polyzos, "CoAP over ICN", 2016 8th IFIP International Conference on New Technologies Mobility and Security (NTMS), pp. 1-4, Nov 2016',
+          {
+            text: 'N. Fotiou, H. Islam, D. Lagutin, T. Hakala and G. C. Polyzos, "CoAP over ICN", 2016 8th IFIP International Conference on New Technologies Mobility and Security (NTMS), pp. 1-4, Nov 2016',
+            link: null,
+          },
         ],
       },
       {
         year: "2015",
         items: [
-          'Islam, Hasan MA, Andrey Lukyanenko, Sasu Tarkoma, and Antti Yla-Jaaski. "Towards disruption tolerant ICN." In 2015 IEEE Symposium on Computers and Communication (ISCC), pp. 212-219. IEEE',
+          {
+            text: 'Islam, Hasan MA, Andrey Lukyanenko, Sasu Tarkoma, and Antti Yla-Jaaski. "Towards disruption tolerant ICN." In 2015 IEEE Symposium on Computers and Communication (ISCC), pp. 212-219. IEEE',
+            link: null,
+          },
         ],
       },
       {
         year: "2009",
         items: [
-          "Afroze, T., Sarkar, S., Islam, A. and Rahman, A., 2009, May. More stable Ad-hoc on-demand distance vector routing protocol. In 2009 4th IEEE Conference on Industrial Electronics and Applications (pp. 150-155). IEEE",
+          {
+            text: "Afroze, T., Sarkar, S., Islam, A. and Rahman, A., 2009, May. More stable Ad-hoc on-demand distance vector routing protocol. In 2009 4th IEEE Conference on Industrial Electronics and Applications (pp. 150-155). IEEE",
+            link: null,
+          },
         ],
       },
     ],
