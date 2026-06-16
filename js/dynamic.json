@@ -97,23 +97,7 @@
             "Hasan Mahmood Aminul Islam": ["H.M.A. Islam"]
         },
         "year": "2026"
-    },
-    {
-        "title": "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, M. Masum, H.M.A. Islam and M.Georgiades. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)",
-        "authors": ["Mahdin Islam Ohi", "Abdullah Sajid", "Mahmudur Rahman Mehraj", "Md. Ashik-Uz-Zaman", "Pulok Akibuzzaman", "S. M. Nafis Shahriar", "Masum", "Hasan Mahmood Aminul Islam", "Michael Georgiades"],
-        "highlightForMember": {
-            "Mahdin Islam Ohi": ["M.I. Ohi"],
-            "Abdullah Sajid": ["A. Sajid"],
-            "Mahmudur Rahman Mehraj": ["M.R. Maharaz"],
-            "Md. Ashik-Uz-Zaman": ["M.A.U. Zaman"],
-            "Pulok Akibuzzaman": ["P.Akibuzzaman"],
-            "S. M. Nafis Shahriar": ["S.M.N. Shahriar"],
-            "Masum": ["M. Masum"],
-            "Hasan Mahmood Aminul Islam": ["H.M.A. Islam"],
-            "Michael Georgiades": ["M.Georgiades"]
-        },
-        "year": "2026"
-    },
+    }, 
     {
         "title": "Hasan Mahmood Aminul Islam, Mahamudur Rahman Maharaz, Faisal Ahmed, Mahir Faysal Haque Dipto and Md. Minhajul Haque Shafin (East West University, Bangladesh); Michael Georgiades (2 Danais Avenue & Neapolis University, Cyprus). Towards a Protocol-Agnostic Universal Middleware for IoT with Edge Intelligence (DCOSS-IoT)",
         "authors": ["Hasan Mahmood Aminul Islam", "Mahmudur Rahman Mehraj", "Michael Georgiades"],
