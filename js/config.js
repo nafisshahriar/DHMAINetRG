@@ -1018,10 +1018,10 @@ const websiteData = {
           //   text: "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, M. Masum, H.M.A. Islam and M.Georgiades. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)",
           //   link: null,
           // },
-          {
-            text: "Hasan Mahmood Aminul Islam, Mahamudur Rahman Maharaz, Faisal Ahmed, Mahir Faysal Haque Dipto and Md. Minhajul Haque Shafin, Michael Georgiades. Towards a Protocol-Agnostic Universal Middleware for IoT with Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
-            link: null,
-          },
+          // {
+          //   text: "Hasan Mahmood Aminul Islam, Mahamudur Rahman Maharaz, Faisal Ahmed, Mahir Faysal Haque Dipto and Md. Minhajul Haque Shafin, Michael Georgiades. Towards a Protocol-Agnostic Universal Middleware for IoT with Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
+          //   link: null,
+          // },
         ],
       },
       {
