@@ -110,17 +110,7 @@
         },
         "link": "https://ieeexplore.ieee.org/document/11546398",
         "year": "2026"
-    }, 
-    {
-        "title": "Hasan Mahmood Aminul Islam, Mahamudur Rahman Maharaz, Faisal Ahmed, Mahir Faysal Haque Dipto and Md. Minhajul Haque Shafin (East West University, Bangladesh); Michael Georgiades (2 Danais Avenue & Neapolis University, Cyprus). Towards a Protocol-Agnostic Universal Middleware for IoT with Edge Intelligence (DCOSS-IoT)",
-        "authors": ["Hasan Mahmood Aminul Islam", "Mahmudur Rahman Mehraj", "Michael Georgiades"],
-        "highlightForMember": {
-            "Hasan Mahmood Aminul Islam": ["Hasan Mahmood Aminul Islam"],
-            "Mahmudur Rahman Mehraj": ["Mahamudur Rahman Maharaz"],
-            "Michael Georgiades": ["Michael Georgiades"]
-        },
-        "year": "2026"
-    },
+    },  
     {
         "title": "Hasan Ma Islam, Md Khalid M Khan, M Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees. IEEE Access 13: 50727-50740 (2025)",
         "authors": ["Hasan Mahmood Aminul Islam"],
