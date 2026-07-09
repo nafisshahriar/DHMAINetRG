@@ -1,7 +1,16 @@
-[
+[   {
+       "title":"Hasan MA Islam, Md MR Maharaz, F Ahmed, Mahir FH Dipto, Md MH Shafin, and Michael Georgiades. Towards A Protocol-Agnostic Universal Middleware For IoT With Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
+       "authors":["Hasan Mahmood Aminul Islam","Mahmudur Rahman Mehraj","Michael Georgiades"],
+       "highlightForMember": {
+           "Hasan Mahmood Aminul Islam":["Hasan MA Islam"],
+           "Mahmudur Rahman Mehraj":["Md MR Maharaz"],
+           "Michael Georgiades":["Michael Georgiades"]
+       },
+       "year": "2026"
+    },
 
     {
-        "title": "Md MR Maharaz, MI Ohi, MAU Zaman, A Sajid, Sadia FI, P Akibuzzaman, Md Masum, SMN Shahriar, NR Aurna, Hasan MA Islam, and Michael Georgiades. PRIoTP: Towards Context-Aware Partial Reliable Application-LayerIoT Protocol with Edge Intelligence, 2026. ISIoT 2026",
+        "title": "Md MR Maharaz, MI Ohi, MAU Zaman, A Sajid, Sadia FI, P Akibuzzaman, Md Masum, SMN Shahriar, NR Aurna, Hasan MA Islam, and Michael Georgiades. PRIoTP: Towards Context-Aware Partial Reliable Application-LayerIoT Protocol with Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
         "authors": ["Mahmudur Rahman Mehraj", "Mahdin Islam Ohi", "Md. Ashik-Uz-Zaman", "Abdullah Sajid", "Sadia Fahmida Islam", "Pulok Akibuzzaman", "Masum", "S. M. Nafis Shahriar", "Nusrat Rahman Aurna", "Hasan Mahmood Aminul Islam", "Michael Georgiades"],
         "highlightForMember": {
             "Mahmudur Rahman Mehraj": ["Md MR Maharaz"],
@@ -20,7 +29,7 @@
     },
 
     {
-        "title": "Michael Georgiades, Charalambia Varnava, Andreas Gregoriades, Iacovos Ioannou, Lakis Christodoulou, Hasan Mahmood Aminul Islam, Kin-Hon Ho and Yun Hou. From Correlation to Causation in Intrusion Detection Systems: A Double Machine Learning Approach for IoT Network Behaviour Analysis, 2026. IEEE SecRIoT workshop/DCOSS-IoT 2026",
+        "title": "Michael Georgiades, Charalambia Varnava, Andreas Gregoriades, Iacovos Ioannou, Lakis Christodoulou, Hasan Mahmood Aminul Islam, Kin-Hon Ho and Yun Hou. From Correlation to Causation in Intrusion Detection Systems: A Double Machine Learning Approach for IoT Network Behaviour Analysis. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
         "authors": ["Hasan Mahmood Aminul Islam", "Michael Georgiades"],
         "highlightForMember": {
             "Hasan Mahmood Aminul Islam": ["Hasan Mahmood Aminul Islam"],
@@ -29,12 +38,13 @@
         "year": "2026"
     },
     {
-        "title": "Michael Georgiades, Iacovos Ioanno, Hasan Mahmood Aminul Islam, Kin-Hon Ho, Yun Hou, Andreas Gregoriades. Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection IFIP Networking 2026 - TX4Nets Workshop",
+        "title": "Michael Georgiades, Iacovos Ioanno, Hasan Mahmood Aminul Islam, Kin-Hon Ho, Yun Hou, Andreas Gregoriades. Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection. IFIP Networking Conference (IFIP Networking 2026).",
         "authors": ["Michael Georgiades", "Hasan Mahmood Aminul Islam"],
         "highlightForMember": {
             "Michael Georgiades": ["Michael Georgiades"],
             "Hasan Mahmood Aminul Islam": ["Hasan Mahmood Aminul Islam"]
         },
+        "link": "https://ieeexplore.ieee.org/document/11579092",
         "year": "2026"
     },
     {
@@ -71,6 +81,7 @@
             "Mahmudur Rahman Mehraj": ["M.R. Maharaz"],
             "Hasan Mahmood Aminul Islam": ["H.M.A. Islam"]
         },
+        "link": "https://ieeexplore.ieee.org/document/11545753",
         "year": "2026"
     },
     {
@@ -85,6 +96,7 @@
             "Hasan Mahmood Aminul Islam": ["H.M.A. Islam"],
             "Mahmudur Rahman Mehraj": ["M.R. Maharaz"]
         },
+        "link": "https://ieeexplore.ieee.org/document/11545594/authors#authors ",
         "year": "2026"
     },
     {
@@ -96,6 +108,7 @@
             "Pulok Akibuzzaman": ["P. Akibuzzaman"],
             "Hasan Mahmood Aminul Islam": ["H.M.A. Islam"]
         },
+        "link": "https://ieeexplore.ieee.org/document/11546398",
         "year": "2026"
     }, 
     {

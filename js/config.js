@@ -310,7 +310,13 @@ function loadPapers() {
                 title = title.replace(name, `<strong>${name}</strong>`);
               });
             }
-            html += `<li>[${counter++}] ${title}</li>`;
+
+            const linkPart =
+              paper.link && paper.link !== "#"
+                ? `<a href="${paper.link}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">View</a>`
+                : "";
+
+            html += `<li>[${counter++}] ${title}${linkPart ? ` — ${linkPart}` : ""}</li>`;
           });
           html += `</ul>`;
         });
@@ -974,11 +980,10 @@ const websiteData = {
         items: [
           {
             text: "Hasan MA Islam, Md MR Maharaz, F Ahmed, Mahir FH Dipto, Md MH Shafin, and Michael Georgiades. Towards A Protocol-Agnostic Universal Middleware For IoT With Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
-             link: null,
-          },,
+            link: null,
+          },
           {
             text: "Md MR Maharaz, MI Ohi, MAU Zaman, A Sajid, Sadia FI, P Akibuzzaman, Md Masum, SMN Shahriar, NR Aurna, Hasan MA Islam, and Michael Georgiades. PRIoTP: Towards Context-Aware Partial Reliable Application-LayerIoT Protocol with Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
-                        // text: "Michael Georgiades, Iacovos Ioanno, Hasan Mahmood Aminul Islam, Kin-Hon Ho, Yun Hou, Andreas Gregoriades. Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection IFIP Networking 2026",
             link: null,
           },
           {
