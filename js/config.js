@@ -269,6 +269,69 @@ function memberDetailPage(member) {
     `;
 }
 
+function normalizeAuthorName(name) {
+  return (name || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter((word) => !["md", "mr", "dr", "prof", "professor", "phd"].includes(word))
+    .join(" ");
+}
+
+function getNameParts(name) {
+  const normalized = normalizeAuthorName(name);
+  const words = normalized.split(/\s+/).filter(Boolean);
+  return {
+    normalized,
+    words,
+    first: words[0] || "",
+    last: words[words.length - 1] || "",
+  };
+}
+
+function namesMatch(nameA, nameB) {
+  const left = getNameParts(nameA);
+  const right = getNameParts(nameB);
+
+  if (!left.normalized || !right.normalized) return false;
+  if (left.normalized === right.normalized) return true;
+
+  const exactIgnoreCase = nameA.toLowerCase() === nameB.toLowerCase();
+  if (exactIgnoreCase) return true;
+
+  if (left.last && right.last && left.last === right.last) {
+    const leftInitialOnly = left.words.length === 1;
+    const rightInitialOnly = right.words.length === 1;
+    if (leftInitialOnly || rightInitialOnly) return true;
+  }
+
+  if (left.words.length >= 2 && right.words.length >= 2) {
+    const sharedWords = left.words.filter((word) => right.words.includes(word));
+    if (sharedWords.length >= 2) return true;
+  }
+
+  return false;
+}
+
+function matchesMemberName(paper, memberName) {
+  const authorNames = paper.authors || [];
+  const highlightKeys = Object.keys(paper.highlightForMember || {});
+  const candidateNames = [...authorNames, ...highlightKeys];
+
+  return candidateNames.some((name) => namesMatch(name, memberName));
+}
+
+function getHighlightNamesForMember(paper, memberName) {
+  const highlightMap = paper.highlightForMember || {};
+  const exactMatch = highlightMap[memberName];
+  if (exactMatch) return exactMatch;
+
+  const matchingKey = Object.keys(highlightMap).find((name) => namesMatch(name, memberName));
+
+  return matchingKey ? highlightMap[matchingKey] : [];
+}
+
 function loadPapers() {
   fetch("js/dynamic.json")
     .then((res) => res.json())
@@ -278,9 +341,7 @@ function loadPapers() {
       containers.forEach((container) => {
         const memberName = container.getAttribute("data-name");
 
-        const filtered = data.filter((paper) =>
-          paper.authors.includes(memberName),
-        );
+        const filtered = data.filter((paper) => matchesMemberName(paper, memberName));
 
         if (filtered.length === 0) {
           container.innerHTML = "<p>No publications yet</p>";
@@ -302,11 +363,9 @@ function loadPapers() {
           html += `<h4 style="margin-top:1em;">${year} :</h4><ul>`;
           byYear[year].forEach((paper) => {
             let title = paper.title;
-            if (
-              paper.highlightForMember &&
-              paper.highlightForMember[memberName]
-            ) {
-              paper.highlightForMember[memberName].forEach((name) => {
+            const highlightNames = getHighlightNamesForMember(paper, memberName);
+            if (highlightNames.length > 0) {
+              highlightNames.forEach((name) => {
                 title = title.replace(name, `<strong>${name}</strong>`);
               });
             }
@@ -979,6 +1038,10 @@ const websiteData = {
         year: "2026",
         items: [
           {
+            text: "Hasan MA Islam, Md MR Maharaz, Michael Georgiades, SMN Shahriar, P. Akibuzzaman, NR Aurna, Md Masum, and Riadul Islam. STGen: A Lightweight Sensor Testbed for Scenario-Based IoT Protocol Evaluation. Submitted to Journal of Sensor and Actuator Networks (JSAN), MDPI, 2026. Manuscript ID: jsan-4442593.",
+            link: null,
+          },
+          {
             text: "Hasan MA Islam, Md MR Maharaz, F Ahmed, Mahir FH Dipto, Md MH Shafin, and Michael Georgiades. Towards A Protocol-Agnostic Universal Middleware For IoT With Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
             link: null,
           },
@@ -1097,7 +1160,7 @@ const websiteData = {
       {
         year: "2026",
         items: [
-          "H.M.A. Islam, M.R. Maharaz, S.M.N. Shahriar, P.Akibuzzaman, S.Nath, M.I. Ohi, M.Georgiades, and R.Islam. STGen: A Lightweight Protocol-Agnostic Sensor Testbed for Scenario-Based IoT Protocol Evaluation, Elsevier (JSA)",
+          "S. M. Nafis Shahriar, Pulok Akibuzzaman, Md Ashik Uz Zaman, Nusrat Rahman Aurna, Sadia Fahmida Islam, and Hasan MA Islam.Protocol-Aware Geometric Inconsistency Analysis Framework for IoT Network Manifold Anomalies. The 4th International Conference on Computing Advancements (ICCA 2026).",
           "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, IEEE Access",
         ],
       },
