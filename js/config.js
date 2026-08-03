@@ -372,10 +372,10 @@ function loadPapers() {
 
             const linkPart =
               paper.link && paper.link !== "#"
-                ? `<a href="${paper.link}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">View</a>`
+                ? `<a href="${paper.link}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">${paper.link}</a>`
                 : "";
 
-            html += `<li>[${counter++}] ${title}${linkPart ? ` — ${linkPart}` : ""}</li>`;
+            html += `<li>[${counter++}] ${title}${linkPart ? ` ${linkPart}` : ""}</li>`;
           });
           html += `</ul>`;
         });
