@@ -1039,7 +1039,7 @@ const websiteData = {
         items: [
           {
             text: "Hasan MA Islam, Md MR Maharaz, Michael Georgiades, SMN Shahriar, P. Akibuzzaman, NR Aurna, Md Masum, and Riadul Islam. STGen: A Lightweight Sensor Testbed for Scenario-Based IoT Protocol Evaluation. Submitted to Journal of Sensor and Actuator Networks (JSAN), MDPI, 2026. Manuscript ID: jsan-4442593.",
-            link: null,
+            link: "https://www.mdpi.com/2224-2708/15/4/63",
           },
           {
             text: "Hasan MA Islam, Md MR Maharaz, F Ahmed, Mahir FH Dipto, Md MH Shafin, and Michael Georgiades. Towards A Protocol-Agnostic Universal Middleware For IoT With Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
