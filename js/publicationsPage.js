@@ -43,14 +43,14 @@ function publicationsPage() {
               const linkPart =
                 item.link && item.link !== "#"
                   ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-                       View
+                       ${item.link}
                      </a>`
                   : "";
 
               return `
                 <li>
                   [${i + 1}] ${item.text}
-                  ${linkPart ? " — " + linkPart : ""}
+                  ${linkPart ? "" + linkPart : ""}
                 </li>
               `;
             })
