@@ -146,10 +146,12 @@
   min-width: 0;
 }
  
-.publication-text a {
+.publication-text a,
+.publication-link {
   display: inline;
   margin-left: 0.35rem;
-  color: var(--brand-700); 
+  color: var(--brand-700);
+  font-weight: 600;
   text-decoration: none;
   overflow-wrap: anywhere;
   word-break: break-word;

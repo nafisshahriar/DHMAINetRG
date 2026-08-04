@@ -74,7 +74,7 @@ function renderPublicationSection(years, type, title) {
       class="publication-category publication-category-${type}"
     >
 
-      <h1 class="publication-section-title">
+      <h1 class="publication-category-heading">
         ${title}
       </h1>
 
@@ -194,7 +194,7 @@ function renderSubmissionSection(years, type, title) {
       class="publication-category publication-category-${type}"
     >
 
-      <h1 class="publication-section-title">
+      <h1 class="publication-category-heading">
         ${title}
       </h1>
 
