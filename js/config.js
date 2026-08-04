@@ -1123,17 +1123,17 @@ const websiteData = {
         },
         {
           type: "conference",
-          text: "P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, J.T. Maowa, M. Rahman, 2026. Integration and Validation of Map Data in the ONE Simulator: IoV in Dhaka City Perspective. The 28th International Conference on Computer and Information Technology (ICCIT 2026).",
+          text: "P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, J.T. Maowa, M. Rahman, 2026. \"Integration and Validation of Map Data in the ONE Simulator: IoV in Dhaka City Perspective,\" 2025 28th International Conference on Computer and Information Technology (ICCIT), Cox's Bazar, Bangladesh, 2025, pp. 4927-4932, doi:<a href=\"https://doi.org/10.1109/ICCIT68739.2025.11491083\">10.1109/ICCIT68739.2025.11491083</a>.",
           
         },
         {
           type: "conference",
-          text: "S.M.N. Shahriar, P. Akibuzzaman, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, 2026. The Impact of Pedestrian Movement on IoV Performance and Simulation. The 28th International Conference on Computer and Information Technology (ICCIT 2026).",
+          text: "S. M. N. Shahriar, P. Akibuzzaman, M. A. U. Zaman, M. R. Maharaz and H. M. A. Islam, \"The Impact of Pedestrian Movement on IoV Performance and Simulation,\" 2025 28th International Conference on Computer and Information Technology (ICCIT), Cox's Bazar, Bangladesh, 2025, pp. 2004-2009, doi:<a href=\"https://doi.org/10.1109/ICCIT68739.2025.11491296\">10.1109/ICCIT68739.2025.11491296</a>.",
           
         },
         {
           type: "conference",
-          text: "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. \"CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture,\" 2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN), Chittagong, Bangladesh, 2026, pp. 1-6, doi: <a href=\"https://doi.org/10.1109/QPAIN69676.2026.11545753\">10.1109/QPAIN69676.2026.11545753</a>.",
+          text: "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. \"CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture,\" 2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN), Chittagong, Bangladesh, 2026, pp. 1-6, doi: <a href=\"https://doi.org/10.1109/QPAIN69676.2026.11545753\">10.1109/QPAIN69676.2026.11545753</a>",
         },
         {
           type: "conference",
@@ -1179,17 +1179,16 @@ const websiteData = {
         },
         {
           type: "conference",
-          text: "Islam, H.M., Lagutin, D., Lukyanenko, A., Gurtov, A. and Ylä-Jääski, A., 2017, October. CIDOR: Content Distribution and Retrieval in Disaster Networks for Public Protection. In 2017 IEEE 13th International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob) (pp. 324–333). IEEE.",
+          text: "H. M. A. Islam, D. Lagutin, A. Lukyanenko, A. Gurtov and A. Ylä-Jääski, \"CIDOR: Content distribution and retrieval in disaster networks for public protection,\" 2017 IEEE 13th International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob), Rome, Italy, 2017, pp. 324-333, doi:<a href=\"https://doi.org/10.1109/WiMOB.2017.8115834\">10.1109/WiMOB.2017.8115834</a>."
+        },
+        {
+          type: "conference",
+          text: "H. M. A. Islam, D. Lagutin and N. Fotiou, \"Observing IoT resources over ICN,\" 2017 IFIP Networking Conference (IFIP Networking) and Workshops, Stockholm, Sweden, 2017, pp. 1-8, doi: <a href=\"https://doi.org/10.23919/IFIPNetworking.2017.8264878\">10.23919/IFIPNetworking.2017.8264878</a>.",
           
         },
         {
           type: "conference",
-          text: "Islam, H.M., Lagutin, D. and Fotiou, N., 2017, June. Observing IoT Resources over ICN. In 2017 IFIP Networking Conference and Workshops (pp. 1–8). IEEE.",
-          
-        },
-        {
-          type: "conference",
-          text: "Fotiou, N., Xylomenos, G., Polyzos, G.C., Islam, H., Lagutin, D., Hakala, T. and Hakala, E., 2017, September. ICN Enabling CoAP Extensions for IP-Based IoT Devices. In Proceedings of the 4th ACM Conference on Information-Centric Networking (pp. 218–219).",
+          text: "Fotiou, N., Xylomenos, G., Polyzos, G.C., Islam, H., Lagutin, D., Hakala, T. and Hakala, E., 2017, September. ICN Enabling CoAP Extensions for IP-Based IoT Devices. In Proceedings of the 4th ACM Conference on Information-Centric Networking (pp. 218–219). doi: <a href=\"https://doi.org/10.1145/3125719.3132105\">10.1145/3125719.3132105</a>",
           
         },
       ],
@@ -1200,7 +1199,7 @@ const websiteData = {
       items: [
         {
           type: "conference",
-          text: "N. Fotiou, H. Islam, D. Lagutin, T. Hakala and G.C. Polyzos. \"CoAP over ICN.\" 2016 8th IFIP International Conference on New Technologies, Mobility and Security (NTMS), pp. 1–4, November 2016.",
+          text: "N. Fotiou, H. Islam, D. Lagutin, T. Hakala and G. C. Polyzos, \"CoAP over ICN,\" 2016 8th IFIP International Conference on New Technologies, Mobility and Security (NTMS), Larnaca, Cyprus, 2016, pp. 1-4, doi: <a href=\"https://doi.org/10.1109/NTMS.2016.7792438\">10.1109/NTMS.2016.7792438</a>.",
           
         },
       ],
@@ -1211,7 +1210,7 @@ const websiteData = {
       items: [
         {
           type: "conference",
-          text: "Islam, Hasan MA, Andrey Lukyanenko, Sasu Tarkoma, and Antti Ylä-Jääski. \"Towards Disruption-Tolerant ICN.\" In 2015 IEEE Symposium on Computers and Communication (ISCC), pp. 212–219. IEEE.",
+          text: "H. M. A. Islam, A. Lukyanenko, S. Tarkoma and A. Yla-Jaaski, \"Towards disruption tolerant ICN,\" 2015 IEEE Symposium on Computers and Communication (ISCC), Larnaca, Cyprus, 2015, pp. 212-219, doi:<a href=\"https://doi.org/10.1109/ISCC.2015.7884893\">10.1109/ISCC.2015.7884893</a>.",
           
         },
       ],
@@ -1222,7 +1221,7 @@ const websiteData = {
       items: [
         {
           type: "conference",
-          text: "Afroze, T., Sarkar, S., Islam, A. and Rahman, A., 2009, May. More Stable Ad-Hoc On-Demand Distance Vector Routing Protocol. In 2009 4th IEEE Conference on Industrial Electronics and Applications (pp. 150–155). IEEE.",
+          text: "T. Afroze, S. Sarkar, A. Islam and A. Rahman, \"More stable Ad-hoc on-demand distance vector routing protocol,\" 2009 4th IEEE Conference on Industrial Electronics and Applications, Xi'an, China, 2009, pp. 150-155, doi:<a href=\"https://doi.org/10.1109/ICIEA.2009.5138187\">10.1109/ICIEA.2009.5138187</a>.",
           
         },
       ],
