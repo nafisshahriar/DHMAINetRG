@@ -145,6 +145,21 @@
 .publication-text {
   min-width: 0;
 }
+ 
+.publication-text a {
+  display: inline;
+  margin-left: 0.35rem;
+  color: var(--brand-700); 
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.publication-text a:hover {
+  color: var(--brand-900);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .publication-text {
   display: inline;

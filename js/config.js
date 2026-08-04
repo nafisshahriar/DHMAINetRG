@@ -1091,129 +1091,6 @@ const websiteData = {
       // status: { text: "Under Review", color: "#B31515" },
     },
   ],
-  // publications: {
-  //   years: [
-  //     {
-  //       year: "2026",
-  //       items: [
-  //         {
-  //           text: "Islam, Hasan M. A., Md M. R. Maharaz, M. Georgiades, S. M. N. Shahriar, P. Akibuzzaman, N. R. Aurna, Md Masum, and Riadul Islam. \"STGen: A Lightweight Process-Based Testbed for Scalable IoT Protocol Evaluation with Physically Validated Synthetic Sensor and Anomaly Generation\" Journal of Sensor and Actuator Networks 15, no. 4: 63.",
-  //           link: "https://www.mdpi.com/2224-2708/15/4/63",
-  //         },
-  //         {
-  //           text: "Hasan MA Islam, Md MR Maharaz, F Ahmed, Mahir FH Dipto, Md MH Shafin, and Michael Georgiades. Towards A Protocol-Agnostic Universal Middleware For IoT With Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
-  //           link: null,
-  //         },
-  //         {
-  //           text: "Md MR Maharaz, MI Ohi, MAU Zaman, A Sajid, Sadia FI, P Akibuzzaman, Md Masum, SMN Shahriar, NR Aurna, Hasan MA Islam, and Michael Georgiades. PRIoTP: Towards Context-Aware Partial Reliable Application-LayerIoT Protocol with Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
-  //           link: null,
-  //         },
-  //         {
-  //           text: "Michael Georgiades, Charalambia Varnava, Andreas Gregoriades, Iacovos Ioannou, Lakis Christodoulou, Hasan Mahmood Aminul Islam, Kin-Hon Ho and Yun Hou. From Correlation to Causation in Intrusion Detection Systems: A Double Machine Learning Approach for IoT Network Behaviour Analysis. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
-  //           link: null,
-  //         },
-  //         {
-  //           text: "Michael Georgiades, Iacovos Ioanno, Hasan Mahmood Aminul Islam, Kin-Hon Ho, Yun Hou, Andreas Gregoriades. Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection. IFIP Networking Conference (IFIP Networking 2026).",
-  //           link: "https://ieeexplore.ieee.org/document/11579092",
-  //         },
-  //         {
-  //           text: "P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, J.T. Maowa, M. Rahman, 2026. Integration and Validation of Map Data in the ONE Simulator: IoV in Dhaka City Perspective. The 28th International Conference on Computer and Information Technology (ICCIT 2026).",
-  //           link: null,
-  //         },
-  //         {
-  //           text: "S.M.N. Shahriar, P. Akibuzzaman, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, 2026. The Impact of Pedestrian Movement on IoV Performance and Simulation. The 28th International Conference on Computer and Information Technology (ICCIT 2026).",
-  //           link: null,
-  //         },
-  //         {
-  //           text: "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture. The 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN 2026).",
-  //           link: "https://ieeexplore.ieee.org/document/11545753",
-  //         },
-  //         {
-  //           text: "M.I. Ohi, A. Sajid, P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, H.M.A. Islam, M.R. Maharaz. Design and Implementation of a Generative Pre-Trained Transformer for Universities of Bangladesh. The 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN 2026).",
-  //           link: "https://ieeexplore.ieee.org/document/11545594/authors#authors ",
-  //         },
-  //         {
-  //           text: "M.R. Maharaz, F. Ahmad, M.F.H. Dipto, M.M.H Shafin, S.M.N. Shahriar, P. Akibuzzaman, H.M.A. Islam. Emulating Sensor Profile Towards IoT Simulator Development. The 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN 2026).",
-  //           link: "https://ieeexplore.ieee.org/document/11546398",
-  //         },
-  //         // {
-  //         //   text: "M.I. Ohi, A. Sajid, M.R. Maharaz, M.A.U. Zaman, P.Akibuzzaman, S.M.N. Shahriar, M. Masum, H.M.A. Islam and M.Georgiades. PRIOTP: Towards Partially Reliable Application Protocol for the Internet of Things, 2026. 22nd International Conference on Distributed Computing in Smart Systems and Internet of Things, IEEE (DCOSS-IoT)",
-  //         //   link: null,
-  //         // },
-  //         // {
-  //         //   text: "Hasan Mahmood Aminul Islam, Mahamudur Rahman Maharaz, Faisal Ahmed, Mahir Faysal Haque Dipto and Md. Minhajul Haque Shafin, Michael Georgiades. Towards a Protocol-Agnostic Universal Middleware for IoT with Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
-  //         //   link: null,
-  //         // },
-  //       ],
-  //     },
-  //     {
-  //       year: "2025",
-  //       items: [
-  //         {
-  //           text: "Hasan Ma Islam, Md Khalid M Khan, M Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees. IEEE Access 13: 50727-50740 (2025)",
-  //           link: null,
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       year: "2019",
-  //       items: [
-  //         {
-  //           text: "Islam, H.M.A., Lagutin, D., Ylä-Jääski, A., Fotiou, N. and Gurtov, A., 2019. Transparent coap services to iot endpoints through icn operator networks. Sensors, 19(6), p.1339. (Impact Factor: 3.847)",
-  //           link: null,
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       year: "2017",
-  //       items: [
-  //         {
-  //           text: "Islam, H.M., Chatzopoulos, D., Lagutin, D., Hui, P. and Ylä-Jääski, A., 2017. Boosting the performance of content centric networking using delay tolerant networking mechanisms. IEEE Access, 5, pp.23858-23870. (Impact Factor: 3.367)",
-  //           link: null,
-  //         },
-  //         {
-  //           text: "Islam, H.M., Lagutin, D., Lukyanenko, A., Gurtov, A. and Ylä-Jääski, A., 2017, October. CIDOR: Content distribution and retrieval in disaster networks for public protection. In 2017 IEEE 13th international conference on wireless and mobile computing, networking and communications (WiMob) (pp. 324-333). IEEE.",
-  //           link: null,
-  //         },
-  //         {
-  //           text: "Islam, H.M., Lagutin, D. and Fotiou, N., 2017, June. Observing IoT resources over ICN. In 2017 IFIP Networking Conference (IFIP Networking) and Workshops (pp. 1-8). IEEE",
-  //           link: null,
-  //         },
-  //         {
-  //           text: "Fotiou, N., Xylomenos, G., Polyzos, G.C., Islam, H., Lagutin, D., Hakala, T. and Hakala, E., 2017, September. ICN enabling CoAP Extensions for IP based IoT devices. In Proceedings of the 4th ACM Conference on Information-Centric Networking (pp. 218-219)",
-  //           link: null,
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       year: "2016",
-  //       items: [
-  //         {
-  //           text: 'N. Fotiou, H. Islam, D. Lagutin, T. Hakala and G. C. Polyzos, "CoAP over ICN", 2016 8th IFIP International Conference on New Technologies Mobility and Security (NTMS), pp. 1-4, Nov 2016',
-  //           link: null,
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       year: "2015",
-  //       items: [
-  //         {
-  //           text: 'Islam, Hasan MA, Andrey Lukyanenko, Sasu Tarkoma, and Antti Yla-Jaaski. "Towards disruption tolerant ICN." In 2015 IEEE Symposium on Computers and Communication (ISCC), pp. 212-219. IEEE',
-  //           link: null,
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       year: "2009",
-  //       items: [
-  //         {
-  //           text: "Afroze, T., Sarkar, S., Islam, A. and Rahman, A., 2009, May. More stable Ad-hoc on-demand distance vector routing protocol. In 2009 4th IEEE Conference on Industrial Electronics and Applications (pp. 150-155). IEEE",
-  //           link: null,
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
   publications: {
   years: [
     {
@@ -1221,53 +1098,50 @@ const websiteData = {
       items: [
         {
           type: "journal",
-          text: "Islam, Hasan M. A., Md M. R. Maharaz, M. Georgiades, S. M. N. Shahriar, P. Akibuzzaman, N. R. Aurna, Md Masum, and Riadul Islam. \"STGen: A Lightweight Process-Based Testbed for Scalable IoT Protocol Evaluation with Physically Validated Synthetic Sensor and Anomaly Generation.\" Journal of Sensor and Actuator Networks 15, no. 4: 63.",
-          link: "https://www.mdpi.com/2224-2708/15/4/63",
+          text: "Islam, Hasan M. A., Md M. R. Maharaz, M. Georgiades, S. M. N. Shahriar, P. Akibuzzaman, N. R. Aurna, Md Masum, and Riadul Islam. \"STGen: A Lightweight Process-Based Testbed for Scalable IoT Protocol Evaluation with Physically Validated Synthetic Sensor and Anomaly Generation.\" Journal of Sensor and Actuator Networks 15, no. 4: 63. (Impact Factor 4.8). doi: <a href=\"https://doi.org/10.3390/jsan15040063\">10.3390/jsan15040063</a>",
+          
         },
         {
           type: "conference",
           text: "Hasan MA Islam, Md MR Maharaz, F Ahmed, Mahir FH Dipto, Md MH Shafin, and Michael Georgiades. Towards A Protocol-Agnostic Universal Middleware For IoT With Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
-          link: null,
+          
         },
         {
           type: "conference",
           text: "Md MR Maharaz, MI Ohi, MAU Zaman, A Sajid, Sadia FI, P Akibuzzaman, Md Masum, SMN Shahriar, NR Aurna, Hasan MA Islam, and Michael Georgiades. PRIoTP: Towards Context-Aware Partial Reliable Application-Layer IoT Protocol with Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
-          link: null,
+          
         },
         {
           type: "conference",
           text: "Michael Georgiades, Charalambia Varnava, Andreas Gregoriades, Iacovos Ioannou, Lakis Christodoulou, Hasan Mahmood Aminul Islam, Kin-Hon Ho and Yun Hou. From Correlation to Causation in Intrusion Detection Systems: A Double Machine Learning Approach for IoT Network Behaviour Analysis. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
-          link: null,
+          
         },
         {
           type: "conference",
-          text: "Michael Georgiades, Iacovos Ioanno, Hasan Mahmood Aminul Islam, Kin-Hon Ho, Yun Hou, Andreas Gregoriades. Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection. IFIP Networking Conference (IFIP Networking 2026).",
-          link: "https://ieeexplore.ieee.org/document/11579092",
+          text: "M. Georgiades, I. Ioannou, H. M. A. Islam, K. -H. Ho, Y. Hou and A. Gregoriades, \"Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection,\" 2026 IFIP Networking Conference (IFIP Networking), Lugano, Switzerland, 2026, pp. 1-6, doi:<a href=\"https://doi.org/10.23919/IFIPNetworking70592.2026.11579092\">10.23919/IFIPNetworking70592.2026.11579092</a>.",
+         
         },
         {
           type: "conference",
           text: "P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, J.T. Maowa, M. Rahman, 2026. Integration and Validation of Map Data in the ONE Simulator: IoV in Dhaka City Perspective. The 28th International Conference on Computer and Information Technology (ICCIT 2026).",
-          link: null,
+          
         },
         {
           type: "conference",
           text: "S.M.N. Shahriar, P. Akibuzzaman, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, 2026. The Impact of Pedestrian Movement on IoV Performance and Simulation. The 28th International Conference on Computer and Information Technology (ICCIT 2026).",
-          link: null,
+          
         },
         {
           type: "conference",
-          text: "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture. The 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN 2026).",
-          link: "https://ieeexplore.ieee.org/document/11545753",
+          text: "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. \"CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture,\" 2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN), Chittagong, Bangladesh, 2026, pp. 1-6, doi: <a href=\"https://doi.org/10.1109/QPAIN69676.2026.11545753\">10.1109/QPAIN69676.2026.11545753</a>.",
         },
         {
           type: "conference",
-          text: "M.I. Ohi, A. Sajid, P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, H.M.A. Islam, M.R. Maharaz. Design and Implementation of a Generative Pre-Trained Transformer for Universities of Bangladesh. The 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN 2026).",
-          link: "https://ieeexplore.ieee.org/document/11545594/authors#authors",
+          text: "M.I. Ohi, A. Sajid, P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, H.M.A. Islam, M.R. Maharaz. \"Design and Implementation of a Generative Pre-Trained Transformer for Universities of Bangladesh,\" 2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN), Chittagong, Bangladesh, 2026, pp. 1-6, doi: <a href=\"https://doi.org/10.1109/QPAIN69676.2026.11545594\">10.1109/QPAIN69676.2026.11545594</a>.",
         },
         {
           type: "conference",
-          text: "M.R. Maharaz, F. Ahmad, M.F.H. Dipto, M.M.H. Shafin, S.M.N. Shahriar, P. Akibuzzaman, H.M.A. Islam. Emulating Sensor Profile Towards IoT Simulator Development. The 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN 2026).",
-          link: "https://ieeexplore.ieee.org/document/11546398",
+          text: "M.R. Maharaz, F. Ahmad, M.F.H. Dipto, M.M.H. Shafin, S.M.N. Shahriar, P. Akibuzzaman, H.M.A. Islam. \"Emulating Sensor Profile Towards IoT Simulator Development,\" 2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN), Chittagong, Bangladesh, 2026, pp. 1-6, doi: <a href=\"https://doi.org/10.1109/QPAIN69676.2026.11546398\">10.1109/QPAIN69676.2026.11546398</a>.",
         },
       ],
     }, 
@@ -1277,13 +1151,11 @@ const websiteData = {
       items: [
         {
           type: "journal",
-          text: "Hasan MA Islam, Md Khalid M Khan, M. Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. \"Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees.\" IEEE Access 13: 50727–50740 (2025).",
-          link: "https://ieeexplore.ieee.org/document/10929018",
+          text: "Hasan MA Islam, Md Khalid M Khan, M. Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. \"Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees.\" in IEEE Access, vol. 13, pp. 50727-50740, 2025, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2025.3552026\">10.1109/ACCESS.2025.3552026</a>.",
         },
         {
         type: "journal",
-        text: "Georgiades, Michael, Iacovos Ioannou, Hasan Islam, Ferheen Ayaz, Yun Hou, and Kin-Hon Ho. \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and Risk-Aware Bandits.\" TechRxiv (2025).",
-        link: "https://doi.org/10.36227/techrxiv.176288223.31039564/v1",
+        text: "M. Georgiades, I. Ioannou, H. Islam, F. Ayaz, Y. Hou, and K.-H. Ho, \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and Risk-Aware Bandits,\" submitted to IEEE Transactions on Network and Service Management.",
 },
       ],
     },
@@ -1293,8 +1165,7 @@ const websiteData = {
       items: [
         {
           type: "journal",
-          text: "Islam, H.M.A., D. Lagutin, Ylä-Jääski, A. Fotiou, N. and Gurtov A., 2019. \"Transparent CoAP Services to IoT Endpoints Through ICN Operator Networks.\" Sensors, 19(6), p.1339. (Impact Factor: 3.847).",
-          link: "https://doi.org/10.3390/s19061339",
+          text: "Islam, H.M.A.; Lagutin, D.; Ylä-Jääski, A.; Fotiou, N.; Gurtov, A. \"Transparent CoAP Services to IoT Endpoints through ICN Operator Networks,\" Sensors 2019, 19, 1339, (Impact Factor: 4.0). doi: <a href=\"https://doi.org/10.3390/s19061339\">10.3390/s19061339</a>.",
         },  
       ],
     },
@@ -1304,23 +1175,22 @@ const websiteData = {
       items: [
         {
           type: "journal",
-          text: "Islam, H.M., Chatzopoulos, D., Lagutin, D., Hui, P. and Ylä-Jääski, A., 2017. \"Boosting the Performance of Content-Centric Networking Using Delay-Tolerant Networking Mechanisms.\" IEEE Access, 5, pp.23858–23870. (Impact Factor: 3.367).",
-          link: "https://doi.org/10.48550/arXiv.1803.00315",
+          text: "H. M. A. Islam, D. Chatzopoulos, D. Lagutin, P. Hui and A. Ylä-Jääski, \"Boosting the Performance of Content Centric Networking Using Delay Tolerant Networking Mechanisms,\" in IEEE Access, vol. 5, pp. 23858-23870, 2017, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2017.2765379\">10.1109/ACCESS.2017.2765379</a>.",
         },
         {
           type: "conference",
           text: "Islam, H.M., Lagutin, D., Lukyanenko, A., Gurtov, A. and Ylä-Jääski, A., 2017, October. CIDOR: Content Distribution and Retrieval in Disaster Networks for Public Protection. In 2017 IEEE 13th International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob) (pp. 324–333). IEEE.",
-          link: null,
+          
         },
         {
           type: "conference",
           text: "Islam, H.M., Lagutin, D. and Fotiou, N., 2017, June. Observing IoT Resources over ICN. In 2017 IFIP Networking Conference and Workshops (pp. 1–8). IEEE.",
-          link: null,
+          
         },
         {
           type: "conference",
           text: "Fotiou, N., Xylomenos, G., Polyzos, G.C., Islam, H., Lagutin, D., Hakala, T. and Hakala, E., 2017, September. ICN Enabling CoAP Extensions for IP-Based IoT Devices. In Proceedings of the 4th ACM Conference on Information-Centric Networking (pp. 218–219).",
-          link: null,
+          
         },
       ],
     },
@@ -1331,7 +1201,7 @@ const websiteData = {
         {
           type: "conference",
           text: "N. Fotiou, H. Islam, D. Lagutin, T. Hakala and G.C. Polyzos. \"CoAP over ICN.\" 2016 8th IFIP International Conference on New Technologies, Mobility and Security (NTMS), pp. 1–4, November 2016.",
-          link: null,
+          
         },
       ],
     },
@@ -1342,7 +1212,7 @@ const websiteData = {
         {
           type: "conference",
           text: "Islam, Hasan MA, Andrey Lukyanenko, Sasu Tarkoma, and Antti Ylä-Jääski. \"Towards Disruption-Tolerant ICN.\" In 2015 IEEE Symposium on Computers and Communication (ISCC), pp. 212–219. IEEE.",
-          link: null,
+          
         },
       ],
     },
@@ -1353,7 +1223,7 @@ const websiteData = {
         {
           type: "conference",
           text: "Afroze, T., Sarkar, S., Islam, A. and Rahman, A., 2009, May. More Stable Ad-Hoc On-Demand Distance Vector Routing Protocol. In 2009 4th IEEE Conference on Industrial Electronics and Applications (pp. 150–155). IEEE.",
-          link: null,
+          
         },
       ],
     },
@@ -1367,12 +1237,12 @@ const websiteData = {
           {
           type: "journal",
           text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, IEEE Access",
-          link: null,
+          
         },
         {
           type: "conference",
           text: "S. M. Nafis Shahriar, Pulok Akibuzzaman, Md Ashik Uz Zaman, Nusrat Rahman Aurna, Sadia Fahmida Islam, and Hasan MA Islam.Protocol-Aware Geometric Inconsistency Analysis Framework for IoT Network Manifold Anomalies. The 4th International Conference on Computing Advancements (ICCA 2026).",
-          link: null,
+          
         }, 
         ],
       },
