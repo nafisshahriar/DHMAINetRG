@@ -1,0 +1,287 @@
+/* =========================================
+   About Page
+========================================= */
+
+.about-page {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* About introduction */
+
+.about-introduction {
+  margin: 1.5rem 0 2rem;
+}
+
+.about-main-title {
+  margin: 0 0 1rem;
+  color: #2c50b1;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.about-description {
+  margin: 0;
+  color: #334155;
+  font-family: Ubuntu, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  text-align: justify;
+}
+
+/* About sections wrapper */
+
+.about-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Common About card */
+
+.about-card {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Individual card top colors */
+
+.about-domains-card {
+  border-top: 4px solid #2c50b1;
+}
+
+.about-publications-card {
+  border-top: 4px solid #7c3aed;
+}
+
+.about-contact-card {
+  border-top: 4px solid #16a34a;
+}
+
+/* About section heading */
+
+.about-section-title {
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.8rem;
+  color: #2c50b1;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.about-publications-card .about-section-title {
+  color: #6d28d9;
+}
+
+.about-contact-card .about-section-title {
+  color: #15803d;
+}
+
+/* =========================================
+   Research Domains
+========================================= */
+
+.about-domain-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-domain-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #334155;
+}
+
+.about-domain-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  color: #2c50b1;
+  background: #e8eefc;
+  border-radius: 50%;
+}
+
+/* =========================================
+   Publication Profile Links
+========================================= */
+
+.about-publications-text {
+  margin: 0 0 1rem;
+  color: #475569;
+  line-height: 1.65;
+}
+
+.about-scholar-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.about-scholar-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.9rem;
+  color: #2c50b1;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.about-scholar-link:hover {
+  color: #1e3a8a;
+  background: #e8eefc;
+  border-color: #2c50b1;
+  transform: translateY(-1px);
+}
+
+.about-scholar-link:focus {
+  outline: 2px solid #2c50b1;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   Contact
+========================================= */
+
+.about-contact-content {
+  color: #334155;
+  line-height: 1.7;
+}
+
+.about-contact-content p {
+  margin: 0.15rem 0;
+  padding: 0;
+}
+
+.about-contact-name {
+  margin-bottom: 0.35rem !important;
+  color: #0f172a;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.about-contact-email {
+  margin-top: 0.7rem !important;
+}
+
+.about-contact-email a {
+  color: #2c50b1;
+  font-weight: 500;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.about-contact-email a:hover {
+  text-decoration: underline;
+}
+
+.about-empty-message {
+  margin: 0;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* =========================================
+   About Page Responsive
+========================================= */
+
+@media (max-width: 768px) {
+  .about-page {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .about-introduction {
+    margin-top: 1rem;
+  }
+
+  .about-main-title {
+    font-size: 1.6rem;
+  }
+
+  .about-description {
+    text-align: left;
+  }
+
+  .about-card {
+    padding: 1.2rem 1rem;
+  }
+
+  .about-section-title {
+    font-size: 1.3rem;
+  }
+
+  .about-domain-list {
+    grid-template-columns: 1fr;
+  }
+
+  .about-scholar-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-scholar-link {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-main-title {
+    font-size: 1.4rem;
+  }
+
+  .about-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .about-domain-item {
+    padding: 0.75rem;
+    font-size: 0.92rem;
+  }
+
+  .about-domain-icon {
+    width: 29px;
+    height: 29px;
+  }
+
+  .about-scholar-link {
+    font-size: 0.92rem;
+  }
+
+  .about-contact-content {
+    font-size: 0.92rem;
+  }
+}

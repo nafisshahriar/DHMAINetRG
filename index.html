@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,6 +6,8 @@
     <title>DHMAI-NetRG</title>
     <link rel="stylesheet" href="css/rg.css" />
     <link rel="stylesheet" href="css/certificates.css" />
+    <link rel="stylesheet" href="css/researchprojectpage.css" />
+    <link rel="stylesheet" href="css/about.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -96,13 +98,11 @@
         <h3>Publications</h3>
         <div class="papers" data-name="Mahdin Islam Ohi"></div>
       </div>
-      <!--<div id="MR" class="tabcontent"></div>-->
-      <div id="AS" class="tabcontent">
+       <div id="AS" class="tabcontent">
         <h3>Publications</h3>
         <div class="papers" data-name="Abdullah Sajid"></div>
       </div>
-      <!--<div id="HE" class="tabcontent"></div>-->
-      <div id="MAUZ" class="tabcontent">
+       <div id="MAUZ" class="tabcontent">
         <h3>Publications</h3>
         <div class="papers" data-name="Md. Ashik-Uz-Zaman"></div>
       </div>
@@ -118,8 +118,7 @@
         <h3>Publications</h3>
         <div class="papers" data-name="Masum"></div>
       </div>
-      <!--Members below will not be shown on the homepage but on specific projects-->
-      <div id="FI" class="tabcontent"></div>
+       <div id="FI" class="tabcontent"></div>
       <div id="MFHD" class="tabcontent"></div>
       <div id="FA" class="tabcontent"></div>
       <div id="MS" class="tabcontent"></div>
@@ -142,8 +141,7 @@
         </div>
       </div>
     </div>
-
-    <!-- ongoing project -->
+ 
     <div>
       <div id="CCN-IoV" class="tabcontent"></div>
       <div id="PAUMIoT" class="tabcontent"></div>
@@ -162,14 +160,12 @@
       <div id="PECCIV" class="tabcontent"></div>
       <div id="CCFL" class="tabcontent"></div>
     </div>
-
-    <!-- upcoming project -->
+ 
     <div>
       <div id="PRIoTPS" class="tabcontent"></div>
       <div id="FL-ORCH" class="tabcontent"></div>
     </div>
-
-    <!-- JavaScript Files -->
+ 
     <script src="js/config.js"></script>
     <script src="js/publicationsPage.js"></script>
     <script src="js/workInProgress.js"></script>
@@ -207,6 +203,290 @@
           menu.style.display = "flex";
         }
       }
+    </script>
+  </body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DHMAI-NetRG — Computer Networking and Pervasive Computing Research Group"
+    />
+
+    <title>DHMAI-NetRG</title>
+
+    <link rel="stylesheet" href="css/rg.css" />
+    <link rel="stylesheet" href="css/publications.css" />
+    <link rel="stylesheet" href="css/researchprojectpage.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/certificates.css" />
+    <link rel="stylesheet" href="css/upcoming.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="icon" href="images/rglogo2.jpg" type="image/png" />
+  </head>
+
+  <body>
+    <aside id="tabs" aria-label="Main navigation">
+      <div class="sidebar-logo">
+        <img
+          src="images/rg_logo.png"
+          alt="DHMAI-NetRG"
+          onclick="openTab(event, 'homepage')"
+          role="button"
+          tabindex="0"
+        />
+      </div>
+
+      <button
+        class="tablinks active"
+        data-tab="homepage"
+        onclick="openTab(event, 'homepage')"
+      >
+         <span>Home</span>
+      </button>
+
+      <button
+        id="publicationsMenuButton"
+        type="button"
+        aria-expanded="false"
+        aria-controls="pubMenu"
+        onclick="togglePubMenu()"
+      >
+         <span>Publications</span>
+        <i class="fa-solid fa-chevron-down" style="margin-left:auto"></i>
+      </button>
+
+      <div id="pubMenu" class="submenu">
+        <button
+          class="tablinks"
+          data-tab="ListPub"
+          onclick="openTab(event, 'ListPub')"
+        >
+           <span>Published</span>
+        </button>
+
+        <button
+          class="tablinks"
+          data-tab="ListSub"
+          onclick="openTab(event, 'ListSub')"
+        >
+           <span>Under Review</span>
+        </button>
+      </div>
+
+      <button
+        class="tablinks"
+        data-tab="CertificatesPage"
+        onclick="openTab(event, 'CertificatesPage')"
+      >
+         <span>Certificates</span>
+      </button>
+
+      <button
+        class="tablinks"
+        data-tab="WorkinProg"
+        onclick="openTab(event, 'WorkinProg')"
+      >
+         <span>Research Projects</span>
+      </button>
+
+      <button
+        class="tablinks"
+        data-tab="AboutPage"
+        onclick="openTab(event, 'AboutPage')"
+      >
+         <span>About</span>
+      </button>
+    </aside>
+
+    <div id="sidebar-overlay" onclick="closeSidebar()" aria-hidden="true"></div>
+
+    <header id="mobile-navbar">
+      <div class="sidebar-logo">
+        <img src="images/rg_logo.png" alt="DHMAI-NetRG" />
+      </div>
+
+      <button
+        id="hamburger"
+        type="button"
+        onclick="toggleSidebar()"
+        aria-label="Open navigation"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <main id="site-content">
+      <div id="homepage" class="tabcontent active"></div>
+      <div id="ListPub" class="tabcontent"></div>
+      <div id="ListSub" class="tabcontent"></div>
+      <div id="WorkinProg" class="tabcontent"></div>
+      <div id="AboutPage" class="tabcontent"></div>
+      <div id="CertificatesPage" class="tabcontent"></div>
+
+      <!-- Member detail pages -->
+      <div id="DHMAI" class="tabcontent"></div>
+      <div id="DRI" class="tabcontent"></div>
+      <div id="DMG" class="tabcontent"></div>
+      <div id="MRM" class="tabcontent"></div>
+      <div id="SMNS" class="tabcontent"></div>
+      <div id="PA" class="tabcontent"></div>
+      <div id="MIO" class="tabcontent"></div>
+      <div id="AS" class="tabcontent"></div>
+      <div id="MAUZ" class="tabcontent"></div>
+      <div id="SFI" class="tabcontent"></div>
+      <div id="NRA" class="tabcontent"></div>
+      <div id="MASUM" class="tabcontent"></div>
+      <div id="FI" class="tabcontent"></div>
+      <div id="MFHD" class="tabcontent"></div>
+      <div id="FA" class="tabcontent"></div>
+      <div id="MS" class="tabcontent"></div>
+
+      <!-- Ongoing project pages -->
+      <div id="CCN-IoV" class="tabcontent"></div>
+      <div id="PAUMIoT" class="tabcontent"></div>
+      <div id="OppNDA" class="tabcontent"></div>
+      <div id="PixieGPT" class="tabcontent"></div>
+      <div id="STGen" class="tabcontent"></div>
+      <div id="PRIoTP" class="tabcontent"></div>
+      <div id="CTRBM" class="tabcontent"></div>
+      <div id="ECCN" class="tabcontent"></div>
+      <div id="GDINMT" class="tabcontent"></div>
+      <div id="PRIoTPS" class="tabcontent"></div>
+      <div id="CCNI" class="tabcontent"></div>
+      <div id="NASE" class="tabcontent"></div>
+      <div id="RDAMS" class="tabcontent"></div>
+      <div id="CCIP" class="tabcontent"></div>
+      <div id="PECCIV" class="tabcontent"></div>
+      <div id="CCFL" class="tabcontent"></div>
+
+      <!-- Upcoming project pages -->
+      <div id="FL-ORCH" class="tabcontent"></div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/publicationsPage.js"></script>
+    <script src="js/workInProgress.js"></script>
+    <script src="js/aboutPage.js"></script>
+    <script src="js/projectPages.js"></script>
+    <script src="js/upcomingPage.js"></script>
+    <script src="js/certificatespage.js"></script>
+
+    <script>
+      function closeSidebar() {
+        document.getElementById("tabs")?.classList.remove("show");
+      }
+
+      function toggleSidebar() {
+        document.getElementById("tabs")?.classList.toggle("show");
+      }
+
+      function togglePubMenu(forceOpen) {
+        const menu = document.getElementById("pubMenu");
+        const button = document.getElementById("publicationsMenuButton");
+        if (!menu || !button) return;
+
+        const shouldOpen =
+          typeof forceOpen === "boolean"
+            ? forceOpen
+            : !menu.classList.contains("open");
+
+        menu.classList.toggle("open", shouldOpen);
+        button.setAttribute("aria-expanded", String(shouldOpen));
+      }
+
+      function updateActiveNavigation(tabName, eventTarget) {
+        document.querySelectorAll("#tabs .tablinks").forEach((button) => {
+          button.classList.remove("active");
+        });
+
+        const matchingButton = document.querySelector(
+          `#tabs .tablinks[data-tab="${tabName}"]`,
+        );
+
+        const activeButton = matchingButton || eventTarget?.closest("button");
+        activeButton?.classList.add("active");
+
+        if (["ListPub", "ListSub"].includes(tabName)) {
+          togglePubMenu(true);
+        }
+      }
+
+      function openTab(evt, tabName, pushState = true) {
+        const target = document.getElementById(tabName);
+        if (!target) return;
+
+        const currentTab = document.querySelector(".tabcontent.active");
+        if (currentTab) {
+          history.replaceState(
+            {
+              ...(history.state || {}),
+              tab: currentTab.id,
+              scrollY: window.scrollY,
+            },
+            "",
+            window.location.hash || `#${currentTab.id}`,
+          );
+        }
+
+        document.querySelectorAll(".tabcontent").forEach((content) => {
+          content.classList.remove("active");
+          content.style.display = "none";
+        });
+
+        target.classList.add("active");
+        target.style.display = "block";
+
+        updateActiveNavigation(tabName, evt?.currentTarget);
+        closeSidebar();
+
+        if (pushState) {
+          history.pushState({ tab: tabName, scrollY: 0 }, "", `#${tabName}`);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+
+      window.addEventListener("popstate", (event) => {
+        const tabName =
+          event.state?.tab || window.location.hash.replace("#", "") || "homepage";
+
+        openTab(null, tabName, false);
+
+        requestAnimationFrame(() => {
+          window.scrollTo({
+            top: event.state?.scrollY || 0,
+            behavior: "instant",
+          });
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeSidebar();
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        homePage();
+        allMemberPage();
+        publicationsPage();
+        submissionsPage();
+        workInProgressPage();
+        aboutPage();
+        allProjectPages();
+        allUpcomingProjectPages();
+        certificatesPage();
+
+        const initialTab = window.location.hash.replace("#", "") || "homepage";
+        openTab(null, document.getElementById(initialTab) ? initialTab : "homepage", false);
+      });
     </script>
   </body>
 </html>

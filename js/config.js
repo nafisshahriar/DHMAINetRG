@@ -106,43 +106,102 @@ function createMemberCard(member, onClick = true) {
 }
 
 // Function to homepage
+// function homePage() {
+//   const homepage = document.getElementById("homepage");
+//   if (!homepage) return;
+
+//   const pi = websiteData.team.principalInvestigator;
+//   const advisors = websiteData.team.externalAdvisors;
+//   const researchers = websiteData.team.researchers;
+
+//   homepage.innerHTML = `
+//         <div class="spacing"></div>
+//         <div class="members-page">
+//             <h1 class="section-title" style="color:#2c50b1;">Meet the Team</h1>
+            
+//             <h2 class="subsection-title">Principal Investigator</h2>
+//             <br>
+//             <div class="member-group">
+//                 ${createMemberCard(pi)}
+//             </div>
+            
+//             <br>
+//             <h2 class="subsection-title">External Advisor</h2>
+//             <br>
+//             <div class="member-group">
+//                 ${advisors.map((advisor) => createMemberCard(advisor)).join("")}
+//             </div>
+            
+//             <br>
+//             <h2 class="subsection-title">Researchers</h2>
+//             <br>
+//             <div class="member-group">
+//                 ${researchers
+//                   .filter((r) => !r.hideFromHome)
+//                   .map((researcher) => createMemberCard(researcher))
+//                   .join("")}
+//             </div>
+//         </div>
+//     `;
+// }
+
 function homePage() {
   const homepage = document.getElementById("homepage");
-  if (!homepage) return;
+
+  if (!homepage) {
+    return;
+  }
 
   const pi = websiteData.team.principalInvestigator;
   const advisors = websiteData.team.externalAdvisors;
   const researchers = websiteData.team.researchers;
 
   homepage.innerHTML = `
-        <div class="spacing"></div>
-        <div class="members-page">
-            <h1 class="section-title" style="color:#2c50b1;">Meet the Team</h1>
-            
-            <h2 class="subsection-title">Principal Investigator</h2>
-            <br>
-            <div class="member-group">
-                ${createMemberCard(pi)}
-            </div>
-            
-            <br>
-            <h2 class="subsection-title">External Advisor</h2>
-            <br>
-            <div class="member-group">
-                ${advisors.map((advisor) => createMemberCard(advisor)).join("")}
-            </div>
-            
-            <br>
-            <h2 class="subsection-title">Researchers</h2>
-            <br>
-            <div class="member-group">
-                ${researchers
-                  .filter((r) => !r.hideFromHome)
-                  .map((researcher) => createMemberCard(researcher))
-                  .join("")}
-            </div>
+    <div class="spacing"></div>
+
+    <div class="members-page home-team-page">
+
+      <h1 class="section-title">
+        Meet the Team
+      </h1>
+
+      <section class="team-section">
+        <h2 class="subsection-title">
+          Principal Investigator
+        </h2>
+
+        <div class="member-group member-group-principal">
+          ${createMemberCard(pi)}
         </div>
-    `;
+      </section>
+
+      <section class="team-section">
+        <h2 class="subsection-title">
+          External Advisor
+        </h2>
+
+        <div class="member-group member-group-advisors">
+          ${advisors
+            .map((advisor) => createMemberCard(advisor))
+            .join("")}
+        </div>
+      </section>
+
+      <section class="team-section">
+        <h2 class="subsection-title">
+          Researchers
+        </h2>
+
+        <div class="member-group member-group-researchers">
+          ${researchers
+            .filter((researcher) => !researcher.hideFromHome)
+            .map((researcher) => createMemberCard(researcher))
+            .join("")}
+        </div>
+      </section>
+
+    </div>
+  `;
 }
 
 // Function to create project list
@@ -1162,7 +1221,7 @@ const websiteData = {
       items: [
         {
           type: "journal",
-          text: "Islam, Hasan M. A., Md M. R. Maharaz, M. Georgiades, S. M. N. Shahriar, P. Akibuzzaman, N. R. Aurna, Md Masum, and Riadul Islam. \"STGen: A Lightweight Process-Based Testbed for Scalable IoT Protocol Evaluation with Physically Validated Synthetic Sensor and Anomaly Generation\" Journal of Sensor and Actuator Networks 15, no. 4: 63.",
+          text: "Islam, Hasan M. A., Md M. R. Maharaz, M. Georgiades, S. M. N. Shahriar, P. Akibuzzaman, N. R. Aurna, Md Masum, and Riadul Islam. \"STGen: A Lightweight Process-Based Testbed for Scalable IoT Protocol Evaluation with Physically Validated Synthetic Sensor and Anomaly Generation.\" Journal of Sensor and Actuator Networks 15, no. 4: 63.",
           link: "https://www.mdpi.com/2224-2708/15/4/63",
         },
         {
@@ -1218,9 +1277,14 @@ const websiteData = {
       items: [
         {
           type: "journal",
-          text: "Hasan MA Islam, Md Khalid M Khan, M. Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees. IEEE Access 13: 50727–50740 (2025).",
+          text: "Hasan MA Islam, Md Khalid M Khan, M. Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. \"Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees.\" IEEE Access 13: 50727–50740 (2025).",
           link: "https://ieeexplore.ieee.org/document/10929018",
         },
+        {
+        type: "journal",
+        text: "Georgiades, Michael, Iacovos Ioannou, Hasan Islam, Ferheen Ayaz, Yun Hou, and Kin-Hon Ho. \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and Risk-Aware Bandits.\" TechRxiv (2025).",
+        link: "https://doi.org/10.36227/techrxiv.176288223.31039564/v1",
+},
       ],
     },
 
@@ -1228,10 +1292,10 @@ const websiteData = {
       year: "2019",
       items: [
         {
-          type: "conference",
-          text: "Islam, H.M.A., Lagutin, D., Ylä-Jääski, A., Fotiou, N. and Gurtov, A., 2019. Transparent CoAP Services to IoT Endpoints Through ICN Operator Networks. Sensors, 19(6), p.1339. (Impact Factor: 3.847).",
-          link: null,
-        },
+          type: "journal",
+          text: "Islam, H.M.A., D. Lagutin, Ylä-Jääski, A. Fotiou, N. and Gurtov A., 2019. \"Transparent CoAP Services to IoT Endpoints Through ICN Operator Networks.\" Sensors, 19(6), p.1339. (Impact Factor: 3.847).",
+          link: "https://doi.org/10.3390/s19061339",
+        },  
       ],
     },
 
@@ -1240,7 +1304,7 @@ const websiteData = {
       items: [
         {
           type: "journal",
-          text: "Islam, H.M., Chatzopoulos, D., Lagutin, D., Hui, P. and Ylä-Jääski, A., 2017. Boosting the Performance of Content-Centric Networking Using Delay-Tolerant Networking Mechanisms. IEEE Access, 5, pp.23858–23870. (Impact Factor: 3.367).",
+          text: "Islam, H.M., Chatzopoulos, D., Lagutin, D., Hui, P. and Ylä-Jääski, A., 2017. \"Boosting the Performance of Content-Centric Networking Using Delay-Tolerant Networking Mechanisms.\" IEEE Access, 5, pp.23858–23870. (Impact Factor: 3.367).",
           link: "https://doi.org/10.48550/arXiv.1803.00315",
         },
         {
@@ -1300,8 +1364,16 @@ const websiteData = {
       {
         year: "2026",
         items: [
-          "S. M. Nafis Shahriar, Pulok Akibuzzaman, Md Ashik Uz Zaman, Nusrat Rahman Aurna, Sadia Fahmida Islam, and Hasan MA Islam.Protocol-Aware Geometric Inconsistency Analysis Framework for IoT Network Manifold Anomalies. The 4th International Conference on Computing Advancements (ICCA 2026).",
-          "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, IEEE Access",
+          {
+          type: "journal",
+          text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, IEEE Access",
+          link: null,
+        },
+        {
+          type: "conference",
+          text: "S. M. Nafis Shahriar, Pulok Akibuzzaman, Md Ashik Uz Zaman, Nusrat Rahman Aurna, Sadia Fahmida Islam, and Hasan MA Islam.Protocol-Aware Geometric Inconsistency Analysis Framework for IoT Network Manifold Anomalies. The 4th International Conference on Computing Advancements (ICCA 2026).",
+          link: null,
+        }, 
         ],
       },
     ],
