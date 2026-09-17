@@ -1097,6 +1097,11 @@ const websiteData = {
       year: "2026",
       items: [
         {
+        type: "journal",
+        text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. \"OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator.\"  in IEEE Access, 2025, (Impact Factor: 4.2).",
+        
+        },
+        {
           type: "journal",
           text: "Islam, Hasan M. A., Md M. R. Maharaz, M. Georgiades, S. M. N. Shahriar, P. Akibuzzaman, N. R. Aurna, Md Masum, and Riadul Islam. \"STGen: A Lightweight Process-Based Testbed for Scalable IoT Protocol Evaluation with Physically Validated Synthetic Sensor and Anomaly Generation.\" Journal of Sensor and Actuator Networks 15, no. 4: 63. (Impact Factor 4.8). doi: <a href=\"https://doi.org/10.3390/jsan15040063\">10.3390/jsan15040063</a>",
           
@@ -1233,9 +1238,19 @@ const websiteData = {
       {
         year: "2026",
         items: [
-          {
-          type: "journal",
-          text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator, IEEE Access",
+        {
+          type: "conference",
+          text: "N.R. Aurna, Md Masum, M.A.U. Zaman, S.M.N. Shahriar, P. Akibuzzaman, M. Georgiades, H.M.A. Islam. Cross-Tier Routing and Bundle Management in UAV-Assisted Vehicular Delay-Tolerant Networks, 2026. 14th International Conference on Electrical and Computer Engineering (ICECE 2026) [Submitted]",
+          
+        },
+        {
+          type: "conference",
+          text: "Sadia F.I., M.I. Ohi, M.M. Hasan, T.A. Raisa, M.R. Maharaz, Michael Georgiades, Hasan MA Islam. Towards Adaptive, Lightweight, and Secure Communication for Resource-Constrained Networks, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
+          
+        },
+        {
+          type: "conference",
+          text: "Md Masum, M.A.U. Zaman, A. Sajid, N.R. Aurna, P. Akibuzzaman, S.M.N. Shahriar, M. Georgiades, H.M.A. Islam. ICDTN Router: A Native Information-Centric Forwarding Architecture for Delay-Tolerant Networks, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
           
         },
         {
