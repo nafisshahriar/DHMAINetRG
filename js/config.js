@@ -1238,6 +1238,16 @@ const websiteData = {
       {
         year: "2026",
         items: [
+          {
+          type: "conference",
+          text: "A. Sajid, M.I. Ohi, A. Islam, J.A. Mubin, Md. Y.Z. Niyaj, H.M.A. Islam. PixiePaCS: A Policy Aware Conversational System with Customized Filtration, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
+          
+        },
+        {
+          type: "conference",
+          text: "A. Sajid, Md Masum, M.I. Ohi, S. Islam, Md. M. Rahman, A.A. Arfa, R. Alam, S.H. Khan, H.M.A. Islam. A cross-layer content poisoning attack model in the DTN protocol stack, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
+          
+        },
         {
           type: "conference",
           text: "N.R. Aurna, Md Masum, M.A.U. Zaman, S.M.N. Shahriar, P. Akibuzzaman, M. Georgiades, H.M.A. Islam. Cross-Tier Routing and Bundle Management in UAV-Assisted Vehicular Delay-Tolerant Networks, 2026. 14th International Conference on Electrical and Computer Engineering (ICECE 2026) [Submitted]",
