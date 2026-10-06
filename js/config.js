@@ -532,7 +532,7 @@ const websiteData = {
         scholar: "https://scholar.google.com/citations?user=Ft1MZlsAAAAJ&hl=el",
         website: "https://www.nup.ac.cy/faculty/michael-georgiades/",
         linkedin: "https://www.linkedin.com/in/mgeorgiades/",
-        bio: "Michael Georgiades is an Assistant Professor in the field of Communication Networks in the Department of Computer Science, Neapolis University. He received a B.Eng. in Communications and Radio Engineering with First Class Honors from King's College London in 2000, an M.Sc. in Telecommunications from University College London in 2001, and a Ph.D. in Wireless and Mobile Networks from the University of Surrey in 2008. He is also currently pursuing an M.Sc. Machine Learning and Data Science at Imperial College London (MLDS'25). Positions held include Assistant Professor at Neapolis University Pafos, R&D Manager at Infostrada Communications, Adjunct Lecturer at the Cyprus University of Technology and Open University of Cyprus, R&D Manager at Primetel PLC, Research Fellow at the Centre of Communication Systems Research (CCSR) University of Surrey (UK) and Systems Development Engineer at INSIG Ltd (UK). Dr. Georgiades, has been involved in more than 20 EU funded projects and is also an active expert evaluator for the EUREKA Eurostars international funding program. He is a patent holder and has authored more than 70 publications in international journals, conferences, book chapters, and IETF. He has received several awards in the past, including Primetel Excellence and Appreciation Awards, Nokia Research Excellence Award and EPSRC Fellowship. As a distinguished IEEE member, he actively contributes as a reviewer for prestigious journals, magazines, and conferences within the IEEE community. Areas of research interest include: Tactile Internet, Mobile Edge Computing, Vehicular Networks, Internet of Things, Edge Intelligence, and Federated Learning.",
+        bio: "Michael Georgiades received the B.Eng. degree in communications and radio engineering (Hons.) from King’s College London, the M.Sc. degree in telecommunications from University College London, the M.Sc. degree in machine learning and data science (Hons.) from Imperial College London, and the Ph.D. degree in wireless and mobile networks from the University of Surrey. He is an Assistant Professor at the Department of Computer Science, Neapolis University Pafos. He is also an Adjunct Professor at the Cyprus University of Technology and at the Department of Computer Science and Engineering, East West University, Dhaka, Bangladesh. He has also served as an Adjunct Professor at the Open University of Cyprus, a Visiting Professor at the National Technical University of Athens, and an External Mentor at Royal Holloway, University of London. His previous industry and research positions include Research and Development Manager at Primetel PLC and Research Fellow at the University of Surrey. He has participated in numerous EU-funded ICT research projects, is a patent holder, and has contributed to international publications and IETF standards. His research interests include the Internet of Things, applied machine learning, vehicular networks, network security, mobile and wireless communications, explainable AI, and federated learning.",
         projects: ["OppNDA"],
         experience: [
           "Assistant Professor at Neapolis University Pafos, Cyprus <strong>(Jan 2022 – Present)</strong>",
@@ -551,9 +551,9 @@ const websiteData = {
         id: "MRM",
         name: "Mahmudur Rahman Mehraj",
         image: "images/mehraj.webp",
-        role: "Under Graduate Teaching Assistant",
+        role: "Associate",
         badges: [
-          { text: "Technical Lead", color: "#72A276" },
+          { text: "Director", color: "#aa1717" },
           { text: "PAUMIoT Lead", color: "#1e293b" },
         ],
         email: "2022-3-60-182@std.ewubd.edu",
@@ -661,7 +661,6 @@ const websiteData = {
         name: "Abdullah Sajid",
         image: "images/sajid.webp",
         role: "Assistant",
-        badges: [{ text: "PRIoTP Lead", color: "#1e293b" }],
         email: "2023-3-60-487@std.ewubd.edu",
         github: "https://github.com/AbdullahSajid007",
         linkedin: "https://www.linkedin.com/in/abdullah-sajid-089848363/",
@@ -690,6 +689,7 @@ const websiteData = {
         name: "Md. Ashik-Uz-Zaman",
         image: "images/ashik.webp",
         role: "Assistant",
+        badges: [{ text: "PRIoTP Lead", color: "#1e293b" }],
         email: "2023-3-60-074@std.ewubd.edu",
         github: "https://github.com/ashikonik",
         linkedin: "https://www.linkedin.com/in/ashikonik",
@@ -705,6 +705,7 @@ const websiteData = {
         image: "images/sfi.webp",
         role: "Assistant",
         email: "2024-1-60-331@std.ewubd.edu",
+        badges: [{ text: "PRIoTPS Lead", color: "#1e293b" }],
         github: "https://github.com/sadiafahmida",
         linkedin: "https://www.linkedin.com/in/sadia-fahmida-islam-84734b287",
         bio: "Sadia Fahmida Islam is pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. She has completed several projects in UI/UX design and programming with C, C++, Java script, and Python, and completed the Headstarter Fellowship in AI. Her interest has recently grown in Cybersecurity and its applications in technology and research. Alongside her studies, she has worked as a Research and Development Assistant and Academic Coordinator at non-profit organizations, gaining valuable leadership experience as the Best Academic Coordinator and mentoring students in various science and Olympiad programs. She is also an active public speaker, contributing to awareness and education initiatives.",
@@ -734,6 +735,7 @@ const websiteData = {
         role: "Assistant",
         email: "2023-3-60-066@std.ewubd.edu",
         github: "https://github.com/masum-mir",
+        badges: [{ text: "Developer", color: "#2369db" }],
         linkedin: "https://www.linkedin.com/in/md-masum-mir/",
         bio: "Masum is an undergraduate student of Computer Science and Engineering at East West University, Dhaka, Bangladesh. Alongside his studies, he works as a Research Assistant in DHMAINetRG under the supervision of Dr. Hasan Mahmood Aminul Islam.",
         projects: ["PRIoTP", "CCN-IoV"],
@@ -1098,7 +1100,7 @@ const websiteData = {
       items: [
         {
         type: "journal",
-        text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, M.K.M. Khan, and M.Georgiades. \"OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator.\"  in IEEE Access, 2025, (Impact Factor: 4.2).",
+        text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, M.Georgiades, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, and M.K.M. Khan. \"OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator.\"  in IEEE Access, 2025, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2026.3737018\">10.1109/ACCESS.2026.3737018</a>",
         
         },
         {
