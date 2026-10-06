@@ -466,7 +466,7 @@ const websiteData = {
       name: "Hasan Mahmood Aminul Islam",
       image: "images/dhmai.webp",
       role: "Assistant Professor",
-      institution: "East West University",
+      institution: "East West University, Dhaka, Bangladesh",
       email: "hasan.mahmood@ewubd.edu",
       scholar: "https://scholar.google.com/citations?user=M0oP3RMAAAAJ&hl=en",
       github: "https://github.com/hmaislam",
