@@ -1100,7 +1100,11 @@ const websiteData = {
       items: [
         {
         type: "journal",
-        text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, M.Georgiades, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, and M.K.M. Khan. \"OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator.\"  in IEEE Access, 2025, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2026.3737018\">10.1109/ACCESS.2026.3737018</a>",
+        text: "Michael Georgiades, Iacovos Ioannou, Hasan Islam, Ferheen Ayaz, Yun Hou, Kin-Hon Ho. \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and RiskAware Bandits.\" in IEEE Transactions on Network and Service Management, 2026, (Impact Factor: 5.7). doi: <a href=\"https://doi.org/10.36227/techrxiv.176288223.31039564/v1\">10.36227/techrxiv.176288223.31039564/v1</a>",
+        },
+        {
+        type: "journal",
+        text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, M.Georgiades, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, and M.K.M. Khan. \"OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator.\"  in IEEE Access, 2026, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2026.3737018\">10.1109/ACCESS.2026.3737018</a>",
         
         },
         {

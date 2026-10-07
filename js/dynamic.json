@@ -1,5 +1,32 @@
 [   
-     
+ {
+        "title":"Michael Georgiades, Iacovos Ioannou, Hasan Islam, Ferheen Ayaz, Yun Hou, Kin-Hon Ho. \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and RiskAware Bandits.\" in IEEE Transactions on Network and Service Management, 2026, (Impact Factor: 5.7)",
+        "authors":["Michael Georgiades","Hasan Mahmood Aminul Islam"],
+        "highlightForMember": {
+            "Michael Georgiades":["Michael Georgiades"],
+            "Hasan Mahmood Aminul Islam":["Hasan Islam"]
+        },
+        "link": "https://doi.org/10.36227/techrxiv.176288223.31039564/v1",
+        "year": "2026"
+ },  
+{
+        "title":"H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, M.Georgiades, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, and M.K.M. Khan. \"OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research With the ONE Simulator\" in IEEE Access, 2026, (Impact Factor: 4.2)",
+        "authors":["Hasan Mahmood Aminul Islam","S. M. Nafis Shahriar","Pulok Akibuzzaman","Mahmudur Rahman Mehraj","Michael Georgiades","Abdullah Sajid","Nusrat Rahman Aurna","Sadia Fahmida Islam","Mahdin Islam Ohi","Md Khalid M Khan"],
+        "highlightForMember": {
+            "Hasan Mahmood Aminul Islam":["H.M.A. Islam"],
+            "S. M. Nafis Shahriar":["S.M.N. Shahriar"],
+            "Pulok Akibuzzaman":["P.Akibuzzaman"],
+            "Mahmudur Rahman Mehraj":["M.R. Maharaz"],
+            "Michael Georgiades":["M.Georgiades"],
+            "Abdullah Sajid":["A.Sajid"],
+            "Nusrat Rahman Aurna":["N.R. Aurna"],
+            "Sadia Fahmida Islam":["F.Islam"],
+            "Mahdin Islam Ohi":["M.I. Ohi"],
+            "Md Khalid M Khan":["M.K.M. Khan"]
+        },
+        "link": "https://doi.org/10.1109/ACCESS.2026.3737018",
+        "year": "2026"
+    },
     {
          "title":"Islam, Hasan M. A., Md M. R. Maharaz, M. Georgiades, S. M. N. Shahriar, P. Akibuzzaman, N. R. Aurna, Md Masum, and Riadul Islam. \"STGen: A Lightweight Process-Based Testbed for Scalable IoT Protocol Evaluation with Physically Validated Synthetic Sensor and Anomaly Generation\" Journal of Sensor and Actuator Networks 15, no. 4: 63.",
          "authors":["Hasan Mahmood Aminul Islam","Mahmudur Rahman Mehraj","Michael Georgiades","S. M. Nafis Shahriar","Pulok Akibuzzaman","Nusrat Rahman Aurna","Md Masum","Riadul Islam"],
@@ -9,7 +36,7 @@
                 "Michael Georgiades":["Michael Georgiades"],
                 "S. M. Nafis Shahriar":["SMN Shahriar"],
                 "Pulok Akibuzzaman":["P. Akibuzzaman"],
-                "Nusrat Rahman Aurna":["NR Aurna"],
+                "Nusrat Rahman Aurna":["N. R. Aurna"],
                 "Md Masum":["Md Masum"],
                 "Riadul Islam":["Riadul Islam"]
             },
