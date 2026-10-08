@@ -1100,7 +1100,7 @@ const websiteData = {
       items: [
         {
         type: "journal",
-        text: "Michael Georgiades, Iacovos Ioannou, Hasan Islam, Ferheen Ayaz, Yun Hou, Kin-Hon Ho. \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and RiskAware Bandits.\" in IEEE Transactions on Network and Service Management, 2026, (Impact Factor: 5.7). doi: <a href=\"https://doi.org/10.36227/techrxiv.176288223.31039564/v1\">10.36227/techrxiv.176288223.31039564/v1</a>",
+        text: "Michael Georgiades, Iacovos Ioannou, Hasan Islam, Ferheen Ayaz, Yun Hou, Kin-Hon Ho. \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and Risk-Aware Bandits.\" in IEEE Transactions on Network and Service Management, 2026, (Impact Factor: 5.7). doi: <a href=\"https://doi.org/10.36227/techrxiv.176288223.31039564/v1\">10.36227/techrxiv.176288223.31039564/v1</a>",
         },
         {
         type: "journal",
@@ -1164,10 +1164,10 @@ const websiteData = {
           type: "journal",
           text: "Hasan MA Islam, Md Khalid M Khan, M. Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. \"Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees.\" in IEEE Access, vol. 13, pp. 50727-50740, 2025, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2025.3552026\">10.1109/ACCESS.2025.3552026</a>.",
         },
-        {
-        type: "journal",
-        text: "M. Georgiades, I. Ioannou, H. Islam, F. Ayaz, Y. Hou, and K.-H. Ho, \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and Risk-Aware Bandits,\" submitted to IEEE Transactions on Network and Service Management.",
-},
+//         {
+//         type: "journal",
+//         text: "M. Georgiades, I. Ioannou, H. Islam, F. Ayaz, Y. Hou, and K.-H. Ho, \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and Risk-Aware Bandits,\" submitted to IEEE Transactions on Network and Service Management.",
+// },
       ],
     },
 
