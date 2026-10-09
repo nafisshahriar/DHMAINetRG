@@ -1100,7 +1100,7 @@ const websiteData = {
       items: [
         {
         type: "journal",
-        text: "Michael Georgiades, Iacovos Ioannou, Hasan Islam, Ferheen Ayaz, Yun Hou, Kin-Hon Ho. \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and Risk-Aware Bandits.\" in IEEE Transactions on Network and Service Management, 2026, (Impact Factor: 5.7). doi: <a href=\"https://doi.org/10.36227/techrxiv.176288223.31039564/v1\">10.36227/techrxiv.176288223.31039564/v1</a>",
+        text: "Michael Georgiades, Iacovos Ioannou, Hasan Islam, Ferheen Ayaz, Yun Hou, Kin-Hon Ho. \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and Risk-Aware Bandits.\" in IEEE Transactions on Network and Service Management, 2026, (Impact Factor: 5.7). doi: <a href=\"https://doi.org/10.1109/TNSM.2026.3742669\">10.1109/TNSM.2026.3742669</a>",
         },
         {
         type: "journal",
