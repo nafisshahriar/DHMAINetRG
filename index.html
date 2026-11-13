@@ -52,6 +52,9 @@
       <button class="tablinks" onclick="openTab(event, 'WorkinProg')">
         Works in Progress
       </button>
+      <button class="tablinks" onclick="openTab(event, 'AlumniPage')">
+        Alumni
+      </button>
       <button class="tablinks" onclick="openTab(event, 'AboutPage')">
         About
       </button>
@@ -72,54 +75,55 @@
     <div id="ListPub" class="tabcontent"></div>
     <div id="ListSub" class="tabcontent"></div>
     <div id="WorkinProg" class="tabcontent"></div>
+    <div id="AlumniPage" class="tabcontent"></div>
     <div id="AboutPage" class="tabcontent"></div>
     <div id="CertificatesPage" class="tabcontent"></div>
 
     <div>
       <div id="DHMAI" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="Hasan Mahmood Aminul Islam"></div>
+        <div class="papers" data-member-id="DHMAI"></div>
       </div>
       <div id="DRI" class="tabcontent"></div>
       <div id="DMG" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="Michael Georgiades"></div>
+        <div class="papers" data-member-id="DMG"></div>
       </div>
       <div id="MRM" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="Mahmudur Rahman Mehraj"></div>
+        <div class="papers" data-member-id="MRM"></div>
       </div>
       <div id="SMNS" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="S. M. Nafis Shahriar"></div>
+        <div class="papers" data-member-id="SMNS"></div>
       </div>
       <div id="PA" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="Pulok Akibuzzaman"></div>
+        <div class="papers" data-member-id="PA"></div>
       </div>
       <div id="MIO" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="Mahdin Islam Ohi"></div>
+        <div class="papers" data-member-id="MIO"></div>
       </div>
        <div id="AS" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="Abdullah Sajid"></div>
+        <div class="papers" data-member-id="AS"></div>
       </div>
        <div id="MAUZ" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="Md. Ashik-Uz-Zaman"></div>
+        <div class="papers" data-member-id="MAUZ"></div>
       </div>
       <div id="SFI" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="Sadia Fahmida Islam"></div>
+        <div class="papers" data-member-id="SFI"></div>
       </div>
       <div id="NRA" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="Nusrat Rahman Aurna"></div>
+        <div class="papers" data-member-id="NRA"></div>
       </div>
       <div id="MASUM" class="tabcontent">
         <h3>Publications</h3>
-        <div class="papers" data-name="Masum"></div>
+        <div class="papers" data-member-id="MASUM"></div>
       </div>
        <div id="FI" class="tabcontent"></div>
       <div id="MFHD" class="tabcontent"></div>
@@ -172,6 +176,7 @@
     <script src="js/config.js"></script>
     <script src="js/publicationsPage.js"></script>
     <script src="js/workInProgress.js"></script>
+    <script src="js/alumniPage.js"></script>
     <script src="js/aboutPage.js"></script>
     <script src="js/projectPages.js"></script>
     <script src="js/upcomingPage.js"></script>
@@ -183,6 +188,7 @@
         allMemberPage();
         publicationsPage();
         workInProgressPage();
+        alumniPage();
         aboutPage();
         allProjectPages();
         allUpcomingProjectPages();

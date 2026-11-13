@@ -173,28 +173,34 @@ function homePage() {
         <div class="member-group member-group-principal">
           ${createMemberCard(pi)}
         </div>
+        <br>
       </section>
 
       <section class="team-section">
         <h2 class="subsection-title">
           External Advisor
         </h2>
-
+        <br>
         <div class="member-group member-group-advisors">
           ${advisors
             .map((advisor) => createMemberCard(advisor))
             .join("")}
         </div>
+        <br>
       </section>
+
 
       <section class="team-section">
         <h2 class="subsection-title">
           Researchers
         </h2>
-
+        <br>
         <div class="member-group member-group-researchers">
           ${researchers
-            .filter((researcher) => !researcher.hideFromHome)
+            .filter(
+              (researcher) =>
+                !researcher.hideFromHome && !researcher.alumni,
+            )
             .map((researcher) => createMemberCard(researcher))
             .join("")}
         </div>
@@ -227,10 +233,25 @@ function createProjectList(projects) {
     .join("");
 }
 
+function getProjectsForMember(memberId) {
+  return websiteData.projects
+    .filter((project) =>
+      Object.values(project.team).some((memberIds) =>
+        memberIds.includes(memberId),
+      ),
+    )
+    .map((project) => project.id);
+}
+
 // Function to individual member detail page
 function memberDetailPage(member) {
-  const detailPage = document.getElementById(member.id);
-  if (!detailPage) return;
+  let detailPage = document.getElementById(member.id);
+  if (!detailPage) {
+    detailPage = document.createElement("div");
+    detailPage.id = member.id;
+    detailPage.className = "tabcontent";
+    document.body.appendChild(detailPage);
+  }
 
   const isPrincipal = member.id === "DHMAI";
   const isAdvisor = ["DRI", "DMG"].includes(member.id);
@@ -252,12 +273,13 @@ function memberDetailPage(member) {
     ? `<div class="member-role">${member.institution}</div>`
     : "";
 
+  const memberProjects = getProjectsForMember(member.id);
   const projectsSection =
-    member.projects && member.projects.length > 0
+    memberProjects.length > 0
       ? `
         <h3 style="color: #2c50b1;" class="subsection-title">📚 ${isPrincipal || isAdvisor ? "Current Projects" + (isAdvisor ? " with DHMAINetRG" : "") : "Projects"}:</h3>
         <ul>
-            ${createProjectList(member.projects)}
+            ${createProjectList(memberProjects)}
         </ul>
         <br>
     `
@@ -290,7 +312,7 @@ function memberDetailPage(member) {
     📄 Publications:
   </h3>
 
-  <div class="papers" data-name="${member.name}"></div>
+  <div class="papers" data-member-id="${member.id}"></div>
 `;
 
   detailPage.innerHTML = `
@@ -328,120 +350,116 @@ function memberDetailPage(member) {
     `;
 }
 
-function normalizeAuthorName(name) {
-  return (name || "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim()
-    .split(/\s+/)
-    .filter((word) => !["md", "mr", "dr", "prof", "professor", "phd"].includes(word))
-    .join(" ");
-}
-
-function getNameParts(name) {
-  const normalized = normalizeAuthorName(name);
-  const words = normalized.split(/\s+/).filter(Boolean);
-  return {
-    normalized,
-    words,
-    first: words[0] || "",
-    last: words[words.length - 1] || "",
-  };
-}
-
-function namesMatch(nameA, nameB) {
-  const left = getNameParts(nameA);
-  const right = getNameParts(nameB);
-
-  if (!left.normalized || !right.normalized) return false;
-  if (left.normalized === right.normalized) return true;
-
-  const exactIgnoreCase = nameA.toLowerCase() === nameB.toLowerCase();
-  if (exactIgnoreCase) return true;
-
-  if (left.last && right.last && left.last === right.last) {
-    const leftInitialOnly = left.words.length === 1;
-    const rightInitialOnly = right.words.length === 1;
-    if (leftInitialOnly || rightInitialOnly) return true;
-  }
-
-  if (left.words.length >= 2 && right.words.length >= 2) {
-    const sharedWords = left.words.filter((word) => right.words.includes(word));
-    if (sharedWords.length >= 2) return true;
-  }
-
-  return false;
-}
-
-function matchesMemberName(paper, memberName) {
-  const authorNames = paper.authors || [];
-  const highlightKeys = Object.keys(paper.highlightForMember || {});
-  const candidateNames = [...authorNames, ...highlightKeys];
-
-  return candidateNames.some((name) => namesMatch(name, memberName));
-}
-
-function getHighlightNamesForMember(paper, memberName) {
-  const highlightMap = paper.highlightForMember || {};
-  const exactMatch = highlightMap[memberName];
-  if (exactMatch) return exactMatch;
-
-  const matchingKey = Object.keys(highlightMap).find((name) => namesMatch(name, memberName));
-
-  return matchingKey ? highlightMap[matchingKey] : [];
-}
-
 function loadPapers() {
-  fetch("js/dynamic.json")
-    .then((res) => res.json())
-    .then((data) => {
-      const containers = document.querySelectorAll(".papers");
+  const publicationRecords = [
+    ...(websiteData.publications?.years || []).flatMap((yearData) =>
+      yearData.items.map((paper) => ({ ...paper, year: yearData.year })),
+    ),
+    ...(websiteData.submittedPublications?.years || []).flatMap((yearData) =>
+      yearData.items.map((paper) => ({
+        ...paper,
+        year: yearData.year,
+        submitted: true,
+      })),
+    ),
+  ];
+  const membersById = new Map(
+    [
+      websiteData.team.principalInvestigator,
+      ...websiteData.team.externalAdvisors,
+      ...websiteData.team.researchers,
+    ].map((member) => [member.id, member]),
+  );
 
-      containers.forEach((container) => {
-        const memberName = container.getAttribute("data-name");
+  document.querySelectorAll(".papers[data-member-id]").forEach((container) => {
+    const memberId = container.getAttribute("data-member-id");
+    const filtered = publicationRecords.filter((paper) =>
+      paper.memberIds?.includes(memberId),
+    );
 
-        const filtered = data.filter((paper) => matchesMemberName(paper, memberName));
+    if (filtered.length === 0) {
+      container.innerHTML = "<p>No publications yet</p>";
+      return;
+    }
 
-        if (filtered.length === 0) {
-          container.innerHTML = "<p>No publications yet</p>";
-          return;
+    const byYear = {};
+    filtered.forEach((paper) => {
+      if (!byYear[paper.year]) byYear[paper.year] = [];
+      byYear[paper.year].push(paper);
+    });
+
+    const sortedYears = Object.keys(byYear).sort((a, b) => b - a);
+    let html = "";
+    let counter = 1;
+
+    sortedYears.forEach((year) => {
+      html += `<h4 style="margin-top:1em;">${year} :</h4><ul>`;
+      byYear[year].forEach((paper) => {
+        let text = paper.text;
+        const member = membersById.get(memberId);
+        const highlightNames = [
+          ...(paper.highlightForMember?.[memberId] || []),
+          ...(member ? [member.name] : []),
+        ];
+        highlightNames.forEach((name) => {
+          text = text.replaceAll(name, `<strong>${name}</strong>`);
+        });
+
+        const submissionLabel =
+          paper.submitted && !/\[(submitted|under review)\]/i.test(paper.text)
+            ? " <em>[Under Review]</em>"
+            : "";
+        html += `<li>[${counter++}] ${text}${submissionLabel}</li>`;
+      });
+      html += "</ul>";
+    });
+
+    container.innerHTML = html;
+  });
+}
+
+function validateWebsiteData() {
+  const members = [
+    websiteData.team.principalInvestigator,
+    ...websiteData.team.externalAdvisors,
+    ...websiteData.team.researchers,
+  ];
+  const memberIds = new Set(members.map((member) => member.id));
+  if (memberIds.size !== members.length) {
+    console.error("Member IDs must be unique.");
+  }
+
+  websiteData.projects.forEach((project) => {
+    Object.entries(project.team).forEach(([role, assignedMemberIds]) => {
+      assignedMemberIds.forEach((memberId) => {
+        if (!memberIds.has(memberId)) {
+          console.error(
+            `Unknown member ID "${memberId}" in project "${project.id}" (${role}).`,
+          );
         }
-
-        const byYear = {};
-        filtered.forEach((paper) => {
-          if (!byYear[paper.year]) byYear[paper.year] = [];
-          byYear[paper.year].push(paper);
-        });
-
-        const sortedYears = Object.keys(byYear).sort((a, b) => b - a);
-
-        let html = "";
-        let counter = 1;
-
-        sortedYears.forEach((year) => {
-          html += `<h4 style="margin-top:1em;">${year} :</h4><ul>`;
-          byYear[year].forEach((paper) => {
-            let title = paper.title;
-            const highlightNames = getHighlightNamesForMember(paper, memberName);
-            if (highlightNames.length > 0) {
-              highlightNames.forEach((name) => {
-                title = title.replace(name, `<strong>${name}</strong>`);
-              });
-            }
-
-            const linkPart =
-              paper.link && paper.link !== "#"
-                ? `<a href="${paper.link}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">${paper.link}</a>`
-                : "";
-
-            html += `<li>[${counter++}] ${title}${linkPart ? ` ${linkPart}` : ""}</li>`;
-          });
-          html += `</ul>`;
-        });
-
-        container.innerHTML = html;
       });
     });
+  });
+
+  [
+    ...(websiteData.publications?.years || []),
+    ...(websiteData.submittedPublications?.years || []),
+  ].forEach((yearData) => {
+    yearData.items.forEach((paper) => {
+      if (!Array.isArray(paper.memberIds)) {
+        console.error(`Publication is missing memberIds: "${paper.text}".`);
+        return;
+      }
+
+      paper.memberIds.forEach((memberId) => {
+        if (!memberIds.has(memberId)) {
+          console.error(
+            `Unknown member ID "${memberId}" on publication "${paper.text}".`,
+          );
+        }
+      });
+    });
+  });
 }
 
 // all member detail pages
@@ -450,6 +468,7 @@ function allMemberPage() {
   const advisors = websiteData.team.externalAdvisors;
   const researchers = websiteData.team.researchers;
 
+  validateWebsiteData();
   memberDetailPage(pi);
 
   advisors.forEach((advisor) => memberDetailPage(advisor));
@@ -473,15 +492,6 @@ const websiteData = {
       linkedin:
         "https://www.linkedin.com/in/hasan-mahmood-aminul-islam-ph-d-02a4ab30/",
       bio: "DR. HASAN MAHMOOD AMINUL ISLAM is currently working as an Assistant Professor in the department of CSE, East West University, Dhaka, Bangladesh. Presently, his research group(<a href='https://dhmairg.net'>DHMAINetRG</a>) is mostly focusing on the innovation of lightweight IoT testbed for the Future IoT Architecture. Previously, he worked as a Specialist in system-on-chip (SoC) Software at Nokia headquarters, Espoo, Finland, where the key responsibility was to develop Layer1-Low (l1low) System-on-Chip (SoC) Software driver development for 5G (2019-2022). He received a Doctor of Science in Technology (CSE) from the School of Science, Aalto University, Finland in 2018. As part of his doctoral studies, he worked on Future Internet Architecture (ICN) in the EU-H2020 POINT project. He received a Masters Degree in Networking and Services majoring in Distributed Systems and Data Communication, from the University of Helsinki, Finland. As part of his Master's thesis, he worked in the Nomadic Lab, L M Ericsson, Finland, where he closely worked with the IETF community on the data channel protocol options of the RTCWeb. His research interest includes Data Communications and Distributed System, Internet protocols, IoT protocols, Future Internet Architecture, Information-Centric Networking Architecture, and Delay Tolerant Networking. Presently, he is also focusing on Machine Learning",
-      projects: [
-        "CCNDA",
-        // "MapBD",
-        "PAUMIoT",
-        "OppNDA",
-        "PixieGPT",
-        "STGen",
-        "PRIoTP",
-      ],
       experience: [
         "Principal Investigator at DHMAINetRG <strong>(Jan 2024 – Present)</strong>",
         "Assistant Professor at East West University <strong>(Feb 2023 – Present)</strong>",
@@ -509,7 +519,6 @@ const websiteData = {
         website: "https://sites.google.com/view/umbc-vlsi-soc/home?authuser=0",
         linkedin: "https://www.linkedin.com/in/riadul-islam-38baa350/",
         bio: "Riadul Islam is currently a tenure-track Assistant Professor at the University of Maryland Baltimore County (UMBC) Computer Science and Electrical Engineering Department. Before joining UMBC, he was with the University of Michigan (UM), Dearborn from 2017 to 2019. In his Ph.D. dissertation work at UCSC, Dr. Riadul has designed the first current-pulsed flip-flop/register that resulted first ever one-to-many current-mode clock distribution networks for high-performance microprocessors. From 2007 to 2009, he worked as a full-time faculty in the Department of Electrical and Electronic Engineering of the University of Asia Pacific, Dhaka, Bangladesh. He is a Senior member of the IEEE, IEEE Circuits, Systems (CAS) society, and member of ACM. He is an editorial board member of <a href='http://ojs.bilpublishing.com/index.php/ssid'>Semiconductor Science and Information Devices</a> Journal. Here is Riadul's updated (<a href='https://drive.google.com/file/d/1Ok0jmyOueWlMNbJxc0K7uAREhAhYGIYl/view?usp=drive_link'>CV</a>) (Last updated July 2025).",
-        projects: ["STGen"],
         experience: [
           "Associate Editor at Springer Circuits, Systems and Signal Processing Journal <strong>(Jan 2022 – Present)</strong>",
           "Principal Investigator at UMBC VLSI-SOC GROUP, USA <strong>(Sep 2019 – Present)</strong>",
@@ -533,7 +542,6 @@ const websiteData = {
         website: "https://www.nup.ac.cy/faculty/michael-georgiades/",
         linkedin: "https://www.linkedin.com/in/mgeorgiades/",
         bio: "Michael Georgiades received the B.Eng. degree in communications and radio engineering (Hons.) from King’s College London, the M.Sc. degree in telecommunications from University College London, the M.Sc. degree in machine learning and data science (Hons.) from Imperial College London, and the Ph.D. degree in wireless and mobile networks from the University of Surrey. He is an Assistant Professor at the Department of Computer Science, Neapolis University Pafos. He is also an Adjunct Professor at the Cyprus University of Technology and at the Department of Computer Science and Engineering, East West University, Dhaka, Bangladesh. He has also served as an Adjunct Professor at the Open University of Cyprus, a Visiting Professor at the National Technical University of Athens, and an External Mentor at Royal Holloway, University of London. His previous industry and research positions include Research and Development Manager at Primetel PLC and Research Fellow at the University of Surrey. He has participated in numerous EU-funded ICT research projects, is a patent holder, and has contributed to international publications and IETF standards. His research interests include the Internet of Things, applied machine learning, vehicular networks, network security, mobile and wireless communications, explainable AI, and federated learning.",
-        projects: ["OppNDA"],
         experience: [
           "Assistant Professor at Neapolis University Pafos, Paphos, Cyprus <strong>(Jan 2022 – Present)</strong>",
           "Adjunct Lecturer at Cyprus University of Technology, Cyprus <strong>(Sep 2018 – Present)</strong>",
@@ -552,6 +560,7 @@ const websiteData = {
         name: "Mahmudur Rahman Mehraj",
         image: "images/mehraj.webp",
         role: "Associate",
+        alumni: true,
         badges: [
           { text: "Director", color: "#aa1717" },
           { text: "PAUMIoT Lead", color: "#1e293b" },
@@ -560,14 +569,6 @@ const websiteData = {
         github: "https://github.com/MehrajRahman",
         linkedin: "https://www.linkedin.com/in/mehraj-rahman-8658611a9/",
         bio: "MD. Mahmudur Rahman Mehraj is currently pursuing his B.Sc. in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. He is a passionate problem-solving enthusiast with a strong research interest. His academic and personal pursuits are centered on exploring innovative solutions and contributing to advancements in computer science. Currently, he has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam since 2024. His responsibility mostly includes feature development, experimentation, and verification of IoT protocols.",
-        projects: [
-          "PAUMIoT",
-          "OppNDA",
-          // "PixieGPT",
-          "STGen",
-          "CCN-IoV",
-          // "PRIoTP",
-        ],
         experience: [
           "Research Assistant (Technical Lead) at DHMAINetRG, Dhaka <strong>(Jan 2024 – Present)</strong>",
           "Undergraduate Teaching Assistant at East West University, Dhaka <strong>(Jun 2025 – Present)</strong>",
@@ -587,14 +588,12 @@ const websiteData = {
         image: "images/nafis.webp",
         role: "Assistant",
         badges: [
-          { text: "Project Manager", color: "#72A276" },
-          { text: "OppNDA Lead", color: "#1e293b" },
+          { text: "Co-Director", color: "#aa1717" }
         ],
         email: "2023-3-60-071@std.ewubd.edu",
         github: "https://github.com/nafisshahriar",
         linkedin: "https://www.linkedin.com/in/sm-nafis-shahriar/",
         bio: "S. M. Nafis Shahriar is currently pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. He is a research assistant in DHMAINetRG working under the supervision of Dr. Hasan Mahmood Aminul Islam. He is interested in various domains of computer science, including distributed computing, edge intelligence, big data analytics, and software development. Previously, he worked part-time as a front-end and back-end developer for several startups. He was also closely involved with competitive programming since his high school days.",
-        projects: ["OppNDA", "CCN-IoV", "STGen"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
           "Back End Developer at EduKonnect Inc., Pennsylvania <strong>(Dec 2024 – Jul 2025)</strong>",
@@ -615,12 +614,11 @@ const websiteData = {
         name: "Pulok Akibuzzaman",
         image: "images/pulok.webp",
         role: "Assistant",
-        badges: [{ text: "CCN-IoV Lead", color: "#1e293b" }],
+        //badges: [{ text: "CCN-IoV Lead", color: "#1e293b" }],
         email: "2023-3-60-051@std.ewubd.edu",
         github: "https://github.com/Pulok-Akibuzzaman",
         linkedin: "https://www.linkedin.com/in/pulok-akibuzzaman-73a21229a/",
         bio: "Pulok Akibuzzaman is currently pursuing a B.Sc in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. He has a real love for programming, system development and emerging fields such as cybersecurity. During his academic journey, he has worked on notable projects, including the development of a Metro Rail Ticketing System. He has strong proficiency in C, C++, Java and Python. Capture The Flag (CTF) challenges are also proving to be an excellent way to build hands-on cybersecurity skills for him. Currently, he has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam since 2025.",
-        projects: ["OppNDA", "CCN-IoV", "STGen"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
@@ -630,12 +628,10 @@ const websiteData = {
         name: "Mahdin Islam Ohi",
         image: "images/ohi.webp",
         role: "Assistant",
-        badges: [{ text: "PixieGPT Lead", color: "#1e293b" }],
         email: "2023-3-60-151@std.ewubd.edu",
         github: "https://github.com/MahdinOhi",
         linkedin: "https://www.linkedin.com/in/mahdin-ohi-3b55a0280/",
         bio: "Mahdin Islam Ohi is a dedicated Software Developer and a Computer Science & Engineering student at East West University, Dhaka. He is currently contributing to innovative projects at Level7 (2024 - present) and XSRS IT (2023 - present). With a strong foundation in C, C++, Java, and Python, he specializes in developing AI/ML-powered web applications using Django and the MERN stack. His core interests include networking, computational theory, AI/ML, and quantum computing. Mahdin thrives on solving complex problems, creating practical solutions, and continuously expanding his expertise in cutting-edge technologies. He has been working as a research assistant and technical lead under the guidance of DR. Hasan Mahmood Aminul Islam since 2025.",
-        projects: ["PRIoTP", "STGen"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Mar 2025 – Present)</strong>",
           "Developer at Level7, Dhaka <strong>(Mar 2025 – Present)</strong>",
@@ -661,11 +657,11 @@ const websiteData = {
         name: "Abdullah Sajid",
         image: "images/sajid.webp",
         role: "Assistant",
+        badges: [{ text: "PixieGPT Lead", color: "#1e293b" }],
         email: "2023-3-60-487@std.ewubd.edu",
         github: "https://github.com/AbdullahSajid007",
         linkedin: "https://www.linkedin.com/in/abdullah-sajid-089848363/",
         bio: "Abdullah Sajid is currently pursuing a Bachelor of Science in Computer Science and Engineering at East West University (EWU), Dhaka, Bangladesh. He is a research assistant in the DHMAINet Research Group (DHMAINetRG) under the supervision of Dr. Hasan Mahmood Aminul Islam. His academic and research interests include distributed computing, machine learning, and big data analytics.",
-        projects: ["PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Mar 2025 – Present)</strong>",
         ],
@@ -679,7 +675,6 @@ const websiteData = {
         github: "https://github.com/Erin0W0",
         linkedin: "https://www.linkedin.com/in/homayra-erin-9b72a4352",
         bio: "Homayra Erin is currently pursuing a B.Sc in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. She has interest in programming, system development and emerging fields such as Data Science. During her academic journey, she has worked on notable projects, including an automated cafeteria system. She is proficient in C, C++ & Java.She also participated in Olympiads. Since 2025, she has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Mar 2025 – Present)</strong>",
         ],
@@ -694,7 +689,6 @@ const websiteData = {
         github: "https://github.com/ashikonik",
         linkedin: "https://www.linkedin.com/in/ashikonik",
         bio: "Md. Ashik-Uz-Zaman is working towards his goal of studying Computer Science and Engineering at East West University, Dhaka, Bangladesh. He is very keen about learning, developing, and conducting research in the field of computer science. His primary career focus is Network Security, and he is currently honing his skills in research and professionalism under the mentorship of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["PRIoTP"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jun 2025 – Present)</strong>",
         ],
@@ -705,11 +699,10 @@ const websiteData = {
         image: "images/sfi.webp",
         role: "Assistant",
         email: "2024-1-60-331@std.ewubd.edu",
-        badges: [{ text: "PRIoTPS Lead", color: "#1e293b" }],
+        badges: [{ text: "Coordinator", color: "#72A276" }, { text: "PRIoTPS Lead", color: "#1e293b" }],
         github: "https://github.com/sadiafahmida",
         linkedin: "https://www.linkedin.com/in/sadia-fahmida-islam-84734b287",
         bio: "Sadia Fahmida Islam is pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. She has completed several projects in UI/UX design and programming with C, C++, Java script, and Python, and completed the Headstarter Fellowship in AI. Her interest has recently grown in Cybersecurity and its applications in technology and research. Alongside her studies, she has worked as a Research and Development Assistant and Academic Coordinator at non-profit organizations, gaining valuable leadership experience as the Best Academic Coordinator and mentoring students in various science and Olympiad programs. She is also an active public speaker, contributing to awareness and education initiatives.",
-        projects: ["PRIoTP", "CCN-IoV"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Oct 2025 – Present)</strong>",
         ],
@@ -723,7 +716,6 @@ const websiteData = {
         github: "https://github.com/Nusrat60-057",
         linkedin: "https://www.linkedin.com/in/nusrat-rahman-aurna-292b16331/",
         bio: "Nusrat Rahman Aurna is currently pursuing a Bachelor's degree in Computer Science and Engineering at East West University in Dhaka, Bangladesh. Her studies include courses in Data Structures, Object-Oriented Programming, Discrete Mathematics, and Linear Algebra, which have improved her analytical and technical skills. Before this, she finished her Higher Secondary education at Viqarunnisa Noon School and College, where she earned top grades in the Science stream. She is enthusiastic about learning new technologies and applying what she learns to real projects. Her interests lie in Software Development, Algorithms. She is also eager to explore opportunities in IoT, Machine Learning, and Distributed Systems in the future. She is fluent in both Bangla and English.",
-        projects: ["PRIoTP", "CCN-IoV"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Nov 2025 – Present)</strong>",
         ],
@@ -735,10 +727,9 @@ const websiteData = {
         role: "Assistant",
         email: "2023-3-60-066@std.ewubd.edu",
         github: "https://github.com/masum-mir",
-        badges: [{ text: "Developer", color: "#2369db" }],
+        badges: [{ text: "Coordinator", color: "#72A276" }, { text: "ICN-CLA Lead", color: "#1e293b" }],
         linkedin: "https://www.linkedin.com/in/md-masum-mir/",
         bio: "Masum is an undergraduate student of Computer Science and Engineering at East West University, Dhaka, Bangladesh. Alongside his studies, he works as a Research Assistant in DHMAINetRG under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["PRIoTP", "CCN-IoV"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2026 – Present)</strong>",
         ],
@@ -755,7 +746,6 @@ const websiteData = {
         github: "https://github.com/Fayaza6",
         linkedin: "https://www.linkedin.com/in/fayaza-islam-365177371/",
         bio: "Fayaza Islam is currently pursuing her BSc in CSE at East West University. Since early 2025, she has been actively engaged in research as a member of the DHMAINet Research Group under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["OppNDA"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
@@ -772,7 +762,6 @@ const websiteData = {
         linkedin:
           "https://www.linkedin.com/in/mahir-faysal-haque-dipto-6911a4245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         bio: "Mahir Faysal Haque Dipto is currently pursuing his BSc in CSE at East West University. Since early 2025, he has been actively engaged in research as a member of the DHMAINet Research Group under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["PAUMIoT"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
@@ -788,7 +777,6 @@ const websiteData = {
         github: "https://github.com/",
         linkedin: "https://www.linkedin.com/in/minhaj-shafin-0b206a252/",
         bio: "Faisal Ahmad is currently pursuing his BSc in CSE at East West University. Since early 2025, he has been actively engaged in research as a member of the DHMAINet Research Group under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["PAUMIoT"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
@@ -804,7 +792,6 @@ const websiteData = {
         github: "https://github.com/",
         linkedin: "https://www.linkedin.com/in/minhaj-shafin-0b206a252/",
         bio: "Minhaj Shafin is currently pursuing his BSc in CSE at East West University. Since early 2025, he has been actively engaged in research as a member of the DHMAINet Research Group under the supervision of Dr. Hasan Mahmood Aminul Islam.",
-        projects: ["PAUMIoT"],
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
@@ -1100,58 +1087,157 @@ const websiteData = {
       items: [
         {
         type: "journal",
+        memberIds: ["DMG", "DHMAI"],
+        highlightForMember: {
+          DMG: ["Michael Georgiades"],
+          DHMAI: ["Hasan Islam"],
+        },
         text: "Michael Georgiades, Iacovos Ioannou, Hasan Islam, Ferheen Ayaz, Yun Hou, Kin-Hon Ho. \"Enhanced Vehicular Edge Offloading through SLA-Based Deep Reinforcement Learning and Risk-Aware Bandits.\" in IEEE Transactions on Network and Service Management, 2026, (Impact Factor: 5.7). doi: <a href=\"https://doi.org/10.1109/TNSM.2026.3742669\">10.1109/TNSM.2026.3742669</a>",
         },
         {
         type: "journal",
-        text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, M.Georgiades, A.Sajid, N.R. Aurna, F.Islam, M.I. Ohi, and M.K.M. Khan. \"OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator.\"  in IEEE Access, 2026, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2026.3737018\">10.1109/ACCESS.2026.3737018</a>",
+        memberIds: ["DHMAI", "SMNS", "PA", "MRM", "DMG", "AS", "NRA", "SFI", "MIO"],
+        highlightForMember: {
+          DHMAI: ["H.M.A. Islam"],
+          SMNS: ["S.M.N. Shahriar"],
+          PA: ["P.Akibuzzaman"],
+          MRM: ["M.R. Maharaz"],
+          DMG: ["M.Georgiades"],
+          AS: ["A.Sajid"],
+          NRA: ["N. R. Aurna"],
+          SFI: ["F.Islam"],
+          MIO: ["M.I. Ohi"],
+        },
+        text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, M.Georgiades, A.Sajid, N. R. Aurna, F.Islam, M.I. Ohi, and M.K.M. Khan. \"OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator.\"  in IEEE Access, 2026, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2026.3737018\">10.1109/ACCESS.2026.3737018</a>",
         
         },
         {
           type: "journal",
+          memberIds: ["DHMAI", "MRM", "DMG", "SMNS", "PA", "NRA", "MASUM", "DRI"],
+          highlightForMember: {
+            DHMAI: ["Hasan M. A."],
+            MRM: ["Md M. R. Maharaz"],
+            DMG: ["M. Georgiades"],
+            SMNS: ["S. M. N. Shahriar"],
+            PA: ["P. Akibuzzaman"],
+            NRA: ["N. R. Aurna"],
+            MASUM: ["Md Masum"],
+            DRI: ["Riadul Islam"],
+          },
           text: "Islam, Hasan M. A., Md M. R. Maharaz, M. Georgiades, S. M. N. Shahriar, P. Akibuzzaman, N. R. Aurna, Md Masum, and Riadul Islam. \"STGen: A Lightweight Process-Based Testbed for Scalable IoT Protocol Evaluation with Physically Validated Synthetic Sensor and Anomaly Generation.\" Journal of Sensor and Actuator Networks 15, no. 4: 63. (Impact Factor 4.8). doi: <a href=\"https://doi.org/10.3390/jsan15040063\">10.3390/jsan15040063</a>",
           
         },
         {
           type: "conference",
+          memberIds: ["DHMAI", "MRM", "DMG"],
+          highlightForMember: {
+            DHMAI: ["Hasan MA Islam"],
+            MRM: ["Md MR Maharaz"],
+            DMG: ["Michael Georgiades"],
+          },
           text: "Hasan MA Islam, Md MR Maharaz, F Ahmed, Mahir FH Dipto, Md MH Shafin, and Michael Georgiades. Towards A Protocol-Agnostic Universal Middleware For IoT With Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
           
         },
         {
           type: "conference",
+          memberIds: ["MRM", "MIO", "MAUZ", "AS", "SFI", "PA", "MASUM", "SMNS", "NRA", "DHMAI", "DMG"],
+          highlightForMember: {
+            MRM: ["Md MR Maharaz"],
+            MIO: ["MI Ohi"],
+            MAUZ: ["MAU Zaman"],
+            AS: ["A Sajid"],
+            SFI: ["Sadia FI"],
+            PA: ["P Akibuzzaman"],
+            MASUM: ["Md Masum"],
+            SMNS: ["SMN Shahriar"],
+            NRA: ["NR Aurna"],
+            DHMAI: ["Hasan MA Islam"],
+            DMG: ["Michael Georgiades"],
+          },
           text: "Md MR Maharaz, MI Ohi, MAU Zaman, A Sajid, Sadia FI, P Akibuzzaman, Md Masum, SMN Shahriar, NR Aurna, Hasan MA Islam, and Michael Georgiades. PRIoTP: Towards Context-Aware Partial Reliable Application-Layer IoT Protocol with Edge Intelligence. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
           
         },
         {
           type: "conference",
+          memberIds: ["DHMAI", "DMG"],
+          highlightForMember: {
+            DHMAI: ["Hasan Mahmood Aminul Islam"],
+            DMG: ["Michael Georgiades"],
+          },
           text: "Michael Georgiades, Charalambia Varnava, Andreas Gregoriades, Iacovos Ioannou, Lakis Christodoulou, Hasan Mahmood Aminul Islam, Kin-Hon Ho and Yun Hou. From Correlation to Causation in Intrusion Detection Systems: A Double Machine Learning Approach for IoT Network Behaviour Analysis. The 22nd Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT 2026).",
           
         },
         {
           type: "conference",
+          memberIds: ["DMG", "DHMAI"],
+          highlightForMember: {
+            DMG: ["M. Georgiades"],
+            DHMAI: ["H. M. A. Islam"],
+          },
           text: "M. Georgiades, I. Ioannou, H. M. A. Islam, K. -H. Ho, Y. Hou and A. Gregoriades, \"Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection,\" 2026 IFIP Networking Conference (IFIP Networking), Lugano, Switzerland, 2026, pp. 1-6, doi:<a href=\"https://doi.org/10.23919/IFIPNetworking70592.2026.11579092\">10.23919/IFIPNetworking70592.2026.11579092</a>.",
          
         },
         {
           type: "conference",
+          memberIds: ["PA", "SMNS", "MAUZ", "MRM", "DHMAI"],
+          highlightForMember: {
+            PA: ["P. Akibuzzaman"],
+            SMNS: ["S.M.N. Shahriar"],
+            MAUZ: ["M.A.U. Zaman"],
+            MRM: ["M.R. Maharaz"],
+            DHMAI: ["H.M.A. Islam"],
+          },
           text: "P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, M.R. Maharaz, H.M.A. Islam, J.T. Maowa, M. Rahman, 2026. \"Integration and Validation of Map Data in the ONE Simulator: IoV in Dhaka City Perspective,\" 2025 28th International Conference on Computer and Information Technology (ICCIT), Cox's Bazar, Bangladesh, 2025, pp. 4927-4932, doi:<a href=\"https://doi.org/10.1109/ICCIT68739.2025.11491083\">10.1109/ICCIT68739.2025.11491083</a>.",
           
         },
         {
           type: "conference",
+          memberIds: ["SMNS", "PA", "MAUZ", "MRM", "DHMAI"],
+          highlightForMember: {
+            SMNS: ["S. M. N. Shahriar"],
+            PA: ["P. Akibuzzaman"],
+            MAUZ: ["M. A. U. Zaman"],
+            MRM: ["M. R. Maharaz"],
+            DHMAI: ["H. M. A. Islam"],
+          },
           text: "S. M. N. Shahriar, P. Akibuzzaman, M. A. U. Zaman, M. R. Maharaz and H. M. A. Islam, \"The Impact of Pedestrian Movement on IoV Performance and Simulation,\" 2025 28th International Conference on Computer and Information Technology (ICCIT), Cox's Bazar, Bangladesh, 2025, pp. 2004-2009, doi:<a href=\"https://doi.org/10.1109/ICCIT68739.2025.11491296\">10.1109/ICCIT68739.2025.11491296</a>.",
           
         },
         {
           type: "conference",
+          memberIds: ["SFI", "PA", "SMNS", "MRM", "DHMAI"],
+          highlightForMember: {
+            SFI: ["S.F. Islam"],
+            PA: ["P. Akibuzzaman"],
+            SMNS: ["S.M.N. Shahriar"],
+            MRM: ["M.R. Maharaz"],
+            DHMAI: ["H.M.A. Islam"],
+          },
           text: "F. Islam, M.H. Ratul, S.F. Islam, A.H. Irani, P. Akibuzzaman, S.M.N. Shahriar, M.R. Maharaz, H.M.A. Islam. \"CCBP: Towards Content-Centric Abstraction for Bundle Protocol of DTN Architecture,\" 2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN), Chittagong, Bangladesh, 2026, pp. 1-6, doi: <a href=\"https://doi.org/10.1109/QPAIN69676.2026.11545753\">10.1109/QPAIN69676.2026.11545753</a>",
         },
         {
           type: "conference",
+          memberIds: ["MIO", "AS", "PA", "SMNS", "MAUZ", "DHMAI", "MRM"],
+          highlightForMember: {
+            MIO: ["M.I. Ohi"],
+            AS: ["A. Sajid"],
+            PA: ["P. Akibuzzaman"],
+            SMNS: ["S.M.N. Shahriar"],
+            MAUZ: ["M.A.U. Zaman"],
+            DHMAI: ["H.M.A. Islam"],
+            MRM: ["M.R. Maharaz"],
+          },
           text: "M.I. Ohi, A. Sajid, P. Akibuzzaman, S.M.N. Shahriar, M.A.U. Zaman, H.M.A. Islam, M.R. Maharaz. \"Design and Implementation of a Generative Pre-Trained Transformer for Universities of Bangladesh,\" 2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN), Chittagong, Bangladesh, 2026, pp. 1-6, doi: <a href=\"https://doi.org/10.1109/QPAIN69676.2026.11545594\">10.1109/QPAIN69676.2026.11545594</a>.",
         },
         {
           type: "conference",
+          memberIds: ["MRM", "SMNS", "PA", "DHMAI"],
+          highlightForMember: {
+            MRM: ["M.R. Maharaz"],
+            SMNS: ["S.M.N. Shahriar"],
+            PA: ["P. Akibuzzaman"],
+            DHMAI: ["H.M.A. Islam"],
+          },
           text: "M.R. Maharaz, F. Ahmad, M.F.H. Dipto, M.M.H. Shafin, S.M.N. Shahriar, P. Akibuzzaman, H.M.A. Islam. \"Emulating Sensor Profile Towards IoT Simulator Development,\" 2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN), Chittagong, Bangladesh, 2026, pp. 1-6, doi: <a href=\"https://doi.org/10.1109/QPAIN69676.2026.11546398\">10.1109/QPAIN69676.2026.11546398</a>.",
         },
       ],
@@ -1162,6 +1248,10 @@ const websiteData = {
       items: [
         {
           type: "journal",
+          memberIds: ["DHMAI"],
+          highlightForMember: {
+            DHMAI: ["Hasan MA Islam"],
+          },
           text: "Hasan MA Islam, Md Khalid M Khan, M. Rahman, Angon Antu, Md Farhad Billah, Shishir Majumder, Md AI Khan. \"Revisiting ONE Simulator in IoV Research: Seeing the Forest Through the Trees.\" in IEEE Access, vol. 13, pp. 50727-50740, 2025, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2025.3552026\">10.1109/ACCESS.2025.3552026</a>.",
         },
 //         {
@@ -1176,6 +1266,10 @@ const websiteData = {
       items: [
         {
           type: "journal",
+          memberIds: ["DHMAI"],
+          highlightForMember: {
+            DHMAI: ["Islam, H.M.A."],
+          },
           text: "Islam, H.M.A.; Lagutin, D.; Ylä-Jääski, A.; Fotiou, N.; Gurtov, A. \"Transparent CoAP Services to IoT Endpoints through ICN Operator Networks,\" Sensors 2019, 19, 1339, (Impact Factor: 4.0). doi: <a href=\"https://doi.org/10.3390/s19061339\">10.3390/s19061339</a>.",
         },  
       ],
@@ -1186,19 +1280,35 @@ const websiteData = {
       items: [
         {
           type: "journal",
+          memberIds: ["DHMAI"],
+          highlightForMember: {
+            DHMAI: ["H. M. A. Islam"],
+          },
           text: "H. M. A. Islam, D. Chatzopoulos, D. Lagutin, P. Hui and A. Ylä-Jääski, \"Boosting the Performance of Content Centric Networking Using Delay Tolerant Networking Mechanisms,\" in IEEE Access, vol. 5, pp. 23858-23870, 2017, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2017.2765379\">10.1109/ACCESS.2017.2765379</a>.",
         },
         {
           type: "conference",
+          memberIds: ["DHMAI"],
+          highlightForMember: {
+            DHMAI: ["H. M. A. Islam"],
+          },
           text: "H. M. A. Islam, D. Lagutin, A. Lukyanenko, A. Gurtov and A. Ylä-Jääski, \"CIDOR: Content distribution and retrieval in disaster networks for public protection,\" 2017 IEEE 13th International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob), Rome, Italy, 2017, pp. 324-333, doi:<a href=\"https://doi.org/10.1109/WiMOB.2017.8115834\">10.1109/WiMOB.2017.8115834</a>."
         },
         {
           type: "conference",
+          memberIds: ["DHMAI"],
+          highlightForMember: {
+            DHMAI: ["H. M. A. Islam"],
+          },
           text: "H. M. A. Islam, D. Lagutin and N. Fotiou, \"Observing IoT resources over ICN,\" 2017 IFIP Networking Conference (IFIP Networking) and Workshops, Stockholm, Sweden, 2017, pp. 1-8, doi: <a href=\"https://doi.org/10.23919/IFIPNetworking.2017.8264878\">10.23919/IFIPNetworking.2017.8264878</a>.",
           
         },
         {
           type: "conference",
+          memberIds: ["DHMAI"],
+          highlightForMember: {
+            DHMAI: ["Islam, H."],
+          },
           text: "Fotiou, N., Xylomenos, G., Polyzos, G.C., Islam, H., Lagutin, D., Hakala, T. and Hakala, E., 2017, September. ICN Enabling CoAP Extensions for IP-Based IoT Devices. In Proceedings of the 4th ACM Conference on Information-Centric Networking (pp. 218–219). doi: <a href=\"https://doi.org/10.1145/3125719.3132105\">10.1145/3125719.3132105</a>",
           
         },
@@ -1210,7 +1320,11 @@ const websiteData = {
       items: [
         {
           type: "conference",
-          text: "N. Fotiou, H. Islam, D. Lagutin, T. Hakala and G. C. Polyzos, \"CoAP over ICN,\" 2016 8th IFIP International Conference on New Technologies, Mobility and Security (NTMS), Larnaca, Cyprus, 2016, pp. 1-4, doi: <a href=\"https://doi.org/10.1109/NTMS.2016.7792438\">10.1109/NTMS.2016.7792438</a>.",
+          memberIds: ["DHMAI"],
+          highlightForMember: {
+            DHMAI: ["H. Islam"],
+          },
+          text: "N. Fotiou, H. Islam, D. Lagutin, T. Hakala and G. C. Polyzos, \"CoAP over ICN,\" 2016 8th IFIP International Conference on New Technologies, Mobility and Security (NTMS), Larnaca, Cyprus, 2016, pp. 1-4, doi:<a href=\"https://doi.org/10.1109/NTMS.2016.7792438\">10.1109/NTMS.2016.7792438</a>.",
           
         },
       ],
@@ -1221,6 +1335,10 @@ const websiteData = {
       items: [
         {
           type: "conference",
+          memberIds: ["DHMAI"],
+          highlightForMember: {
+            DHMAI: ["H. M. A. Islam"],
+          },
           text: "H. M. A. Islam, A. Lukyanenko, S. Tarkoma and A. Yla-Jaaski, \"Towards disruption tolerant ICN,\" 2015 IEEE Symposium on Computers and Communication (ISCC), Larnaca, Cyprus, 2015, pp. 212-219, doi:<a href=\"https://doi.org/10.1109/ISCC.2015.7884893\">10.1109/ISCC.2015.7884893</a>.",
           
         },
@@ -1232,6 +1350,10 @@ const websiteData = {
       items: [
         {
           type: "conference",
+          memberIds: ["DHMAI"],
+          highlightForMember: {
+            DHMAI: ["A. Islam"],
+          },
           text: "T. Afroze, S. Sarkar, A. Islam and A. Rahman, \"More stable Ad-hoc on-demand distance vector routing protocol,\" 2009 4th IEEE Conference on Industrial Electronics and Applications, Xi'an, China, 2009, pp. 150-155, doi:<a href=\"https://doi.org/10.1109/ICIEA.2009.5138187\">10.1109/ICIEA.2009.5138187</a>.",
           
         },
@@ -1246,31 +1368,82 @@ const websiteData = {
         items: [
           {
           type: "conference",
-          text: "A. Sajid, M.I. Ohi, A. Islam, J.A. Mubin, Md. Y.Z. Niyaj, H.M.A. Islam. PixiePaCS: A Policy Aware Conversational System with Customized Filtration, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
+          memberIds: ["AS", "MIO", "DHMAI"],
+            highlightForMember: {
+              AS: ["A. Sajid"],
+              MIO: ["M.I. Ohi"],
+              DHMAI: ["H.M.A. Islam"],
+            },
+            text: "A. Sajid, M.I. Ohi, A. Islam, J.A. Mubin, Md. Y.Z. Niyaj, H.M.A. Islam. PixiePaCS: A Policy Aware Conversational System with Customized Filtration, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
           
         },
         {
           type: "conference",
+          memberIds: ["AS", "MASUM", "MIO", "DHMAI"],
+          highlightForMember: {
+            AS: ["A. Sajid"],
+            MASUM: ["Md Masum"],
+            MIO: ["M.I. Ohi"],
+            DHMAI: ["H.M.A. Islam"],
+          },
           text: "A. Sajid, Md Masum, M.I. Ohi, S. Islam, Md. M. Rahman, A.A. Arfa, R. Alam, S.H. Khan, H.M.A. Islam. A cross-layer content poisoning attack model in the DTN protocol stack, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
           
         },
         {
           type: "conference",
+          memberIds: ["NRA", "MASUM", "MAUZ", "SMNS", "PA", "DMG", "DHMAI"],
+          highlightForMember: {
+            NRA: ["N.R. Aurna"],
+            MASUM: ["Md Masum"],
+            MAUZ: ["M.A.U. Zaman"],
+            SMNS: ["S.M.N. Shahriar"],
+            PA: ["P. Akibuzzaman"],
+            DMG: ["M. Georgiades"],
+            DHMAI: ["H.M.A. Islam"],
+          },
           text: "N.R. Aurna, Md Masum, M.A.U. Zaman, S.M.N. Shahriar, P. Akibuzzaman, M. Georgiades, H.M.A. Islam. Cross-Tier Routing and Bundle Management in UAV-Assisted Vehicular Delay-Tolerant Networks, 2026. 14th International Conference on Electrical and Computer Engineering (ICECE 2026) [Submitted]",
           
         },
         {
           type: "conference",
+          memberIds: ["SFI", "MIO", "MRM", "DMG", "DHMAI"],
+          highlightForMember: {
+            SFI: ["Sadia F.I."],
+            MIO: ["M.I. Ohi"],
+            MRM: ["M.R. Maharaz"],
+            DMG: ["Michael Georgiades"],
+            DHMAI: ["Hasan MA Islam"],
+          },
           text: "Sadia F.I., M.I. Ohi, M.M. Hasan, T.A. Raisa, M.R. Maharaz, Michael Georgiades, Hasan MA Islam. Towards Adaptive, Lightweight, and Secure Communication for Resource-Constrained Networks, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
           
         },
         {
           type: "conference",
+          memberIds: ["MASUM", "MAUZ", "AS", "NRA", "PA", "SMNS", "DMG", "DHMAI"],
+          highlightForMember: {
+            MASUM: ["Md Masum"],
+            MAUZ: ["M.A.U. Zaman"],
+            AS: ["A. Sajid"],
+            NRA: ["N.R. Aurna"],
+            PA: ["P. Akibuzzaman"],
+            SMNS: ["S.M.N. Shahriar"],
+            DMG: ["M. Georgiades"],
+            DHMAI: ["H.M.A. Islam"],
+          },
           text: "Md Masum, M.A.U. Zaman, A. Sajid, N.R. Aurna, P. Akibuzzaman, S.M.N. Shahriar, M. Georgiades, H.M.A. Islam. ICDTN Router: A Native Information-Centric Forwarding Architecture for Delay-Tolerant Networks, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
           
         },
         {
           type: "conference",
+          memberIds: ["SMNS", "PA", "MAUZ", "NRA", "SFI", "DHMAI"],
+          highlightForMember: {
+            SMNS: ["S. M. Nafis Shahriar"],
+            PA: ["Pulok Akibuzzaman"],
+            MAUZ: ["Md Ashik Uz Zaman"],
+            NRA: ["Nusrat Rahman Aurna"],
+            SFI: ["Sadia Fahmida Islam"],
+            DHMAI: ["Hasan MA Islam"],
+          },
           text: "S. M. Nafis Shahriar, Pulok Akibuzzaman, Md Ashik Uz Zaman, Nusrat Rahman Aurna, Sadia Fahmida Islam, and Hasan MA Islam.Protocol-Aware Geometric Inconsistency Analysis Framework for IoT Network Manifold Anomalies. The 4th International Conference on Computing Advancements (ICCA 2026).",
           
         }, 
