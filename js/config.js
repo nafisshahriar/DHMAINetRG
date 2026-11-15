@@ -153,6 +153,7 @@ function homePage() {
   }
 
   const pi = websiteData.team.principalInvestigator;
+  const cd = websiteData.team.coDirectors || [];
   const advisors = websiteData.team.externalAdvisors;
   const researchers = websiteData.team.researchers;
 
@@ -172,6 +173,17 @@ function homePage() {
 
         <div class="member-group member-group-principal">
           ${createMemberCard(pi)}
+        </div>
+        <br>
+      </section>
+     
+      <section class="team-section">
+        <h2 class="subsection-title">
+          Co-Directors
+        </h2>
+        <br>
+        <div class="member-group member-group-co-directors">
+          ${cd.map((coDirector) => createMemberCard(coDirector)).join("")}
         </div>
         <br>
       </section>
@@ -255,9 +267,13 @@ function memberDetailPage(member) {
 
   const isPrincipal = member.id === "DHMAI";
   const isAdvisor = ["DRI", "DMG"].includes(member.id);
+  const isCoDirector = (websiteData.team.coDirectors || []).some(
+    (coDirector) => coDirector.id === member.id,
+  );
 
   let roleTitle = "Research Assistant";
   if (isPrincipal) roleTitle = "Principal Investigator";
+  else if (isCoDirector) roleTitle = "Co-Director";
   else if (isAdvisor) roleTitle = "External Advisor";
 
   const badges = member.badges
@@ -338,7 +354,7 @@ function memberDetailPage(member) {
             </div>
 
             <br>
-            <p style="text-align: left;">${member.bio}</p>
+            <p style="text-align: left;">${member.bio || ""}</p>
 
             <div class="manual-section" style="text-align: left; max-width: 95vw; margin: 2em auto; background: #f8f9fa; border-radius: 8px; padding: 2em; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                 ${projectsSection}
@@ -366,6 +382,7 @@ function loadPapers() {
   const membersById = new Map(
     [
       websiteData.team.principalInvestigator,
+      ...(websiteData.team.coDirectors || []),
       ...websiteData.team.externalAdvisors,
       ...websiteData.team.researchers,
     ].map((member) => [member.id, member]),
@@ -421,6 +438,7 @@ function loadPapers() {
 function validateWebsiteData() {
   const members = [
     websiteData.team.principalInvestigator,
+    ...(websiteData.team.coDirectors || []),
     ...websiteData.team.externalAdvisors,
     ...websiteData.team.researchers,
   ];
@@ -465,11 +483,14 @@ function validateWebsiteData() {
 // all member detail pages
 function allMemberPage() {
   const pi = websiteData.team.principalInvestigator;
+  const coDirectors = websiteData.team.coDirectors || [];
   const advisors = websiteData.team.externalAdvisors;
   const researchers = websiteData.team.researchers;
 
   validateWebsiteData();
   memberDetailPage(pi);
+
+  coDirectors.forEach((coDirector) => memberDetailPage(coDirector));
 
   advisors.forEach((advisor) => memberDetailPage(advisor));
 
@@ -506,6 +527,64 @@ const websiteData = {
         "ACM ICN 2017 - <strong>Best Demo Award</strong>",
       ],
     },
+    
+    // Co-Directors: IDs (SMNS, SFI, PA) are also used by projects & publications.
+    // These people are NOT listed again under `researchers` (IDs must be unique).
+    coDirectors: [
+      {
+        id: "SMNS",
+        name: "S. M. Nafis Shahriar",
+        image: "images/nafis.webp",
+        role: "Assistant",
+        badges: [{ text: "Co-Director", color: "#aa1717" }, { text: "DTN Group: Scrum Master", color: "#708737" }],
+        email: "2023-3-60-071@std.ewubd.edu",
+        github: "https://github.com/nafisshahriar",
+        linkedin: "https://www.linkedin.com/in/sm-nafis-shahriar/",
+        bio: "S. M. Nafis Shahriar is currently pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. He is a research assistant in DHMAINetRG working under the supervision of Dr. Hasan Mahmood Aminul Islam. He is interested in various domains of computer science, including distributed computing, edge intelligence, big data analytics, and software development. Previously, he worked part-time as a front-end and back-end developer for several startups. He was also closely involved with competitive programming since his high school days.",
+        experience: [
+          "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
+          "Back End Developer at EduKonnect Inc., Pennsylvania <strong>(Dec 2024 – Jul 2025)</strong>",
+          "Front End Developer at AK Digital International PTY LTD, Sydney <strong>(May 2024 – Sep 2024)</strong>",
+          "Front End Developer at Electronic Source BD, Dhaka <strong>(Oct 2020 – Feb 2022)</strong>",
+        ],
+        recognitions: [
+          "IBM DevOps and Software Engineering Professional Certificate",
+          "CUMUN 2025 - Security Council - <strong>Verbal Mention</strong>",
+          "EWU Intra MUN 2024 – World Bank – <strong>Outstanding Delegate</strong>",
+          "EWU CSE Fest Intra University Programming Contest 2024 – <strong>4th in Freshman Category</strong>",
+          "SCB-PA Inter School and College Programming Contest 2018 - <strong>39th in National Round</strong>",
+          "National High School Programming Contest 2017 - <strong>14th in Dhaka Regional Round</strong>",
+        ],
+      },
+      {
+        id: "SFI",
+        name: "Sadia Fahmida Islam",
+        image: "images/sfi.webp",
+        role: "Assistant",
+        email: "2024-1-60-331@std.ewubd.edu",
+        badges: [{ text: "Co-Director", color: "#aa1717" }, { text: "Networking: Scrum Master", color: "#708737" }, { text: "PRIoTPS Lead", color: "#1e293b" }],
+        github: "https://github.com/sadiafahmida",
+        linkedin: "https://www.linkedin.com/in/sadia-fahmida-islam-84734b287",
+        bio: "Sadia Fahmida Islam is pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. She has completed several projects in UI/UX design and programming with C, C++, Java script, and Python, and completed the Headstarter Fellowship in AI. Her interest has recently grown in Cybersecurity and its applications in technology and research. Alongside her studies, she has worked as a Research and Development Assistant and Academic Coordinator at non-profit organizations, gaining valuable leadership experience as the Best Academic Coordinator and mentoring students in various science and Olympiad programs. She is also an active public speaker, contributing to awareness and education initiatives.",
+        experience: [
+          "Research Assistant at DHMAINetRG, Dhaka <strong>(Oct 2025 – Present)</strong>",
+        ],
+      },
+      {
+       id: "PA",
+        name: "Pulok Akibuzzaman",
+        image: "images/pulok.webp",
+        role: "Assistant",
+        badges: [{ text: "Co-Director", color: "#aa1717" }, { text: "ICN Group: Scrum Master", color: "#708737" },{ text: "CCN-IoV Lead", color: "#1e293b" }],
+        email: "2023-3-60-051@std.ewubd.edu",
+        github: "https://github.com/Pulok-Akibuzzaman",
+        linkedin: "https://www.linkedin.com/in/pulok-akibuzzaman-73a21229a/",
+        bio: "Pulok Akibuzzaman is currently pursuing a B.Sc in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. He has a real love for programming, system development and emerging fields such as cybersecurity. During his academic journey, he has worked on notable projects, including the development of a Metro Rail Ticketing System. He has strong proficiency in C, C++, Java and Python. Capture The Flag (CTF) challenges are also proving to be an excellent way to build hands-on cybersecurity skills for him. Currently, he has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam since 2025.",
+        experience: [
+          "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
+        ], 
+      }
+    ],
 
     externalAdvisors: [
       {
@@ -582,7 +661,8 @@ const websiteData = {
           "Merit Scholarship & Dean List, East West University - Fall 2023",
         ],
       },
-      {
+      // Moved to `coDirectors` (same ID, must not be duplicated here):
+      /*{
         id: "SMNS",
         name: "S. M. Nafis Shahriar",
         image: "images/nafis.webp",
@@ -608,8 +688,9 @@ const websiteData = {
           "SCB-PA Inter School and College Programming Contest 2018 - <strong>39th in National Round</strong>",
           "National High School Programming Contest 2017 - <strong>14th in Dhaka Regional Round</strong>",
         ],
-      },
-      {
+      },*/
+      // Moved to `coDirectors` (same ID, must not be duplicated here):
+      /*{
         id: "PA",
         name: "Pulok Akibuzzaman",
         image: "images/pulok.webp",
@@ -622,12 +703,13 @@ const websiteData = {
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
         ],
-      },
+      },*/
       {
         id: "MIO",
         name: "Mahdin Islam Ohi",
         image: "images/ohi.webp",
         role: "Assistant",
+        badges: [{ text: "PixieGPT Lead", color: "#1e293b" }],
         email: "2023-3-60-151@std.ewubd.edu",
         github: "https://github.com/MahdinOhi",
         linkedin: "https://www.linkedin.com/in/mahdin-ohi-3b55a0280/",
@@ -657,7 +739,6 @@ const websiteData = {
         name: "Abdullah Sajid",
         image: "images/sajid.webp",
         role: "Assistant",
-        badges: [{ text: "PixieGPT Lead", color: "#1e293b" }],
         email: "2023-3-60-487@std.ewubd.edu",
         github: "https://github.com/AbdullahSajid007",
         linkedin: "https://www.linkedin.com/in/abdullah-sajid-089848363/",
@@ -693,7 +774,8 @@ const websiteData = {
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Jun 2025 – Present)</strong>",
         ],
       },
-      {
+      // Moved to `coDirectors` (same ID, must not be duplicated here):
+      /*{
         id: "SFI",
         name: "Sadia Fahmida Islam",
         image: "images/sfi.webp",
@@ -706,7 +788,7 @@ const websiteData = {
         experience: [
           "Research Assistant at DHMAINetRG, Dhaka <strong>(Oct 2025 – Present)</strong>",
         ],
-      },
+      },*/
       {
         id: "NRA",
         name: "Nusrat Rahman Aurna",
@@ -1086,6 +1168,20 @@ const websiteData = {
       year: "2026",
       items: [
         {
+        type: "conference",
+        memberIds: ["SMNS", "PA", "MAUZ", "NRA", "SFI", "DMG", "DHMAI"],
+        highlightForMember: {
+          SMNS: ["S.M.N. Shahriar"],
+          PA: ["P. Akibuzzaman"],
+          MAUZ: ["M.A.U. Zaman"],
+          NRA: ["N.R. Aurna"],
+          SFI: ["S.F. Islam"],
+          DMG: ["M. Georgiades"],
+          DHMAI: ["H.M.A. Islam"],
+        },
+        text:"S.M.N. Shahriar, P. Akibuzzaman, M.A.U. Zaman, N.R. Aurna, S.F. Islam, M. Georgiades, and H.M.A. Islam. \"Protocol-Aware Geometric Inconsistency Analysis Framework for IoT Network Manifold Anomalies.\" in 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026)."
+        },
+        {
         type: "journal",
         memberIds: ["DMG", "DHMAI"],
         highlightForMember: {
@@ -1096,7 +1192,7 @@ const websiteData = {
         },
         {
         type: "journal",
-        memberIds: ["DHMAI", "SMNS", "PA", "MRM", "DMG", "AS", "NRA", "SFI", "MIO"],
+        memberIds: ["DHMAI", "SMNS", "PA", "MRM", "DMG", "AS", "NRA", "MIO"],
         highlightForMember: {
           DHMAI: ["H.M.A. Islam"],
           SMNS: ["S.M.N. Shahriar"],
@@ -1105,7 +1201,6 @@ const websiteData = {
           DMG: ["M.Georgiades"],
           AS: ["A.Sajid"],
           NRA: ["N. R. Aurna"],
-          SFI: ["F.Islam"],
           MIO: ["M.I. Ohi"],
         },
         text: "H.M.A. Islam, S.M.N. Shahriar, P.Akibuzzaman, M.R. Maharaz, M.Georgiades, A.Sajid, N. R. Aurna, F.Islam, M.I. Ohi, and M.K.M. Khan. \"OppNDA: A Modular and Scalable Automation Framework for Streamlining DTN Research with the ONE Simulator.\"  in IEEE Access, 2026, (Impact Factor: 4.2). doi: <a href=\"https://doi.org/10.1109/ACCESS.2026.3737018\">10.1109/ACCESS.2026.3737018</a>",
