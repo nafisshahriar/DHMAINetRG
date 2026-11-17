@@ -179,17 +179,6 @@ function homePage() {
      
       <section class="team-section">
         <h2 class="subsection-title">
-          Co-Directors
-        </h2>
-        <br>
-        <div class="member-group member-group-co-directors">
-          ${cd.map((coDirector) => createMemberCard(coDirector)).join("")}
-        </div>
-        <br>
-      </section>
-
-      <section class="team-section">
-        <h2 class="subsection-title">
           External Advisor
         </h2>
         <br>
@@ -197,6 +186,17 @@ function homePage() {
           ${advisors
             .map((advisor) => createMemberCard(advisor))
             .join("")}
+        </div>
+        <br>
+      </section>
+
+      <section class="team-section">
+        <h2 class="subsection-title">
+          Co-Directors
+        </h2>
+        <br>
+        <div class="member-group member-group-co-directors">
+          ${cd.map((coDirector) => createMemberCard(coDirector)).join("")}
         </div>
         <br>
       </section>
@@ -273,8 +273,8 @@ function memberDetailPage(member) {
 
   let roleTitle = "Research Assistant";
   if (isPrincipal) roleTitle = "Principal Investigator";
-  else if (isCoDirector) roleTitle = "Co-Director";
   else if (isAdvisor) roleTitle = "External Advisor";
+  else if (isCoDirector) roleTitle = "Co-Director";
 
   const badges = member.badges
     ? member.badges
@@ -510,6 +510,7 @@ const websiteData = {
       email: "hasan.mahmood@ewubd.edu",
       scholar: "https://scholar.google.com/citations?user=M0oP3RMAAAAJ&hl=en",
       github: "https://github.com/hmaislam",
+      website: "https://fse.ewubd.edu/computer-science-engineering/faculty-view/hasan.mahmood",
       linkedin:
         "https://www.linkedin.com/in/hasan-mahmood-aminul-islam-ph-d-02a4ab30/",
       bio: "DR. HASAN MAHMOOD AMINUL ISLAM is currently working as an Assistant Professor in the department of CSE, East West University, Dhaka, Bangladesh. Presently, his research group(<a href='https://dhmairg.net'>DHMAINetRG</a>) is mostly focusing on the innovation of lightweight IoT testbed for the Future IoT Architecture. Previously, he worked as a Specialist in system-on-chip (SoC) Software at Nokia headquarters, Espoo, Finland, where the key responsibility was to develop Layer1-Low (l1low) System-on-Chip (SoC) Software driver development for 5G (2019-2022). He received a Doctor of Science in Technology (CSE) from the School of Science, Aalto University, Finland in 2018. As part of his doctoral studies, he worked on Future Internet Architecture (ICN) in the EU-H2020 POINT project. He received a Masters Degree in Networking and Services majoring in Distributed Systems and Data Communication, from the University of Helsinki, Finland. As part of his Master's thesis, he worked in the Nomadic Lab, L M Ericsson, Finland, where he closely worked with the IETF community on the data channel protocol options of the RTCWeb. His research interest includes Data Communications and Distributed System, Internet protocols, IoT protocols, Future Internet Architecture, Information-Centric Networking Architecture, and Delay Tolerant Networking. Presently, he is also focusing on Machine Learning",
@@ -530,86 +531,8 @@ const websiteData = {
     
     // Co-Directors: IDs (SMNS, SFI, PA) are also used by projects & publications.
     // These people are NOT listed again under `researchers` (IDs must be unique).
-    coDirectors: [
-      {
-        id: "SMNS",
-        name: "S. M. Nafis Shahriar",
-        image: "images/nafis.webp",
-        role: "Assistant",
-        badges: [{ text: "Co-Director", color: "#aa1717" }, { text: "DTN Group: Scrum Master", color: "#708737" }],
-        email: "2023-3-60-071@std.ewubd.edu",
-        github: "https://github.com/nafisshahriar",
-        linkedin: "https://www.linkedin.com/in/sm-nafis-shahriar/",
-        bio: "S. M. Nafis Shahriar is currently pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. He is a research assistant in DHMAINetRG working under the supervision of Dr. Hasan Mahmood Aminul Islam. He is interested in various domains of computer science, including distributed computing, edge intelligence, big data analytics, and software development. Previously, he worked part-time as a front-end and back-end developer for several startups. He was also closely involved with competitive programming since his high school days.",
-        experience: [
-          "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
-          "Back End Developer at EduKonnect Inc., Pennsylvania <strong>(Dec 2024 – Jul 2025)</strong>",
-          "Front End Developer at AK Digital International PTY LTD, Sydney <strong>(May 2024 – Sep 2024)</strong>",
-          "Front End Developer at Electronic Source BD, Dhaka <strong>(Oct 2020 – Feb 2022)</strong>",
-        ],
-        recognitions: [
-          "IBM DevOps and Software Engineering Professional Certificate",
-          "CUMUN 2025 - Security Council - <strong>Verbal Mention</strong>",
-          "EWU Intra MUN 2024 – World Bank – <strong>Outstanding Delegate</strong>",
-          "EWU CSE Fest Intra University Programming Contest 2024 – <strong>4th in Freshman Category</strong>",
-          "SCB-PA Inter School and College Programming Contest 2018 - <strong>39th in National Round</strong>",
-          "National High School Programming Contest 2017 - <strong>14th in Dhaka Regional Round</strong>",
-        ],
-      },
-      {
-        id: "SFI",
-        name: "Sadia Fahmida Islam",
-        image: "images/sfi.webp",
-        role: "Assistant",
-        email: "2024-1-60-331@std.ewubd.edu",
-        badges: [{ text: "Co-Director", color: "#aa1717" }, { text: "Networking: Scrum Master", color: "#708737" }, { text: "PRIoTPS Lead", color: "#1e293b" }],
-        github: "https://github.com/sadiafahmida",
-        linkedin: "https://www.linkedin.com/in/sadia-fahmida-islam-84734b287",
-        bio: "Sadia Fahmida Islam is pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. She has completed several projects in UI/UX design and programming with C, C++, Java script, and Python, and completed the Headstarter Fellowship in AI. Her interest has recently grown in Cybersecurity and its applications in technology and research. Alongside her studies, she has worked as a Research and Development Assistant and Academic Coordinator at non-profit organizations, gaining valuable leadership experience as the Best Academic Coordinator and mentoring students in various science and Olympiad programs. She is also an active public speaker, contributing to awareness and education initiatives.",
-        experience: [
-          "Research Assistant at DHMAINetRG, Dhaka <strong>(Oct 2025 – Present)</strong>",
-        ],
-      },
-      {
-       id: "PA",
-        name: "Pulok Akibuzzaman",
-        image: "images/pulok.webp",
-        role: "Assistant",
-        badges: [{ text: "Co-Director", color: "#aa1717" }, { text: "ICN Group: Scrum Master", color: "#708737" },{ text: "CCN-IoV Lead", color: "#1e293b" }],
-        email: "2023-3-60-051@std.ewubd.edu",
-        github: "https://github.com/Pulok-Akibuzzaman",
-        linkedin: "https://www.linkedin.com/in/pulok-akibuzzaman-73a21229a/",
-        bio: "Pulok Akibuzzaman is currently pursuing a B.Sc in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. He has a real love for programming, system development and emerging fields such as cybersecurity. During his academic journey, he has worked on notable projects, including the development of a Metro Rail Ticketing System. He has strong proficiency in C, C++, Java and Python. Capture The Flag (CTF) challenges are also proving to be an excellent way to build hands-on cybersecurity skills for him. Currently, he has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam since 2025.",
-        experience: [
-          "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
-        ], 
-      }
-    ],
 
     externalAdvisors: [
-      {
-        id: "DRI",
-        name: "Riadul Islam",
-        image: "images/riadul_islam.webp",
-        role: "Assistant Professor",
-        institution: "University of Maryland Baltimore County, MD, USA",
-        email: "riaduli@umbc.edu",
-        scholar: "https://scholar.google.com/citations?hl=en&user=y1x9Hx8AAAAJ",
-        website: "https://sites.google.com/view/umbc-vlsi-soc/home?authuser=0",
-        linkedin: "https://www.linkedin.com/in/riadul-islam-38baa350/",
-        bio: "Riadul Islam is currently a tenure-track Assistant Professor at the University of Maryland Baltimore County (UMBC) Computer Science and Electrical Engineering Department. Before joining UMBC, he was with the University of Michigan (UM), Dearborn from 2017 to 2019. In his Ph.D. dissertation work at UCSC, Dr. Riadul has designed the first current-pulsed flip-flop/register that resulted first ever one-to-many current-mode clock distribution networks for high-performance microprocessors. From 2007 to 2009, he worked as a full-time faculty in the Department of Electrical and Electronic Engineering of the University of Asia Pacific, Dhaka, Bangladesh. He is a Senior member of the IEEE, IEEE Circuits, Systems (CAS) society, and member of ACM. He is an editorial board member of <a href='http://ojs.bilpublishing.com/index.php/ssid'>Semiconductor Science and Information Devices</a> Journal. Here is Riadul's updated (<a href='https://drive.google.com/file/d/1Ok0jmyOueWlMNbJxc0K7uAREhAhYGIYl/view?usp=drive_link'>CV</a>) (Last updated July 2025).",
-        experience: [
-          "Associate Editor at Springer Circuits, Systems and Signal Processing Journal <strong>(Jan 2022 – Present)</strong>",
-          "Principal Investigator at UMBC VLSI-SOC GROUP, USA <strong>(Sep 2019 – Present)</strong>",
-          "Assistant Professor at University of Maryland Baltimore County <strong>(Aug 2019 – Present)</strong>",
-          "Assistant Professor at University of Michigan-Dearborn <strong>(Sept 2017 – Aug 2019)</strong>",
-          "Ph.D. in Computer Engineering from University of California Santa Cruz, USA <strong>(Apr 2013 – Aug 2017)</strong>",
-          "Research Internship at ISR Technologies, Canada <strong>(May 2012 – Aug 2012)</strong>",
-          "Research Assistant at École Polytechnique de Montréal, Canada <strong>(Jan 2012 – Aug 2012)</strong>",
-          "Research Assistant at Concordia University, Canada <strong>(Sep 2009 – Aug 2011)</strong>",
-          "Lecturer at University of Asia Pacific, Dhaka <strong>(Oct 2007 – Aug 2009)</strong>",
-        ],
-      },
       {
         id: "DMG",
         name: "Michael Georgiades",
@@ -631,6 +554,88 @@ const websiteData = {
           "Research Fellow at University of Surrey, UK <strong>(Jul 2002 – Jun 2008)</strong>",
         ],
       },
+      {
+        
+        id: "DRI",
+        name: "Riadul Islam",
+        image: "images/riadul_islam.webp",
+        role: "Assistant Professor",
+        institution: "University of Maryland Baltimore County, MD, USA",
+        email: "riaduli@umbc.edu",
+        scholar: "https://scholar.google.com/citations?hl=en&user=y1x9Hx8AAAAJ",
+        website: "https://sites.google.com/view/umbc-vlsi-soc/home?authuser=0",
+        linkedin: "https://www.linkedin.com/in/riadul-islam-38baa350/",
+        bio: "Riadul Islam is currently a tenure-track Assistant Professor at the University of Maryland Baltimore County (UMBC) Computer Science and Electrical Engineering Department. Before joining UMBC, he was with the University of Michigan (UM), Dearborn from 2017 to 2019. In his Ph.D. dissertation work at UCSC, Dr. Riadul has designed the first current-pulsed flip-flop/register that resulted first ever one-to-many current-mode clock distribution networks for high-performance microprocessors. From 2007 to 2009, he worked as a full-time faculty in the Department of Electrical and Electronic Engineering of the University of Asia Pacific, Dhaka, Bangladesh. He is a Senior member of the IEEE, IEEE Circuits, Systems (CAS) society, and member of ACM. He is an editorial board member of <a href='http://ojs.bilpublishing.com/index.php/ssid'>Semiconductor Science and Information Devices</a> Journal. Here is Riadul's updated (<a href='https://drive.google.com/file/d/1Ok0jmyOueWlMNbJxc0K7uAREhAhYGIYl/view?usp=drive_link'>CV</a>) (Last updated July 2025).",
+        experience: [
+          "Associate Editor at Springer Circuits, Systems and Signal Processing Journal <strong>(Jan 2022 – Present)</strong>",
+          "Principal Investigator at UMBC VLSI-SOC GROUP, USA <strong>(Sep 2019 – Present)</strong>",
+          "Assistant Professor at University of Maryland Baltimore County <strong>(Aug 2019 – Present)</strong>",
+          "Assistant Professor at University of Michigan-Dearborn <strong>(Sept 2017 – Aug 2019)</strong>",
+          "Ph.D. in Computer Engineering from University of California Santa Cruz, USA <strong>(Apr 2013 – Aug 2017)</strong>",
+          "Research Internship at ISR Technologies, Canada <strong>(May 2012 – Aug 2012)</strong>",
+          "Research Assistant at École Polytechnique de Montréal, Canada <strong>(Jan 2012 – Aug 2012)</strong>",
+          "Research Assistant at Concordia University, Canada <strong>(Sep 2009 – Aug 2011)</strong>",
+          "Lecturer at University of Asia Pacific, Dhaka <strong>(Oct 2007 – Aug 2009)</strong>",
+        ],
+      }
+      
+    ],
+
+    coDirectors: [
+      {
+        id: "SMNS",
+        name: "S. M. Nafis Shahriar",
+        image: "images/nafis.webp",
+        role: "Assistant",
+        badges: [{ text: "Co-Director", color: "#aa1717" }, { text: "Scrum Master: DTN Group", color: "#65a5ca" }],
+        email: "2023-3-60-071@std.ewubd.edu",
+        github: "https://github.com/nafisshahriar",
+        linkedin: "https://www.linkedin.com/in/sm-nafis-shahriar/",
+        bio: "S. M. Nafis Shahriar is currently pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. He is a research assistant in DHMAINetRG working under the supervision of Dr. Hasan Mahmood Aminul Islam. He is interested in various domains of computer science, including distributed computing, edge intelligence, big data analytics, and software development. Previously, he worked part-time as a front-end and back-end developer for several startups. He was also closely involved with competitive programming since his high school days.",
+        experience: [
+          "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
+          "Back End Developer at EduKonnect Inc., Pennsylvania <strong>(Dec 2024 – Jul 2025)</strong>",
+          "Front End Developer at AK Digital International PTY LTD, Sydney <strong>(May 2024 – Sep 2024)</strong>",
+          "Front End Developer at Electronic Source BD, Dhaka <strong>(Oct 2020 – Feb 2022)</strong>",
+        ],
+        recognitions: [
+          "IBM DevOps and Software Engineering Professional Certificate",
+          "CUMUN 2025 - Security Council - <strong>Verbal Mention</strong>",
+          "EWU Intra MUN 2024 – World Bank – <strong>Outstanding Delegate</strong>",
+          "EWU CSE Fest Intra University Programming Contest 2024 – <strong>4th in Freshman Category</strong>",
+          "SCB-PA Inter School and College Programming Contest 2018 - <strong>39th in National Round</strong>",
+          "National High School Programming Contest 2017 - <strong>14th in Dhaka Regional Round</strong>",
+        ],
+      },
+       {
+       id: "PA",
+        name: "Pulok Akibuzzaman",
+        image: "images/pulok.webp",
+        role: "Assistant",
+        badges: [{ text: "Co-Director", color: "#aa1717" }, { text: "Scrum Master: ICN Group", color: "#65a5ca" },{ text: "Lead: CCN-IoV", color: "#1e293b" }],
+        email: "2023-3-60-051@std.ewubd.edu",
+        github: "https://github.com/Pulok-Akibuzzaman",
+        linkedin: "https://www.linkedin.com/in/pulok-akibuzzaman-73a21229a/",
+        bio: "Pulok Akibuzzaman is currently pursuing a B.Sc in Computer Science and Engineering (CSE) at East West University (EWU), Dhaka, Bangladesh. He has a real love for programming, system development and emerging fields such as cybersecurity. During his academic journey, he has worked on notable projects, including the development of a Metro Rail Ticketing System. He has strong proficiency in C, C++, Java and Python. Capture The Flag (CTF) challenges are also proving to be an excellent way to build hands-on cybersecurity skills for him. Currently, he has been working as a research trainee under the supervision of Dr. Hasan Mahmood Aminul Islam since 2025.",
+        experience: [
+          "Research Assistant at DHMAINetRG, Dhaka <strong>(Jan 2025 – Present)</strong>",
+        ], 
+      },
+      {
+        id: "SFI",
+        name: "Sadia Fahmida Islam",
+        image: "images/sfi.webp",
+        role: "Assistant",
+        email: "2024-1-60-331@std.ewubd.edu",
+        badges: [{ text: "Co-Director", color: "#aa1717" }, { text: "Scrum Master: Networks", color: "#65a5ca" }, { text: "PRIoTPS Lead", color: "#1e293b" }],
+        github: "https://github.com/sadiafahmida",
+        linkedin: "https://www.linkedin.com/in/sadia-fahmida-islam-84734b287",
+        bio: "Sadia Fahmida Islam is pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. She has completed several projects in UI/UX design and programming with C, C++, Java script, and Python, and completed the Headstarter Fellowship in AI. Her interest has recently grown in Cybersecurity and its applications in technology and research. Alongside her studies, she has worked as a Research and Development Assistant and Academic Coordinator at non-profit organizations, gaining valuable leadership experience as the Best Academic Coordinator and mentoring students in various science and Olympiad programs. She is also an active public speaker, contributing to awareness and education initiatives.",
+        experience: [
+          "Research Assistant at DHMAINetRG, Dhaka <strong>(Oct 2025 – Present)</strong>",
+        ],
+      }
+     
     ],
 
     researchers: [
@@ -709,7 +714,7 @@ const websiteData = {
         name: "Mahdin Islam Ohi",
         image: "images/ohi.webp",
         role: "Assistant",
-        badges: [{ text: "PixieGPT Lead", color: "#1e293b" }],
+        badges: [{ text: "Coordinator", color: "#72A276" }],
         email: "2023-3-60-151@std.ewubd.edu",
         github: "https://github.com/MahdinOhi",
         linkedin: "https://www.linkedin.com/in/mahdin-ohi-3b55a0280/",
@@ -739,6 +744,7 @@ const websiteData = {
         name: "Abdullah Sajid",
         image: "images/sajid.webp",
         role: "Assistant",
+        badges: [{ text: "PixieGPT Lead", color: "#1e293b" }],
         email: "2023-3-60-487@std.ewubd.edu",
         github: "https://github.com/AbdullahSajid007",
         linkedin: "https://www.linkedin.com/in/abdullah-sajid-089848363/",
@@ -883,8 +889,8 @@ const websiteData = {
 
   projects: [
     {
-      id: "CCN-IoV",
-      name: "CCN-DA",
+      id: "ICN-CLA",
+      name: "ICN-CLA",
       shortDescription:
         "Network Data Analytics in Information-Based Internet of Vehicles",
       banner: "images/banner8.png",
@@ -927,87 +933,71 @@ const websiteData = {
     //     teamMembers: ["PA", "FI"],
     //   },
     // },
-    {
-      id: "STGen",
-      name: "STGen",
-      shortDescription: "Sensor Traffic Generator for IoT Testbed ",
-      banner: "images/banner4.png",
-      description:
-        "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications. ",
-      status: [
-        // { text: "Under Review", color: "#B31515" },
-      ],
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: ["DRI"],
-        teamLeads: ["MRM"],
-        teamMembers: ["SMNS", "PA", "MIO"],
-      },
-    },
     // {
-    //   id: "PRIoTP",
-    //   name: "PRIoTP",
-    //   shortDescription:
-    //     "Novel Partially Reliable Application Protocol for IoT devices ",
-    //   banner: "images/banner5.png",
+    //   id: "STGen",
+    //   name: "STGen",
+    //   shortDescription: "Sensor Traffic Generator for IoT Testbed ",
+    //   banner: "images/banner4.png",
     //   description:
-    //     "PRIoTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRIoTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
+    //     "STGen is a research project that aims to generate realistic synthetic sensor traffic for testing and evaluating networks in different environments. By simulating various traffic patterns and scenarios, STGen provides a valuable, lightweight, and scalable tool for researchers and developers working on IoT and smart city applications. ",
     //   status: [
-    //     // { text:  "Under Review", color: "#B31515" },
+    //     // { text: "Under Review", color: "#B31515" },
     //   ],
     //   team: {
     //     principalInvestigator: ["DHMAI"],
-    //     externalAdvisors: [],
-    //     teamLeads: ["AS", "MIO"],
-    //     teamMembers: ["MAUZ", "MASUM", "HE", "NRA", "SFI"],
+    //     externalAdvisors: ["DRI"],
+    //     teamLeads: ["MRM"],
+    //     teamMembers: ["SMNS", "PA", "MIO"],
     //   },
     // },
     {
-      id: "CTRBM",
-      name: "CTRBM",
+      id: "PRIoTP",
+      name: "PRIoTP",
       shortDescription:
-        "Cross-tier routing and bundle management enable resilient data transmission in UAV networks by overcoming frequent link disruptions and topological changes.",
-      banner: "images/default_banner4.png",
+        "Novel Partially Reliable Application Protocol for IoT devices ",
+      banner: "images/banner5.png",
       description:
-        "Cross-tier routing and bundle management in disruption-tolerant UAV networks utilize hierarchical architectures and store-carry-forward mechanisms. They combine satellite, high-altitude platform, and low-altitude UAV layers with Delay/Disruption-Tolerant Networking (DTN) protocols to ensure reliable communication despite intermittent connectivity and resource constraints.",
-      status: [],
+        "PRIoTP is a research project focused on creating a novel transport protocol for IoT devices. It offers a partially reliable transport protocol that allows fast and efficient data transmission over networks. PRIoTP can facilitate seamless communication between IoT devices, ensuring data integrity and reducing latency.",
+      status: [
+        // { text:  "Under Review", color: "#B31515" },
+      ],
       team: {
         principalInvestigator: ["DHMAI"],
         externalAdvisors: [],
-        teamLeads: ["PA"],
-        teamMembers: ["SMNS", "MASUM", "NRA", "MAUZ"],
+        teamLeads: ["AS", "MIO"],
+        teamMembers: ["MAUZ", "MASUM", "HE", "NRA", "SFI"],
       },
     },
+    // {
+    //   id: "CTRBM",
+    //   name: "CTRBM",
+    //   shortDescription:
+    //     "Cross-tier routing and bundle management enable resilient data transmission in UAV networks by overcoming frequent link disruptions and topological changes.",
+    //   banner: "images/default_banner4.png",
+    //   description:
+    //     "Cross-tier routing and bundle management in disruption-tolerant UAV networks utilize hierarchical architectures and store-carry-forward mechanisms. They combine satellite, high-altitude platform, and low-altitude UAV layers with Delay/Disruption-Tolerant Networking (DTN) protocols to ensure reliable communication despite intermittent connectivity and resource constraints.",
+    //   status: [],
+    //   team: {
+    //     principalInvestigator: ["DHMAI"],
+    //     externalAdvisors: [],
+    //     teamLeads: ["PA"],
+    //     teamMembers: ["SMNS", "MASUM", "NRA", "MAUZ"],
+    //   },
+    // },
     {
       id: "ECCN",
-      name: "ECCN",
+      name: "Energy Efficient Caching and Forwarding in ICDTN",
       shortDescription:
-        "Energy efficiency relies on balancing router caching with retrieval distances in Content-Centric Networks.",
+        "Energy efficiency relies on balancing router caching with retrieval distances in Delay-Tolerant Content-Centric Networks.",
       banner: "images/default_banner1.jpg",
       description:
-        "This research investigates energy-aware caching and forwarding strategies in Content-Centric Networking (CCN). The objective is to reduce energy consumption while maintaining efficient content delivery by optimizing cache placement and retrieval paths.",
+        "This research investigates energy-aware caching and forwarding strategies in Delay-Tolerant Content-Centric Networking (DTN-CCN). The objective is to reduce energy consumption while maintaining efficient content delivery by optimizing cache placement and retrieval paths.",
       status: [],
       team: {
         principalInvestigator: ["DHMAI"],
         externalAdvisors: [],
         teamLeads: ["MASUM"],
         teamMembers: ["PA", "SMNS", "NRA"],
-      },
-    },
-    {
-      id: "GDINMT",
-      name: "GDINMT",
-      shortDescription:
-        "Analyzing how malicious traffic distorts the geometric structure of IoT network manifolds.",
-      banner: "images/default_banner4.png",
-      description:
-        "This project investigates the impact of adversarial and malicious traffic patterns on the underlying manifold representation of IoT networks. The goal is to identify distortion patterns and develop robust mechanisms for anomaly detection and network resilience.",
-      status: [],
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: [],
-        teamLeads: ["SMNS"],
-        teamMembers: ["MAUZ", "SFI", "AS"],
       },
     },
     {
@@ -1026,102 +1016,102 @@ const websiteData = {
         teamMembers: ["MAUZ", "SFI"],
       },
     },
-    {
-      id: "CCNI",
-      name: "CCNI",
-      shortDescription:
-        "Detection and mitigation of cache poisoning, content injection, and interest flooding attacks in CCN.",
-      banner: "images/default_banner1.jpg",
-      description:
-        "This research focuses on identifying and mitigating major security threats in Content-Centric Networking, including cache poisoning, content injection, and interest flooding attacks. The project aims to improve network resilience and content integrity.",
-      status: [],
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: [],
-        teamLeads: ["SFI"],
-        teamMembers: ["HE", "MAUZ", "AS", "MIO"],
-      },
-    },
-    {
-      id: "NASE",
-      name: "NASE",
-      shortDescription:
-        "A framework for emulating authenticated sensor behavior within network environments.",
-      banner: "images/default_banner4.png",
-      description:
-        "The project develops authentication-aware sensor emulation techniques to support testing, validation, and security evaluation of IoT infrastructures and networked sensing systems.",
-      status: [],
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: [],
-        teamLeads: ["AS"],
-        teamMembers: [],
-      },
-    },
-    {
-      id: "RDAMS",
-      name: "RDAMS",
-      shortDescription:
-        "Strategies for detecting and mitigating resource depletion attacks in network systems.",
-      banner: "images/default_banner4.png",
-      description:
-        "This project investigates techniques to identify and prevent resource depletion attacks that exhaust computational, memory, or communication resources. The objective is to improve system availability and resilience.",
-      status: [],
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: [],
-        teamLeads: ["MAUZ"],
-        teamMembers: ["SFI", "AS", "MIO"],
-      },
-    },
-    {
-      id: "CCIP",
-      name: "CCIP",
-      shortDescription:
-        "A content-centric IP routing architecture for delay-tolerant networking environments.",
-      banner: "images/default_banner1.jpg",
-      description:
-        "CCIP integrates content-centric networking concepts with IP routing to improve data delivery in delay-tolerant and intermittently connected environments. The architecture emphasizes efficient content dissemination and resilience to disruptions.",
-      status: [],
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: [],
-        teamLeads: ["PA"],
-        teamMembers: ["SMNS", "NRA", "SFI", "MASUM"],
-      },
-    },
-    {
-      id: "PECCIV",
-      name: "PECCIV",
-      shortDescription:
-        "Improving content delivery efficiency in vehicular networks through cooperative caching.",
-      banner: "images/default_banner4.png",
-      description:
-        "This research explores cooperative caching strategies in Content-Centric Internet of Vehicles (CC-IoV) environments. The goal is to reduce latency, improve content availability, and enhance overall network performance.",
-      status: [],
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: [],
-        teamLeads: ["NRA"],
-        teamMembers: ["PA", "MASUM"],
-      },
-    },
-    {
-      id: "CCFL",
-      name: "CCFL",
-      shortDescription:
-        "Optimizing federated learning through content-centric caching in mobile and intermittently connected environments.",
-      banner: "images/default_banner1.jpg",
-      description:
-        "This project investigates caching mechanisms that support federated learning across mobile and intermittently connected networks. The objective is to reduce communication overhead, improve model dissemination, and enhance learning efficiency.",
-      status: [],
-      team: {
-        principalInvestigator: ["DHMAI"],
-        externalAdvisors: [],
-        teamLeads: ["MRM"],
-        teamMembers: [],
-      },
-    },
+    // {
+    //   id: "CCNI",
+    //   name: "CCNI",
+    //   shortDescription:
+    //     "Detection and mitigation of cache poisoning, content injection, and interest flooding attacks in DTN-CCN.",
+    //   banner: "images/default_banner1.jpg",
+    //   description:
+    //     "This research focuses on identifying and mitigating major security threats in Content-Centric Networking, including cache poisoning, content injection, and interest flooding attacks. The project aims to improve network resilience and content integrity.",
+    //   status: [],
+    //   team: {
+    //     principalInvestigator: ["DHMAI"],
+    //     externalAdvisors: [],
+    //     teamLeads: ["SFI"],
+    //     teamMembers: ["HE", "MAUZ", "AS", "MIO"],
+    //   },
+    // },
+    // {
+    //   id: "NASE",
+    //   name: "NASE",
+    //   shortDescription:
+    //     "A framework for emulating authenticated sensor behavior within network environments.",
+    //   banner: "images/default_banner4.png",
+    //   description:
+    //     "The project develops authentication-aware sensor emulation techniques to support testing, validation, and security evaluation of IoT infrastructures and networked sensing systems.",
+    //   status: [],
+    //   team: {
+    //     principalInvestigator: ["DHMAI"],
+    //     externalAdvisors: [],
+    //     teamLeads: ["AS"],
+    //     teamMembers: [],
+    //   },
+    // },
+    // {
+    //   id: "RDAMS",
+    //   name: "RDAMS",
+    //   shortDescription:
+    //     "Strategies for detecting and mitigating resource depletion attacks in network systems.",
+    //   banner: "images/default_banner4.png",
+    //   description:
+    //     "This project investigates techniques to identify and prevent resource depletion attacks that exhaust computational, memory, or communication resources. The objective is to improve system availability and resilience.",
+    //   status: [],
+    //   team: {
+    //     principalInvestigator: ["DHMAI"],
+    //     externalAdvisors: [],
+    //     teamLeads: ["MAUZ"],
+    //     teamMembers: ["SFI", "AS", "MIO"],
+    //   },
+    // },
+    // {
+    //   id: "CCIP",
+    //   name: "CCIP",
+    //   shortDescription:
+    //     "A content-centric IP routing architecture for delay-tolerant networking environments.",
+    //   banner: "images/default_banner1.jpg",
+    //   description:
+    //     "CCIP integrates content-centric networking concepts with IP routing to improve data delivery in delay-tolerant and intermittently connected environments. The architecture emphasizes efficient content dissemination and resilience to disruptions.",
+    //   status: [],
+    //   team: {
+    //     principalInvestigator: ["DHMAI"],
+    //     externalAdvisors: [],
+    //     teamLeads: ["PA"],
+    //     teamMembers: ["SMNS", "NRA", "SFI", "MASUM"],
+    //   },
+    // },
+    // {
+    //   id: "PECCIV",
+    //   name: "PECCIV",
+    //   shortDescription:
+    //     "Improving content delivery efficiency in vehicular networks through cooperative caching.",
+    //   banner: "images/default_banner4.png",
+    //   description:
+    //     "This research explores cooperative caching strategies in Content-Centric Internet of Vehicles (CC-IoV) environments. The goal is to reduce latency, improve content availability, and enhance overall network performance.",
+    //   status: [],
+    //   team: {
+    //     principalInvestigator: ["DHMAI"],
+    //     externalAdvisors: [],
+    //     teamLeads: ["NRA"],
+    //     teamMembers: ["PA", "MASUM"],
+    //   },
+    // },
+    // {
+    //   id: "CCFL",
+    //   name: "CCFL",
+    //   shortDescription:
+    //     "Optimizing federated learning through content-centric caching in mobile and intermittently connected environments.",
+    //   banner: "images/default_banner1.jpg",
+    //   description:
+    //     "This project investigates caching mechanisms that support federated learning across mobile and intermittently connected networks. The objective is to reduce communication overhead, improve model dissemination, and enhance learning efficiency.",
+    //   status: [],
+    //   team: {
+    //     principalInvestigator: ["DHMAI"],
+    //     externalAdvisors: [],
+    //     teamLeads: ["MRM"],
+    //     teamMembers: [],
+    //   },
+    // },
 
     // {
     //   id: "MapBD",
@@ -1456,34 +1446,11 @@ const websiteData = {
     },
   ],
 },
-  submittedPublications: {
-    years: [
-      {
-        year: "2026",
-        items: [
-          {
-          type: "conference",
-          memberIds: ["AS", "MIO", "DHMAI"],
-            highlightForMember: {
-              AS: ["A. Sajid"],
-              MIO: ["M.I. Ohi"],
-              DHMAI: ["H.M.A. Islam"],
-            },
-            text: "A. Sajid, M.I. Ohi, A. Islam, J.A. Mubin, Md. Y.Z. Niyaj, H.M.A. Islam. PixiePaCS: A Policy Aware Conversational System with Customized Filtration, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
-          
-        },
-        {
-          type: "conference",
-          memberIds: ["AS", "MASUM", "MIO", "DHMAI"],
-          highlightForMember: {
-            AS: ["A. Sajid"],
-            MASUM: ["Md Masum"],
-            MIO: ["M.I. Ohi"],
-            DHMAI: ["H.M.A. Islam"],
-          },
-          text: "A. Sajid, Md Masum, M.I. Ohi, S. Islam, Md. M. Rahman, A.A. Arfa, R. Alam, S.H. Khan, H.M.A. Islam. A cross-layer content poisoning attack model in the DTN protocol stack, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
-          
-        },
+submittedPublications: {
+  years: [
+    {
+      year: "2026",
+      items: [
         {
           type: "conference",
           memberIds: ["NRA", "MASUM", "MAUZ", "SMNS", "PA", "DMG", "DHMAI"],
@@ -1497,55 +1464,11 @@ const websiteData = {
             DHMAI: ["H.M.A. Islam"],
           },
           text: "N.R. Aurna, Md Masum, M.A.U. Zaman, S.M.N. Shahriar, P. Akibuzzaman, M. Georgiades, H.M.A. Islam. Cross-Tier Routing and Bundle Management in UAV-Assisted Vehicular Delay-Tolerant Networks, 2026. 14th International Conference on Electrical and Computer Engineering (ICECE 2026) [Submitted]",
-          
         },
-        {
-          type: "conference",
-          memberIds: ["SFI", "MIO", "MRM", "DMG", "DHMAI"],
-          highlightForMember: {
-            SFI: ["Sadia F.I."],
-            MIO: ["M.I. Ohi"],
-            MRM: ["M.R. Maharaz"],
-            DMG: ["Michael Georgiades"],
-            DHMAI: ["Hasan MA Islam"],
-          },
-          text: "Sadia F.I., M.I. Ohi, M.M. Hasan, T.A. Raisa, M.R. Maharaz, Michael Georgiades, Hasan MA Islam. Towards Adaptive, Lightweight, and Secure Communication for Resource-Constrained Networks, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
-          
-        },
-        {
-          type: "conference",
-          memberIds: ["MASUM", "MAUZ", "AS", "NRA", "PA", "SMNS", "DMG", "DHMAI"],
-          highlightForMember: {
-            MASUM: ["Md Masum"],
-            MAUZ: ["M.A.U. Zaman"],
-            AS: ["A. Sajid"],
-            NRA: ["N.R. Aurna"],
-            PA: ["P. Akibuzzaman"],
-            SMNS: ["S.M.N. Shahriar"],
-            DMG: ["M. Georgiades"],
-            DHMAI: ["H.M.A. Islam"],
-          },
-          text: "Md Masum, M.A.U. Zaman, A. Sajid, N.R. Aurna, P. Akibuzzaman, S.M.N. Shahriar, M. Georgiades, H.M.A. Islam. ICDTN Router: A Native Information-Centric Forwarding Architecture for Delay-Tolerant Networks, 2026. 13th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS 2026) [Submitted]",
-          
-        },
-        {
-          type: "conference",
-          memberIds: ["SMNS", "PA", "MAUZ", "NRA", "SFI", "DHMAI"],
-          highlightForMember: {
-            SMNS: ["S. M. Nafis Shahriar"],
-            PA: ["Pulok Akibuzzaman"],
-            MAUZ: ["Md Ashik Uz Zaman"],
-            NRA: ["Nusrat Rahman Aurna"],
-            SFI: ["Sadia Fahmida Islam"],
-            DHMAI: ["Hasan MA Islam"],
-          },
-          text: "S. M. Nafis Shahriar, Pulok Akibuzzaman, Md Ashik Uz Zaman, Nusrat Rahman Aurna, Sadia Fahmida Islam, and Hasan MA Islam.Protocol-Aware Geometric Inconsistency Analysis Framework for IoT Network Manifold Anomalies. The 4th International Conference on Computing Advancements (ICCA 2026).",
-          
-        }, 
-        ],
-      },
-    ],
-  },
+      ],
+    },
+  ],
+},
   about: {
     banner: "images/banner1.webp",
     title: "Computer Networking and Pervasive Computing Research Group",

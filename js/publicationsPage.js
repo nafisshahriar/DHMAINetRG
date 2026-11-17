@@ -202,7 +202,7 @@ function renderSubmissionSection(years, type, title) {
         sectionContent ||
         `
           <p class="publication-empty">
-            No ${title.toLowerCase()} available.
+            No ${title.toLowerCase().replace("journal submissions", "journal submissions are under review").replace("conference submissions", "conference submissions are under review")}.
           </p>
         `
       }
