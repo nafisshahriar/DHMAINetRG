@@ -589,7 +589,7 @@ const websiteData = {
         role: "Assistant",
         badges: [{ text: "Co-Director", color: "#aa1717" }, { text: "Scrum Master: DTN Group", color: "#65a5ca" }],
         email: "2023-3-60-071@std.ewubd.edu",
-        scholar: "https://scholar.google.com/citations?hl=en&user=y1x9Hx8AAAAJ",
+        scholar: "https://scholar.google.com/citations?user=pFzjsoIAAAAJ&hl=en",
         github: "https://github.com/nafisshahriar",
         linkedin: "https://www.linkedin.com/in/sm-nafis-shahriar/",
         bio: "S. M. Nafis Shahriar is currently pursuing a B.Sc. in Computer Science and Engineering at East West University, Dhaka, Bangladesh. He is a research assistant in DHMAINetRG working under the supervision of Dr. Hasan Mahmood Aminul Islam. He is interested in various domains of computer science, including distributed computing, edge intelligence, big data analytics, and software development. Previously, he worked part-time as a front-end and back-end developer for several startups. He was also closely involved with competitive programming since his high school days.",
